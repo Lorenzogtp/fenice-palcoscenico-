@@ -1,23 +1,23 @@
-FENICE — CRUSCOTTO PALCOSCENICO v1
+FENICE — PALCOSCENICO V4.4
+Aggiornamento del 12/08/2026
 
-Contenuto:
-- index.html: app principale
-- manifest.json: installazione come PWA
-- sw.js: funzionamento offline
-- icon-192.png / icon-512.png: icone
+NOVITÀ
+- Calendario generale sostituito con il nuovo prospetto 2627.pdf.
+- Periodo: 12/08/2026–31/12/2027.
+- Incluse le colonne Altra sede VE e Decentramento / tournée.
+- Pulsante Calendario generale in Home tra Regia e Organico.
 
-IMPORTANTE SU ANDROID / SAMSUNG:
-Per poter installare davvero l'app dalla Home come PWA, i file devono essere pubblicati su un indirizzo HTTPS.
-Aprire semplicemente index.html dal file manager può funzionare come pagina locale, ma Android/Chrome non garantisce
-l'installazione PWA né il service worker in modalità file://.
+FUNZIONI MANTENUTE / RICOSTRUITE
+- Home con prossimo impegno.
+- Cambio rapido produzione.
+- ODG Smart: Tutti, Solisti, Coro, Orchestra, Tecnica.
+- Raggruppamento Mattina / Pomeriggio / Sera.
+- Chiusura ODG “Grazie e buona serata 🌙”.
+- Piano prove modificabile, duplicabile, eliminabile.
+- Viste Giorno / 7 giorni / Tutto.
+- Colori per tipologia attività.
+- Import/export JSON FenicePalcoProduction.
+- Recupero automatico dei dati locali delle versioni precedenti quando disponibili nello stesso browser/origine.
 
-Funzioni v1:
-- Oggi / Domani
-- Collegamento ODG Fenice del giorno
-- Solisti
-- Generatore ODG WhatsApp
-- Camerini
-- Note rapide
-- Ricerca unica
-- Salvataggio locale sul dispositivo
-- Condivisione tramite menu Android
+FILE PRINCIPALE: index.html
+CALENDARIO: calendario_generale.html
