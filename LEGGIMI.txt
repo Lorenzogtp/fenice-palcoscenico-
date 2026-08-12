@@ -1,0 +1,23 @@
+FENICE — CRUSCOTTO PALCOSCENICO v1
+
+Contenuto:
+- index.html: app principale
+- manifest.json: installazione come PWA
+- sw.js: funzionamento offline
+- icon-192.png / icon-512.png: icone
+
+IMPORTANTE SU ANDROID / SAMSUNG:
+Per poter installare davvero l'app dalla Home come PWA, i file devono essere pubblicati su un indirizzo HTTPS.
+Aprire semplicemente index.html dal file manager può funzionare come pagina locale, ma Android/Chrome non garantisce
+l'installazione PWA né il service worker in modalità file://.
+
+Funzioni v1:
+- Oggi / Domani
+- Collegamento ODG Fenice del giorno
+- Solisti
+- Generatore ODG WhatsApp
+- Camerini
+- Note rapide
+- Ricerca unica
+- Salvataggio locale sul dispositivo
+- Condivisione tramite menu Android

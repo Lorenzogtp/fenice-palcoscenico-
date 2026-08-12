@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#73131e">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Fenice — Cruscotto Palcoscenico</title>
+<style>
+:root{
+  --bg:#111217; --panel:#1a1c22; --panel2:#22252d; --text:#f5f1e8; --muted:#aaa7a0;
+  --accent:#8d1d2d; --accent2:#b72a3e; --gold:#d7b36a; --ok:#2f8f67; --line:#343741;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+body{min-height:100vh;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.wrap{max-width:760px;margin:auto;padding:14px}
+header{position:sticky;top:0;z-index:9;background:linear-gradient(180deg,#111217 82%,rgba(17,18,23,0));padding:8px 0 16px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border-radius:14px;background:#73131e;display:grid;place-items:center;font-weight:900;font-size:24px;color:#f2ead9}
+h1{font-size:20px;line-height:1.1;margin:0}
+.date{font-size:14px;color:var(--gold);font-weight:700;margin-top:3px}
+.status{font-size:12px;color:var(--muted);margin-top:4px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:6px 0 14px}
+.btn{
+  border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:16px;padding:16px 12px;
+  min-height:86px;text-align:left;box-shadow:0 5px 16px rgba(0,0,0,.18);cursor:pointer
+}
+.btn b{display:block;font-size:16px;margin-top:6px}
+.btn small{display:block;color:var(--muted);margin-top:3px}
+.btn .ico{font-size:25px}
+.btn.primary{background:linear-gradient(135deg,#73131e,#9a2235);border-color:#9f3040}
+.panel{display:none;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:14px}
+.panel.active{display:block}
+.panel h2{font-size:18px;margin:2px 0 12px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+input,textarea,select{
+  width:100%;background:#101116;color:var(--text);border:1px solid #3b3e47;border-radius:12px;padding:12px;font-size:15px
+}
+textarea{min-height:110px;resize:vertical}
+label{display:block;font-size:12px;color:var(--muted);margin:10px 0 5px}
+.action{
+  border:0;border-radius:12px;background:#73131e;color:white;padding:11px 14px;font-weight:800;cursor:pointer
+}
+.action.alt{background:#30333d}
+.action.ok{background:#2f8f67}
+.card{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:12px;margin:8px 0}
+.card strong{color:var(--gold)}
+.item{display:grid;grid-template-columns:72px 1fr auto;gap:8px;align-items:start;border-bottom:1px solid #353843;padding:10px 0}
+.item:last-child{border-bottom:0}
+.time{font-weight:900;color:#fff}
+.mini{font-size:12px;color:var(--muted)}
+.badge{font-size:11px;border:1px solid #575b68;border-radius:999px;padding:4px 7px;color:#d8d5ce}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.search-results mark{background:#e3bb6f;color:#1a1a1a;border-radius:4px;padding:0 2px}
+.fab{
+  position:fixed;right:18px;bottom:20px;width:56px;height:56px;border-radius:50%;border:0;background:#8d1d2d;
+  color:white;font-size:25px;box-shadow:0 8px 24px rgba(0,0,0,.35);cursor:pointer
+}
+.notice{font-size:12px;color:#c8c4ba;background:#24262d;border-radius:10px;padding:9px;margin:8px 0}
+hr{border:0;border-top:1px solid var(--line);margin:14px 0}
+@media(min-width:650px){.grid{grid-template-columns:repeat(4,1fr)} .btn{min-height:105px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <div class="logo">F</div>
+    <div>
+      <h1>FENICE — PALCOSCENICO</h1>
+      <div class="date" id="todayLabel"></div>
+      <div class="status" id="saveStatus">Dati salvati sul dispositivo</div>
+    </div>
+  </div>
+</header>
+
+<section class="grid" id="homeGrid">
+  <button class="btn primary" onclick="openPanel('today')"><span class="ico">🎭</span><b>OGGI</b><small>Programma e ODG</small></button>
+  <button class="btn" onclick="openPanel('tomorrow')"><span class="ico">➡️</span><b>DOMANI</b><small>Anticipazione giornata</small></button>
+  <button class="btn" onclick="openPanel('solisti')"><span class="ico">🎼</span><b>SOLISTI</b><small>Convocazioni rapide</small></button>
+  <button class="btn" onclick="openPanel('whatsapp')"><span class="ico">💬</span><b>WHATSAPP</b><small>Generatore ODG</small></button>
+  <button class="btn" onclick="openPanel('camerini')"><span class="ico">🚪</span><b>CAMERINI</b><small>Nomi, ruoli, numeri</small></button>
+  <button class="btn" onclick="openPanel('notes')"><span class="ico">📝</span><b>NOTE</b><small>Promemoria operativi</small></button>
+  <button class="btn" onclick="openPanel('search')"><span class="ico">🔎</span><b>CERCA</b><small>Ricerca unica</small></button>
+  <button class="btn" onclick="openFeniceODG()"><span class="ico">🌐</span><b>ODG FENICE</b><small>Apri quello del giorno</small></button>
+</section>
+
+<section id="today" class="panel">
+  <h2>🎭 Oggi</h2>
+  <div class="toolbar">
+    <button class="action" onclick="addSchedule('today')">+ Aggiungi</button>
+    <button class="action alt" onclick="copySchedule('today')">Copia</button>
+    <button class="action alt" onclick="shareText(buildScheduleText('today'))">Condividi</button>
+  </div>
+  <div id="todayList"></div>
+</section>
+
+<section id="tomorrow" class="panel">
+  <h2>➡️ Domani</h2>
+  <div class="toolbar">
+    <button class="action" onclick="addSchedule('tomorrow')">+ Aggiungi</button>
+    <button class="action alt" onclick="copySchedule('tomorrow')">Copia</button>
+  </div>
+  <div id="tomorrowList"></div>
+</section>
+
+<section id="solisti" class="panel">
+  <h2>🎼 Solisti</h2>
+  <label>Nome / ruolo</label><input id="soloName" placeholder="Es. Nemorino — ..." />
+  <label>Convocazione</label><input id="soloCall" placeholder="Es. 14:30 Sala Rossi" />
+  <div class="toolbar"><button class="action" onclick="addSolo()">Aggiungi solista</button></div>
+  <div id="soloList"></div>
+</section>
+
+<section id="whatsapp" class="panel">
+  <h2>💬 Generatore ODG WhatsApp</h2>
+  <label>Data</label><input type="date" id="waDate">
+  <label>Prova musicale — orario</label><input id="waMusicTime" placeholder="10:00–11:30">
+  <label>Luogo prova musicale</label><input id="waMusicPlace" placeholder="Sala Rossi">
+  <label>Prova di regia — luogo</label><input id="waStagePlace" placeholder="Palcoscenico">
+  <label>Convocazioni / orari / nomi</label><textarea id="waCalls" placeholder="14:30&#10;Nemorino, Adina&#10;&#10;16:00&#10;Dulcamara"></textarea>
+  <div class="toolbar">
+    <button class="action" onclick="generateWA()">Genera</button>
+    <button class="action alt" onclick="copyWA()">Copia</button>
+    <button class="action ok" onclick="shareWA()">Condividi</button>
+  </div>
+  <label>Anteprima</label><textarea id="waOutput" style="min-height:260px"></textarea>
+</section>
+
+<section id="camerini" class="panel">
+  <h2>🚪 Camerini</h2>
+  <div class="row">
+    <div style="flex:1"><label>Nome / gruppo</label><input id="roomName" placeholder="Es. ADINA — Maria Rossi"></div>
+    <div style="width:110px"><label>Camerino</label><input id="roomNo" placeholder="12"></div>
+  </div>
+  <div class="toolbar"><button class="action" onclick="addRoom()">Aggiungi</button></div>
+  <div id="roomList"></div>
+</section>
+
+<section id="notes" class="panel">
+  <h2>📝 Note rapide</h2>
+  <textarea id="notesText" placeholder="Es. Verificare microfono, chiamare sartoria, confermare figuranti..."></textarea>
+  <div class="toolbar">
+    <button class="action" onclick="saveNotes()">Salva</button>
+    <button class="action alt" onclick="shareText(document.getElementById('notesText').value)">Condividi</button>
+  </div>
+</section>
+
+<section id="search" class="panel">
+  <h2>🔎 Cerca</h2>
+  <input id="searchBox" placeholder="Nome, ruolo, sala, camerino, orario..." oninput="runSearch()">
+  <div id="searchResults" class="search-results"></div>
+</section>
+
+<div class="notice">
+  Il cruscotto funziona anche senza connessione per i dati locali. Il pulsante <b>ODG Fenice</b> richiede internet.
+</div>
+</div>
+
+<button class="fab" onclick="closePanels()" aria-label="Home">⌂</button>
+
+<script>
+const K='fenicePalcoV1';
+let data = JSON.parse(localStorage.getItem(K) || '{"today":[],"tomorrow":[],"solisti":[],"camerini":[],"notes":""}');
+
+function save(){
+  localStorage.setItem(K, JSON.stringify(data));
+  document.getElementById('saveStatus').textContent='Salvato ✓';
+  setTimeout(()=>document.getElementById('saveStatus').textContent='Dati salvati sul dispositivo',1200);
+}
+function esc(s){return (s??'').toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function fmtDate(d){
+  return new Intl.DateTimeFormat('it-IT',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(d).toUpperCase();
+}
+const now=new Date();
+document.getElementById('todayLabel').textContent=fmtDate(now);
+document.getElementById('waDate').value = now.toISOString().slice(0,10);
+
+function openPanel(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+}
+function closePanels(){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active')); window.scrollTo({top:0,behavior:'smooth'})}
+
+function addSchedule(kind){
+  const time=prompt('Orario (es. 14:30):'); if(!time) return;
+  const title=prompt('Attività (es. Prova di regia):'); if(!title) return;
+  const place=prompt('Luogo / dettagli:')||'';
+  data[kind].push({time,title,place});
+  data[kind].sort((a,b)=>a.time.localeCompare(b.time));
+  save(); renderSchedule(kind);
+}
+function delSchedule(kind,i){ if(confirm('Eliminare questa voce?')){data[kind].splice(i,1);save();renderSchedule(kind)} }
+function renderSchedule(kind){
+  const el=document.getElementById(kind+'List');
+  if(!data[kind].length){el.innerHTML='<div class="card mini">Nessuna attività inserita.</div>';return}
+  el.innerHTML=data[kind].map((x,i)=>`<div class="item">
+    <div class="time">${esc(x.time)}</div>
+    <div><b>${esc(x.title)}</b><div class="mini">${esc(x.place)}</div></div>
+    <button class="action alt" style="padding:7px 9px" onclick="delSchedule('${kind}',${i})">×</button>
+  </div>`).join('');
+}
+function buildScheduleText(kind){
+  const d = kind==='today'? new Date() : new Date(Date.now()+86400000);
+  return `🎭 ${kind==='today'?'OGGI':'DOMANI'} — ${fmtDate(d)}\n\n` +
+    (data[kind].length?data[kind].map(x=>`${x.time} — ${x.title}${x.place?'\n📍 '+x.place:''}`).join('\n\n'):'Nessuna attività inserita.');
+}
+async function copySchedule(kind){await navigator.clipboard.writeText(buildScheduleText(kind)); alert('Copiato');}
+
+function addSolo(){
+  const n=document.getElementById('soloName'), c=document.getElementById('soloCall');
+  if(!n.value.trim()) return;
+  data.solisti.push({name:n.value.trim(),call:c.value.trim()}); n.value=''; c.value=''; save(); renderSolo();
+}
+function delSolo(i){data.solisti.splice(i,1);save();renderSolo()}
+function renderSolo(){
+  const el=document.getElementById('soloList');
+  el.innerHTML=data.solisti.length?data.solisti.map((x,i)=>`<div class="card"><strong>${esc(x.name)}</strong><div>${esc(x.call)}</div><div class="toolbar"><button class="action alt" onclick="delSolo(${i})">Elimina</button></div></div>`).join(''):'<div class="card mini">Nessun solista inserito.</div>';
+}
+
+function addRoom(){
+  const n=document.getElementById('roomName'), r=document.getElementById('roomNo');
+  if(!n.value.trim()) return;
+  data.camerini.push({name:n.value.trim(),room:r.value.trim()}); n.value='';r.value='';save();renderRooms();
+}
+function delRoom(i){data.camerini.splice(i,1);save();renderRooms()}
+function renderRooms(){
+  const el=document.getElementById('roomList');
+  el.innerHTML=data.camerini.length?data.camerini.map((x,i)=>`<div class="item"><div class="time">${esc(x.room||'—')}</div><div><b>${esc(x.name)}</b><div class="mini">Camerino</div></div><button class="action alt" style="padding:7px 9px" onclick="delRoom(${i})">×</button></div>`).join(''):'<div class="card mini">Nessun camerino inserito.</div>';
+}
+
+function saveNotes(){data.notes=document.getElementById('notesText').value;save()}
+document.getElementById('notesText').value=data.notes||'';
+document.getElementById('notesText').addEventListener('input',()=>{data.notes=document.getElementById('notesText').value;localStorage.setItem(K,JSON.stringify(data))});
+
+function generateWA(){
+  const ds=document.getElementById('waDate').value;
+  const d=ds?new Date(ds+'T12:00:00'):new Date();
+  const dateText=fmtDate(d);
+  const mt=document.getElementById('waMusicTime').value.trim();
+  const mp=document.getElementById('waMusicPlace').value.trim();
+  const sp=document.getElementById('waStagePlace').value.trim();
+  const calls=document.getElementById('waCalls').value.trim();
+  let t=`📌 *ORDINE DEL GIORNO* 📌\n*${dateText}*\n`;
+  if(mt||mp) t+=`\n🎼 *Prova musicale*\n${mt?`*${mt}*\n`:''}${mp?`📍 ${mp}\n`:''}`;
+  if(sp||calls) t+=`\n----------\n\n🎭 *Prova di regia*\n${sp?`📍 ${sp}\n`:''}\n${calls}`;
+  document.getElementById('waOutput').value=t.trim();
+}
+async function copyWA(){const t=document.getElementById('waOutput').value||''; if(!t)return; await navigator.clipboard.writeText(t);alert('ODG copiato')}
+function shareWA(){shareText(document.getElementById('waOutput').value)}
+async function shareText(text){
+  if(!text)return;
+  if(navigator.share){try{await navigator.share({text})}catch(e){}}
+  else{await navigator.clipboard.writeText(text);alert('Testo copiato')}
+}
+
+function ymd(d){
+  const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');
+  return `${y}${m}${day}`;
+}
+function openFeniceODG(){
+  const url=`https://webapp.teatrolafenice.it/odg-giorno?date=${ymd(new Date())}&key=all`;
+  window.open(url,'_blank');
+}
+
+function runSearch(){
+  const q=document.getElementById('searchBox').value.trim().toLowerCase();
+  const out=document.getElementById('searchResults');
+  if(!q){out.innerHTML='';return}
+  const res=[];
+  data.today.forEach(x=>{const s=`Oggi ${x.time} ${x.title} ${x.place}`;if(s.toLowerCase().includes(q))res.push(s)});
+  data.tomorrow.forEach(x=>{const s=`Domani ${x.time} ${x.title} ${x.place}`;if(s.toLowerCase().includes(q))res.push(s)});
+  data.solisti.forEach(x=>{const s=`Solista ${x.name} — ${x.call}`;if(s.toLowerCase().includes(q))res.push(s)});
+  data.camerini.forEach(x=>{const s=`Camerino ${x.room} — ${x.name}`;if(s.toLowerCase().includes(q))res.push(s)});
+  if((data.notes||'').toLowerCase().includes(q))res.push(`Note — ${data.notes}`);
+  out.innerHTML=res.length?res.map(s=>`<div class="card">${esc(s)}</div>`).join(''):'<div class="card mini">Nessun risultato.</div>';
+}
+
+renderSchedule('today');renderSchedule('tomorrow');renderSolo();renderRooms();
+generateWA();
+
+if('serviceWorker' in navigator && location.protocol.startsWith('http')){
+  navigator.serviceWorker.register('./sw.js').catch(()=>{});
+}
+</script>
+</body>
+</html>

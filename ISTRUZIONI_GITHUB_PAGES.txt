@@ -1,0 +1,30 @@
+FENICE — PUBBLICAZIONE SU GITHUB PAGES
+
+1. Apri github.com dal browser e accedi al tuo account.
+2. Tocca + / New repository.
+3. Nome consigliato: fenice-palcoscenico
+4. Imposta il repository su Public.
+5. Crea il repository.
+6. Apri Add file > Upload files.
+7. Carica TUTTI i file contenuti in questo pacchetto:
+   index.html
+   404.html
+   manifest.json
+   sw.js
+   icon-192.png
+   icon-512.png
+   .nojekyll
+8. Conferma con Commit changes.
+9. Apri Settings > Pages.
+10. In Build and deployment scegli:
+    Source: Deploy from a branch
+    Branch: main
+    Folder: / (root)
+11. Salva.
+12. GitHub mostrerà l'indirizzo HTTPS della web-app.
+13. Apri quell'indirizzo con Chrome sul Samsung.
+14. Menu ⋮ > Aggiungi a schermata Home / Installa app.
+
+Nota:
+Il pacchetto è già predisposto per funzionare anche se il repository viene pubblicato
+in un sottopercorso come https://nomeutente.github.io/fenice-palcoscenico/
