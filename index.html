@@ -24,7 +24,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand"><div class="logo">F</div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">Produzioni e piani prove salvati sul dispositivo</div></div></div></header>
+<header><div class="brand"><div class="logo">F</div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.1</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">Produzioni e piani prove salvati sul dispositivo</div></div></div></header>
 
 <section class="grid">
 <button class="tile primary" onclick="openDay(0)"><span class="ico">🎭</span><b>OGGI</b><small>Piano della produzione attiva</small></button>
@@ -191,7 +191,8 @@ function generateSmart(){
      if(selected.length)t+='\n'+selected.map(c=>`${c.name} — ${c.role}`).join('\n')+'\n';
    }
  });
- const out=document.getElementById('smartOutput');out.value=t.trim();requestAnimationFrame(()=>{out.style.height='auto';out.style.height=(out.scrollHeight+8)+'px'});
+ t=t.trim()+`\n\nGrazie e buona serata 🌙`;
+ const out=document.getElementById('smartOutput');out.value=t;requestAnimationFrame(()=>{out.style.height='auto';out.style.height=(out.scrollHeight+8)+'px'});
  const excluded=all.length-items.length;document.getElementById('smartInfo').innerHTML=`Produzione: <b>${esc(p.title)}</b> · ${items.length} attività${excluded?` · escluse ${excluded} tecniche`:''}.`;
 }
 async function copySmart(){try{await navigator.clipboard.writeText(document.getElementById('smartOutput').value);alert('ODG copiato')}catch(e){alert('Selezioni il testo e scelga Copia')}}
