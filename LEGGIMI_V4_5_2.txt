@@ -1,0 +1,9 @@
+FENICE PALCOSCENICO V4.5.2 — CALENDARIO CORRETTO
+
+Correzione rispetto alla V4.5.1:
+- eliminati dal calendario i dati residui precedenti al nuovo file 2627.pdf;
+- il calendario ora contiene esattamente 507 giorni, dal 12/08/2026 al 31/12/2027;
+- mantenute tutte le funzioni della V4.2/V4.5;
+- cache PWA aggiornata per forzare il caricamento della versione corretta.
+
+Per GitHub: caricare/sovrascrivere tutti i file nella radice del repository, in particolare index.html e sw.js, quindi Commit changes.
