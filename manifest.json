@@ -1,12 +1,12 @@
 {
-  "name": "Fenice — Palcoscenico",
+  "name": "Fenice – Palcoscenico",
   "short_name": "Fenice Palco",
-  "start_url": "./index.html",
+  "description": "Cruscotto operativo di palcoscenico",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#F3F5F4",
-  "theme_color": "#07383E",
-  "description": "Cruscotto operativo di palcoscenico — La Fenice",
+  "background_color": "#101116",
+  "theme_color": "#7d1423",
   "icons": [
     {
       "src": "icon-192-v2.png",

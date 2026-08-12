@@ -1,0 +1,5 @@
+FENICE — PALCOSCENICO V4.5
+Base: V4.2 ICONA UFFICIALE fornita dall’utente.
+Modifiche: Calendario generale aggiornato con 2627.pdf dal 12/08/2026 al 31/12/2027; mantenuti i giorni 26/07/2026–11/08/2026 già presenti nella V4.2.
+Tutte le funzioni operative, i dati bootstrap, le icone, backup/import, produzioni, piano prove, cast/solisti, camerini, ODG Smart, Oggi/Domani sono mantenuti.
+La chiave localStorage resta fenicePalcoV4 per conservare i dati già salvati sul dispositivo.
