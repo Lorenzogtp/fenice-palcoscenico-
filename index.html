@@ -27,7 +27,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand"><div class="logo">F</div><div><h1>FENICE — PALCOSCENICO <span class="ver">V3.1</span></h1><div id="headDate" class="date"></div><div id="status" class="status">ODG solisti intelligente + calendario Fenice integrato</div></div></div></header>
+<header><div class="brand"><div class="logo">F</div><div><h1>FENICE — PALCOSCENICO <span class="ver">V3.1 FIX</span></h1><div id="headDate" class="date"></div><div id="status" class="status">ODG solisti intelligente • versione corretta</div></div></div></header>
 
 <section class="grid">
 <button class="tile primary" onclick="openDay(0)"><span class="ico">🎭</span><b>OGGI</b><small>Pianificazione reale + agenda</small></button>
@@ -117,7 +117,7 @@ function parseDate(s){return new Date(s+'T12:00:00')}
 function fmtDate(d){return new Intl.DateTimeFormat('it-IT',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(d).toUpperCase()}
 function fmtShort(s){return new Intl.DateTimeFormat('it-IT',{weekday:'short',day:'numeric',month:'short'}).format(parseDate(s))}
 function esc(s){return(s??'').toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
-function save(){localStorage.setItem(K,JSON.stringify(data));const s=document.getElementById('status');s.textContent='Salvato ✓';setTimeout(()=>s.textContent='ODG solisti intelligente + calendario Fenice integrato',1100)}
+function save(){localStorage.setItem(K,JSON.stringify(data));const s=document.getElementById('status');s.textContent='Salvato ✓';setTimeout(()=>s.textContent='ODG solisti intelligente • versione corretta',1100)}
 document.getElementById('headDate').textContent=fmtDate(new Date());
 document.getElementById('soloDate').value=todayYMD();document.getElementById('smartDate').value=todayYMD();document.getElementById('notesText').value=data.notes;
 let selectedDate=todayYMD(),calRange='week',elisirRange='next',selectedCast=new Set(),smartMode='solisti';
@@ -174,26 +174,16 @@ function generateSmart(){
  const allPlan=pdpFor(date);
  const plan=smartMode==='solisti' ? allPlan.filter(x=>x.cast) : allPlan;
  const calls=customCalls(date);
- let t=`📌 *ORDINE DEL GIORNO* 📌
-*${fmtDate(parseDate(date))}*
-`;
+ let t=`📌 *ORDINE DEL GIORNO* 📌\n*${fmtDate(parseDate(date))}*\n`;
 
  if(!plan.length){
-   t+='
-Nessuna attività prevista per i solisti in questa data.';
+   t+=`\nNessuna attività prevista per i solisti in questa data.`;
  } else {
    plan.forEach((x,idx)=>{
-     if(idx>0)t+='
-
-----------
-';
-     t+=`
-${activityLabel(x.activity)}
-`;
-     if(x.start)t+=`*${timeRange(x)}*
-`;
-     if(x.place)t+=`📍 ${x.place}
-`;
+     if(idx>0)t+=`\n\n----------\n`;
+     t+=`\n${activityLabel(x.activity)}\n`;
+     if(x.start)t+=`*${timeRange(x)}*\n`;
+     if(x.place)t+=`📍 ${x.place}\n`;
 
      // Nel modello WhatsApp, la prova musicale resta sintetica.
      // Per regia/assieme/antepiano/recita mostriamo i convocati.
@@ -201,15 +191,9 @@ ${activityLabel(x.activity)}
        if(calls.length){
          const sameTime=calls.filter(c=>!c.time || !x.start || c.time===x.start || c.time.startsWith(x.start));
          const use=sameTime.length?sameTime:calls;
-         t+='
-'+use.map(c=>`${c.name}${c.role?' — '+c.role:''}${c.note?' · '+c.note:''}`).join('
-')+'
-';
+         t+=`\n${use.map(c=>`${c.name}${c.role?' — '+c.role:''}${c.note?' · '+c.note:''}`).join('\n')}\n`;
        }else{
-         t+='
-'+CAST.map(c=>`${c.name} — ${c.role}`).join('
-')+'
-';
+         t+=`\n${CAST.map(c=>`${c.name} — ${c.role}`).join('\n')}\n`;
        }
      }
    });
@@ -217,7 +201,6 @@ ${activityLabel(x.activity)}
 
  const out=document.getElementById('smartOutput');
  out.value=t.trim();
- // Espande il testo per evitare uno scroll interno scomodo su smartphone.
  requestAnimationFrame(()=>{
    out.style.height='auto';
    out.style.height=(out.scrollHeight+6)+'px';
