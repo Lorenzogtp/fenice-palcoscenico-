@@ -1,21 +1,21 @@
 {
-  "name": "Fenice — Cruscotto Palcoscenico",
+  "name": "Fenice – Palcoscenico",
   "short_name": "Fenice Palco",
+  "description": "Cruscotto operativo di palcoscenico",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#111217",
+  "background_color": "#101116",
   "theme_color": "#7d1423",
-  "description": "Cruscotto operativo per palcoscenico, calendario Fenice, ODG, solisti, camerini e WhatsApp.",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "icon-192-v2.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "icon-512.png",
+      "src": "icon-512-v2.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
