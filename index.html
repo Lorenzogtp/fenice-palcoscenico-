@@ -43,12 +43,14 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.8</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V4.8 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
+<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.9</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V4.9 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
 
 <section class="grid">
 <button class="tile primary" onclick="openDay(0)"><span class="ico">🎭</span><b>OGGI</b><small>Piano della produzione attiva</small></button>
 <button class="tile" onclick="openDay(1)"><span class="ico">➡️</span><b>DOMANI</b><small>Anticipazione operativa</small></button>
 <button class="tile gold" onclick="openSmart(todayYMD())"><span class="ico">⚡</span><b>ODG SMART</b><small>WhatsApp automatico</small></button>
+<button class="tile gold" onclick="openConvocati()"><span class="ico">👥</span><b>CONVOCATI ADESSO</b><small>Chi deve essere presente</small></button>
+<button class="tile primary" onclick="openRecita()"><span class="ico">🎭</span><b>MODALITÀ RECITA</b><small>Recita, cast e camerini</small></button>
 <button class="tile blue" onclick="openPanel('productions')"><span class="ico">🎬</span><b>PRODUZIONI</b><small>Crea e cambia titolo</small></button>
 <button class="tile" onclick="openPanel('plan')"><span class="ico">🗓️</span><b>PIANO PROVE</b><small>Inserisci date e orari</small></button>
 <button class="tile" onclick="openPanel('cast')"><span class="ico">👤</span><b>CAST / SOLISTI</b><small>Ruoli e interpreti</small></button>
@@ -66,7 +68,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
   <div style="height:1px;background:#3d4048;margin:14px 0"></div>
   <div class="quickTop"><div><h2>⏭ PROSSIMO</h2></div><div id="followingTime" class="nextTime">—</div></div>
   <div id="followingActivity" class="nextActivity" style="font-size:19px">—</div><div id="followingMeta" class="nextMeta"></div>
-  <div class="quickBtns" style="grid-template-columns:repeat(4,1fr)"><button class="action gold" onclick="openDay(0)">OGGI</button><button class="action alt" onclick="openDay(1)">DOMANI</button><button class="action gold" onclick="openSmart(todayYMD())">ODG</button><button class="action blue" onclick="openPanel('search')">CERCA</button></div>
+  <div class="quickBtns" style="grid-template-columns:repeat(4,1fr)"><button class="action gold" onclick="openDay(0)">OGGI</button><button class="action alt" onclick="openDay(1)">DOMANI</button><button class="action gold" onclick="openSmart(todayYMD())">ODG</button><button class="action blue" onclick="openPanel('search')">CERCA</button><button class="action gold" onclick="openConvocati()">CONVOCATI</button><button class="action alt" onclick="openRecita()">RECITA</button></div>
   <div id="updatedLabel" class="updated"></div>
 </section>
 
@@ -109,7 +111,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="toolbar"><button class="action green" onclick="addPlanItem()">Aggiungi al piano</button></div>
 </div>
 <div class="toolbar"><label class="fileLabel blue">🔄 Aggiorna da PDF Pagliacci<input type="file" accept="application/pdf,.pdf" style="display:none" onchange="importPagliacciPdf(event)"></label><button class="action alt" onclick="undoLastPdfImport()">↩ Annulla ultimo import</button><button class="action alt" onclick="planFilter='future';renderPlan()">Da oggi</button><button class="action alt" onclick="planFilter='all';renderPlan()">Tutto</button></div>
-<div class="notice"><b>V4.8:</b> il PDF viene letto e confrontato con il piano già presente. Prima di modificare i dati vede le differenze; l’app crea automaticamente un backup e può annullare l’ultimo import.</div>
+<div class="notice"><b>V4.9:</b> il PDF viene letto e confrontato con il piano già presente. Prima di modificare i dati vede le differenze; l’app crea automaticamente un backup e può annullare l’ultimo import.</div>
 <div id="planList"></div>
 </section>
 
@@ -140,6 +142,16 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div id="stageDate" class="stageDate"></div><div id="stageProd" class="sub"></div><div id="stageList"></div>
 </section>
 
+<section id="convocati" class="panel">
+<h2>👥 Convocati adesso</h2><div id="convocatiBody"></div>
+<div class="toolbar"><button class="action gold" onclick="openSmart(todayYMD())">📋 CREA ODG</button><button class="action alt" onclick="openStage(0)">🎚️ VISTA PALCO</button></div>
+</section>
+
+<section id="recita" class="panel">
+<h2>🎭 Modalità recita</h2><div id="recitaBody"></div>
+<div class="toolbar"><button class="action gold" onclick="openSmart(selectedDate)">📋 ODG RECITA</button><button class="action alt" onclick="openPanel('rooms')">🚪 CAMERINI</button><button class="action alt" onclick="openPanel('cast')">👤 CAST</button></div>
+</section>
+
 <section id="backup" class="panel">
 <h2>💾 Backup / Import</h2><div class="sub">Serve anche per trasferire un piano prove preparato altrove.</div>
 <div class="section">Backup completo app</div><div class="toolbar"><button class="action green" onclick="exportBackup()">Esporta backup</button><label class="fileLabel alt">Importa backup<input type="file" accept=".json,application/json" style="display:none" onchange="importBackup(event)"></label></div>
@@ -147,7 +159,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="notice">Per un nuovo piano ricevuto in PDF/Word può farlo trasformare nel file JSON di importazione e poi caricarlo qui, senza ricopiare gli orari.</div>
 </section>
 
-<div class="notice">V4.8 · Aggiornamento intelligente PDF · confronto variazioni · backup automatico e annulla importazione · Home ADESSO/PROSSIMO · ODG Smart · ricerca globale · modalità palcoscenico.</div>
+<div class="notice">V4.9 · ODG automatico evoluto · Convocati adesso · Modalità recita · aggiornamento intelligente PDF · backup automatico · Home ADESSO/PROSSIMO.</div>
 </div>
 <button class="fab" onclick="home()">⌂</button>
 
@@ -229,7 +241,7 @@ function activeProd(){return state.productions.find(p=>p.id===state.activeProduc
 function updateHeader(){document.getElementById('headDate').textContent=fmtDate(new Date());const p=activeProd();document.getElementById('activeProdLabel').textContent=`Produzione attiva: ${p.title} · ${p.venue||p.kind}`;}
 updateHeader();
 
-const BUILD_LABEL='V4.8 · 13/08/2026';
+const BUILD_LABEL='V4.9 · 13/08/2026';
 let selectedDate=todayYMD(),smartMode='solisti',planFilter='future',selectedPlanCast=new Set();
 document.getElementById('smartDate').value=todayYMD();document.getElementById('planDate').value=todayYMD();
 
@@ -372,7 +384,7 @@ const PAGLIACCI_PDF_PLAN=[
 ];
 
 let pendingPdfChanges=null;
-const PDF_IMPORT_BACKUP_KEY='fenicePalco_lastPdfImportBackup_v48';
+const PDF_IMPORT_BACKUP_KEY='fenicePalco_lastPdfImportBackup_v49';
 const IT_MONTHS={gennaio:1,febbraio:2,marzo:3,aprile:4,maggio:5,giugno:6,luglio:7,agosto:8,settembre:9,ottobre:10,novembre:11,dicembre:12};
 function normPdfText(t){return (t||'').replace(/[’‘]/g,"'").replace(/\s+/g,' ').trim()}
 function normCmp(t){return normPdfText(t).toLowerCase().replace(/[°º]/g,'').replace(/[^a-z0-9àèéìòù]+/g,' ').replace(/\s+/g,' ').trim()}
@@ -499,6 +511,11 @@ function renderQuickDashboard(){
  if(following){ft.textContent=following.start||'—';fa.textContent=following.activity;fm.textContent=`${fmtShort(following.date).toUpperCase()}${following.place?' · 📍 '+following.place:''} · ${relativeTime(itemDateTime(following))}`}else{ft.textContent='—';fa.textContent='Nessuna attività successiva';fm.textContent=''}
  const up=document.getElementById('updatedLabel');const ls=state._meta?.lastSaved;up.textContent=ls?`${BUILD_LABEL} · ultimo salvataggio ${new Intl.DateTimeFormat('it-IT',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}).format(new Date(ls))}`:`${BUILD_LABEL} · dati locali del dispositivo`;
 }
+function currentItems(){const now=new Date(),p=activeProd();return (p.plan||[]).filter(x=>x.date===todayYMD()&&now>=itemDateTime(x)&&now<=itemEndDateTime(x));}
+function peopleForItem(x){const p=activeProd();if(x.audience==='technical')return [{role:'Reparti tecnici',name:'Convocazione tecnica'}];if(x.audience==='all')return [{role:'Generale',name:'Tutti i reparti interessati'}];const sel=(x.castIds||[]).length?p.cast.filter(c=>x.castIds.includes(c.id)):p.cast;return sel;}
+function openConvocati(){openPanel('convocati');const p=activeProd(),items=currentItems(),out=document.getElementById('convocatiBody');if(!items.length){const next=futurePlanItems()[0];out.innerHTML=`<div class="hero"><strong>Nessuna attività in corso</strong><div class="small">${next?`Prossima: ${esc(next.start||'')} · ${esc(next.activity)}${next.place?' · 📍 '+esc(next.place):''}`:'Nessuna attività futura inserita.'}</div></div>`;return}out.innerHTML=items.map(x=>{const people=peopleForItem(x);return `<div class="card"><div class="time">${esc(timeRange(x))}</div><div class="activity">${esc(x.activity)}</div>${x.place?`<div class="place">📍 ${esc(x.place)}</div>`:''}<div class="section">CONVOCATI</div>${people.length?people.map(c=>`<div class="planRow"><div><b>${esc(c.name)}</b><div class="small">${esc(c.role)}</div></div></div>`).join(''):'<div class="empty">Nessun convocato specificato.</div>'}</div>`}).join('');}
+function recitaItems(){const p=activeProd();return [...(p.plan||[])].filter(x=>/recita/i.test(x.activity||'')).sort((a,b)=>itemDateTime(a)-itemDateTime(b));}
+function openRecita(){const rs=recitaItems(),now=new Date();let x=rs.find(r=>itemEndDateTime(r)>=now)||rs[rs.length-1];if(!x){openPanel('recita');document.getElementById('recitaBody').innerHTML='<div class="empty">Nessuna recita inserita nel piano della produzione attiva.</div>';return}selectedDate=x.date;openPanel('recita');const p=activeProd(),cast=peopleForItem(x);const rooms=(p.rooms||[]);document.getElementById('recitaBody').innerHTML=`<div class="hero"><strong>${esc(fmtDate(parseDate(x.date)))}</strong><div class="stageTime">${esc(x.start||'—')}</div><div class="stageAct">${esc(x.activity)}</div>${x.place?`<div class="stagePlace">📍 ${esc(x.place)}</div>`:''}</div><div class="section">CAST</div><div class="card">${cast.length?cast.map(c=>`<div><b>${esc(c.name)}</b> — ${esc(c.role)}</div>`).join(''): 'Cast non inserito.'}</div><div class="section">CAMERINI</div><div class="card">${rooms.length?rooms.map(r=>`<div><b>${esc(r.who)}</b> · ${esc(r.room||'—')}</div>`).join(''):'Camerini non inseriti.'}</div>`;}
 function openStage(offset=0){let d=new Date();d.setDate(d.getDate()+offset);selectedDate=ymd(d);openPanel('stage');renderStage(selectedDate)}
 function renderStage(date){const p=activeProd(),items=itemsFor(date),now=new Date();document.getElementById('stageDate').textContent=fmtDate(parseDate(date));document.getElementById('stageProd').textContent=`${p.title} · ${p.venue||p.kind} · ${items.length} attività`;document.getElementById('stageList').innerHTML=items.length?items.map(x=>{const live=date===todayYMD()&&now>=itemDateTime(x)&&now<=itemEndDateTime(x);let people='';if(x.audience==='cast'){const sel=(x.castIds||[]).length?p.cast.filter(c=>x.castIds.includes(c.id)):p.cast;if(sel.length)people=sel.map(c=>`${esc(c.name)} — ${esc(c.role)}`).join('<br>')}return `<div class="stageItem ${live?'live':''}"><div class="stageTime">${esc(timeRange(x)||'—')}</div><div class="stageAct">${esc(x.activity)}</div>${x.place?`<div class="stagePlace">📍 ${esc(x.place)}</div>`:''}${people?`<div class="stageCast">${people}</div>`:''}${live?'<span class="countdown">IN CORSO</span>':''}</div>`}).join(''):'<div class="stageEmpty">Nessuna attività inserita per questa giornata.</div>'}
 function globalHits(q){const z=q.toLowerCase(),hits=[];for(const p of state.productions||[]){if(`${p.title} ${p.kind} ${p.venue} ${p.notes}`.toLowerCase().includes(z))hits.push({type:'Produzione',main:p.title,sub:`${p.kind} · ${p.venue||''}`,go:`selectAndOpen('${p.id}','plan')`});for(const x of p.plan||[]){if(`${x.date} ${fmtDate(parseDate(x.date))} ${x.start} ${x.end} ${x.activity} ${x.place}`.toLowerCase().includes(z))hits.push({type:'Piano prove',main:`${fmtShort(x.date)} · ${x.start||''} ${x.activity}`,sub:`${p.title}${x.place?' · '+x.place:''}`,go:`state.activeProductionId='${p.id}';save();openDay('${x.date}')`})}for(const c of p.cast||[]){if(`${c.role} ${c.name} ${p.title}`.toLowerCase().includes(z))hits.push({type:'Cast',main:`${c.name} — ${c.role}`,sub:p.title,go:`selectAndOpen('${p.id}','cast')`})}for(const r of p.rooms||[]){if(`${r.room} ${r.who} ${p.title}`.toLowerCase().includes(z))hits.push({type:'Camerini',main:`${r.who} · ${r.room||'—'}`,sub:p.title,go:`selectAndOpen('${p.id}','rooms')`})}}
@@ -510,7 +527,7 @@ async function shareText(text){if(!text)return;if(navigator.share){try{await nav
 renderQuickDashboard();
 setInterval(()=>{renderQuickDashboard();if(document.getElementById('stage')?.classList.contains('active'))renderStage(selectedDate)},60000);
 
-// V4.8 — aggiornamento PWA affidabile: rete prima, cache solo offline.
+// V4.9 — aggiornamento PWA affidabile: rete prima, cache solo offline.
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
