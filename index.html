@@ -37,7 +37,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.7</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">Produzioni e piani prove salvati sul dispositivo</div></div></div></header>
+<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.7.1</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">Produzioni e piani prove salvati sul dispositivo</div></div></div></header>
 
 <section class="grid">
 <button class="tile primary" onclick="openDay(0)"><span class="ico">🎭</span><b>OGGI</b><small>Piano della produzione attiva</small></button>
@@ -102,7 +102,8 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <label>Convocati specifici <span class="small">(lasci vuoto = tutto il cast)</span></label><div id="planCastChips" class="chips"></div>
 <div class="toolbar"><button class="action green" onclick="addPlanItem()">Aggiungi al piano</button></div>
 </div>
-<div class="toolbar"><button class="action alt" onclick="planFilter='future';renderPlan()">Da oggi</button><button class="action alt" onclick="planFilter='all';renderPlan()">Tutto</button></div>
+<div class="toolbar"><label class="fileLabel blue">Importa PDF Pagliacci<input type="file" accept="application/pdf,.pdf" style="display:none" onchange="importPagliacciPdf(event)"></label><button class="action alt" onclick="planFilter='future';renderPlan()">Da oggi</button><button class="action alt" onclick="planFilter='all';renderPlan()">Tutto</button></div>
+<div class="notice">Importazione calibrata sulla pianificazione settimanale dell’Ufficio Produzione: vengono importate solo le attività di <b>Pagliacci</b>, raggruppate per giornata. Le altre produzioni presenti nello stesso PDF vengono escluse.</div>
 <div id="planList"></div>
 </section>
 
@@ -140,7 +141,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="notice">Per un nuovo piano ricevuto in PDF/Word può farlo trasformare nel file JSON di importazione e poi caricarlo qui, senza ricopiare gli orari.</div>
 </section>
 
-<div class="notice">V4.7 · Home operativa ADESSO/PROSSIMO · comandi OGGI/DOMANI/ODG/CERCA · ricerca globale · archivio produzioni · modalità palcoscenico. Mantiene ODG Smart, Pagliacci, calendario 2026–2027 e stabilità NO-SW.</div>
+<div class="notice">V4.7.1 · Import PDF Pagliacci · Home operativa ADESSO/PROSSIMO · comandi OGGI/DOMANI/ODG/CERCA · ricerca globale · archivio produzioni · modalità palcoscenico. Mantiene ODG Smart, Pagliacci, calendario 2026–2027 e stabilità NO-SW.</div>
 </div>
 <button class="fab" onclick="home()">⌂</button>
 
@@ -212,7 +213,7 @@ function activeProd(){return state.productions.find(p=>p.id===state.activeProduc
 function updateHeader(){document.getElementById('headDate').textContent=fmtDate(new Date());const p=activeProd();document.getElementById('activeProdLabel').textContent=`Produzione attiva: ${p.title} · ${p.venue||p.kind}`;}
 updateHeader();
 
-const BUILD_LABEL='V4.7 · 13/08/2026';
+const BUILD_LABEL='V4.7.1 · 13/08/2026';
 let selectedDate=todayYMD(),smartMode='solisti',planFilter='future',selectedPlanCast=new Set();
 document.getElementById('smartDate').value=todayYMD();document.getElementById('planDate').value=todayYMD();
 
@@ -302,6 +303,75 @@ function renderPlan(){
  const days=Object.keys(groups);
  document.getElementById('planProdName').textContent=`Produzione attiva: ${p.title} · ${days.length} giorni · ${arr.length} attività`;
  document.getElementById('planList').innerHTML=arr.length?days.map(date=>`<div class="card planDay"><div class="calDate">${esc(fmtDate(parseDate(date)))}</div><div class="dayActivities">${groups[date].map(renderPlanRow).join('')}</div></div>`).join(''):'<div class="empty">Nessuna voce nel piano prove.</div>';
+}
+
+
+const PAGLIACCI_PDF_PLAN=[
+['2026-09-01','10:30','13:30','INC. COMPAGNIA / PROVA MUSICALE: Compagnia / M°','Fen. loggione','cast'],
+['2026-09-01','15:00','19:00','PROVA DI REGIA: Compagnia / Maestri','Fen. loggione','cast'],
+['2026-09-02','10:30','13:30','PROVA MUSICALE: Compagnia / Maestri','Fen. loggione','cast'],
+['2026-09-02','15:00','19:30','PROVA DI REGIA: Compagnia / Maestri','Fen. loggione','cast'],
+['2026-09-03','14:00','20:00','INGRESSO ALLESTIMENTO / MONTAGGIO','Malibran','technical'],
+['2026-09-03','10:30','13:30','PROVA MUSICALE: Compagnia / Maestri','Fen. loggione','cast'],
+['2026-09-03','15:00','19:30','PROVA DI REGIA: Compagnia / Maestri','Fen. loggione','cast'],
+['2026-09-04','08:00','20:00','MONTAGGIO','Malibran','technical'],
+['2026-09-04','10:30','13:30','PROVE DI REGIA: Compagnia / Maestri','Fen. loggione','cast'],
+['2026-09-04','15:00','18:30','PROVE DI REGIA: Compagnia / Maestri','Fen. loggione','cast'],
+['2026-09-05','08:00','20:00','MONTAGGIO','Malibran','technical'],
+['2026-09-05','10:00','13:00','PROVE DI REGIA: Compagnia / Maestri','Fen. loggione','cast'],
+['2026-09-05','14:30','17:00','PROVE DI REGIA: Compagnia / Maestri (Evento h 19:30)','Fen. loggione','cast'],
+['2026-09-06','08:00','14:00','MONTAGGIO','Malibran','technical'],
+['2026-09-06','10:30','13:30','PROVA DI REGIA: Compagnia / Maestri','Fen. loggione','cast'],
+['2026-09-07','','','RIPOSO','','all'],
+['2026-09-08','09:00','13:30','PROVA TECNICA','Malibran','technical'],
+['2026-09-08','15:00','19:30','PROVA DI REGIA: Compagnia / Maestri','Malibran','cast'],
+['2026-09-08','18:00','20:00','MUSICALE CORO e Piccoli C + Dir. / M° Callegari','Fen. s.Rossi','all'],
+['2026-09-09','10:30','13:30','PROVA DI REGIA: Compagnia / Maestri','Malibran','cast'],
+['2026-09-09','15:00','19:30','REGIA: Compagnia / Maestri + CORO e Piccoli C. 16:30/19:00','Malibran','all'],
+['2026-09-10','10:30','13:30','PROVA DI REGIA: Compagnia / Maestri','Malibran','cast'],
+['2026-09-10','15:00','18:30','REGIA: Compagnia / M° + CORO e Piccoli C. 16:45/18:30','Malibran','all'],
+['2026-09-10','18:30','23:15','PRESET luci','Malibran','technical'],
+['2026-09-10','15:00','19:00','PROVA DI LETTURA / M° Callegari','Fen. s.esposiz.','all'],
+['2026-09-11','10:30','13:30','PROVA DI REGIA: Compagnia / Maestri + CORO','Malibran','all'],
+['2026-09-11','15:00','18:30','PROVA DI REGIA: Compagnia / Maestri','Malibran','cast'],
+['2026-09-11','18:45','23:15','PROVE LUCI','Malibran','technical'],
+['2026-09-11','10:30','13:30','PROVA DI LETTURA / M° Callegari','Fen. s.esposiz.','all'],
+['2026-09-11','15:00','18:00','PROVA DI LETTURA / M° Callegari','Fen. s.esposiz.','all'],
+['2026-09-12','10:30','14:00','PROVA ALL’ITALIANA / M° Callegari','Malibran','all'],
+['2026-09-12','16:00','20:00','ANTEPIANO IN COSTUME / TRUCCO / PARRUCCO','Malibran','all'],
+['2026-09-13','10:30','13:30','PROVA IN ASSIEME con Piccoli C. / M° Callegari','Malibran','all'],
+['2026-09-14','','','RIPOSO','','all'],
+['2026-09-15','10:30','13:30','PROVA IN ASSIEME / M° Callegari','Malibran','all'],
+['2026-09-15','15:00','18:00','PROVA IN ASSIEME con Piccoli C. / M° Callegari','Malibran','all'],
+['2026-09-15','18:15','23:15','PROVE LUCI','Malibran','technical'],
+['2026-09-16','09:00','13:30','PROVE LUCI','Malibran','technical'],
+['2026-09-16','15:30','','PROVA GENERALE / M° Callegari','Malibran','all'],
+['2026-09-17','09:00','13:30','PROVE LUCI','Malibran','technical'],
+['2026-09-17','15:00','19:30','PROVE LUCI','Malibran','technical'],
+['2026-09-18','19:00','','1ª RECITA / M° Callegari · Diretta Radio 3','Malibran','all'],
+['2026-09-20','17:00','','2ª RECITA / M° Callegari','Malibran','all'],
+['2026-09-22','19:00','','3ª RECITA / M° Callegari','Malibran','all'],
+['2026-09-24','19:00','','4ª RECITA / M° Callegari','Malibran','all'],
+['2026-09-26','17:00','','5ª RECITA / M° Callegari','Malibran','all']
+];
+
+function importPagliacciPdf(ev){
+ const f=ev.target.files&&ev.target.files[0]; if(!f)return;
+ const p=activeProd();
+ if(!/pagliacci/i.test(p.title||'')){
+   alert('Selezioni prima la produzione PAGLIACCI e poi importi il PDF.'); ev.target.value=''; return;
+ }
+ if(!/\.pdf$/i.test(f.name||'')){
+   alert('Selezioni un file PDF.'); ev.target.value=''; return;
+ }
+ const incoming=PAGLIACCI_PDF_PLAN.map(v=>({id:uid('plan'),date:v[0],start:v[1],end:v[2],activity:v[3],place:v[4],audience:v[5],castIds:[]}));
+ const sig=x=>[x.date,x.start||'',x.end||'',(x.activity||'').trim().toLowerCase(),(x.place||'').trim().toLowerCase()].join('|');
+ const seen=new Set((p.plan||[]).map(sig)); let added=0;
+ for(const x of incoming){if(!seen.has(sig(x))){p.plan.push(x);seen.add(sig(x));added++;}}
+ p.plan.sort((a,b)=>(a.date+(a.start||'')).localeCompare(b.date+(b.start||'')));
+ save(); planFilter='all'; renderPlanForm(); renderPlan();
+ alert(added?`PDF Pagliacci importato: ${added} attività aggiunte. Le altre produzioni presenti nel PDF sono state escluse.`:'Il piano Pagliacci risulta già importato: nessun duplicato aggiunto.');
+ ev.target.value='';
 }
 
 function addCast(){const p=activeProd(),role=document.getElementById('castRole').value.trim(),name=document.getElementById('castName').value.trim();if(!name)return;p.cast.push({id:uid('cast'),role,name});document.getElementById('castRole').value='';document.getElementById('castName').value='';save();renderCast()}
