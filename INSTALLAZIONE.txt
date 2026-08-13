@@ -1,0 +1,12 @@
+FENICE — PALCOSCENICO V4.6.1 — APP INSTALLABILE
+
+Questo pacchetto è una PWA: dopo la pubblicazione su GitHub Pages si installa come app con icona propria e finestra autonoma.
+
+Sostituire sul repository i file con quelli contenuti in questa cartella: index.html, manifest.webmanifest, sw.js, icon-192.png, icon-512.png.
+
+Dopo la pubblicazione aprire l'indirizzo dell'app:
+- Android/Chrome: menu ⋮ > Installa app / Aggiungi a schermata Home.
+- Mac/Chrome o Edge: icona Installa nella barra indirizzi.
+- Mac/Safari recente: File > Aggiungi al Dock.
+
+Una volta installata, l'app si apre senza mostrare il nome del file HTML.
