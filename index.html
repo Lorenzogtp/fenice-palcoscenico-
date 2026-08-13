@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#7d1423">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<link rel="manifest" href="manifest.webmanifest?v=4.7.2">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -37,7 +41,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.7.1</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">Produzioni e piani prove salvati sul dispositivo</div></div></div></header>
+<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.7.2</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V4.7.2 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
 
 <section class="grid">
 <button class="tile primary" onclick="openDay(0)"><span class="ico">🎭</span><b>OGGI</b><small>Piano della produzione attiva</small></button>
@@ -141,7 +145,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="notice">Per un nuovo piano ricevuto in PDF/Word può farlo trasformare nel file JSON di importazione e poi caricarlo qui, senza ricopiare gli orari.</div>
 </section>
 
-<div class="notice">V4.7.1 · Import PDF Pagliacci · Home operativa ADESSO/PROSSIMO · comandi OGGI/DOMANI/ODG/CERCA · ricerca globale · archivio produzioni · modalità palcoscenico. Mantiene ODG Smart, Pagliacci, calendario 2026–2027 e stabilità NO-SW.</div>
+<div class="notice">V4.7.2 · Import PDF Pagliacci · Home operativa ADESSO/PROSSIMO · comandi OGGI/DOMANI/ODG/CERCA · ricerca globale · archivio produzioni · modalità palcoscenico. Mantiene ODG Smart, Pagliacci, calendario 2026–2027 e stabilità NO-SW.</div>
 </div>
 <button class="fab" onclick="home()">⌂</button>
 
@@ -213,7 +217,7 @@ function activeProd(){return state.productions.find(p=>p.id===state.activeProduc
 function updateHeader(){document.getElementById('headDate').textContent=fmtDate(new Date());const p=activeProd();document.getElementById('activeProdLabel').textContent=`Produzione attiva: ${p.title} · ${p.venue||p.kind}`;}
 updateHeader();
 
-const BUILD_LABEL='V4.7.1 · 13/08/2026';
+const BUILD_LABEL='V4.7.2 · 13/08/2026';
 let selectedDate=todayYMD(),smartMode='solisti',planFilter='future',selectedPlanCast=new Set();
 document.getElementById('smartDate').value=todayYMD();document.getElementById('planDate').value=todayYMD();
 
@@ -427,13 +431,23 @@ async function shareText(text){if(!text)return;if(navigator.share){try{await nav
 renderQuickDashboard();
 setInterval(()=>{renderQuickDashboard();if(document.getElementById('stage')?.classList.contains('active'))renderStage(selectedDate)},60000);
 
-// V4.6 NO-SW: evita problemi di cache/service worker su GitHub Pages e Android.
-// L'app resta utilizzabile online e conserva i dati locali nel browser.
+// V4.7.2 — aggiornamento PWA affidabile: rete prima, cache solo offline.
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(reg => reg.unregister())).catch(()=>{});
-}
-if ('caches' in window) {
-  caches.keys().then(keys => Promise.all(keys.map(key => caches.delete(key)))).catch(()=>{});
+  window.addEventListener('load', async () => {
+    try {
+      const reg = await navigator.serviceWorker.register('./sw.js?v=4.7.2', { updateViaCache: 'none' });
+      await reg.update();
+      // Se una nuova versione prende il controllo, ricarica una sola volta la pagina.
+      let refreshing = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (refreshing) return;
+        refreshing = true;
+        window.location.reload();
+      });
+    } catch (e) {
+      console.warn('Service worker non disponibile:', e);
+    }
+  });
 }
 </script>
 </body></html>

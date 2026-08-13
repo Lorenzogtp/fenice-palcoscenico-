@@ -1,0 +1,14 @@
+FENICE — PALCOSCENICO V4.7.2
+
+AGGIORNAMENTO ANTI-CACHE
+1. Caricare su GitHub TUTTI i file di questa cartella nella stessa posizione del sito:
+   - index.html
+   - manifest.webmanifest
+   - sw.js
+   - icon-192.png
+   - icon-512.png
+2. Attendere circa 1 minuto.
+3. Aprire una volta il sito in Chrome.
+4. L'app installata da quel momento controllerà automaticamente le nuove versioni.
+
+La navigazione usa la rete come fonte principale e la cache solo in assenza di connessione.
