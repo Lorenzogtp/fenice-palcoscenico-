@@ -1,23 +1,25 @@
-FENICE — PALCOSCENICO V4.4
-Aggiornamento del 12/08/2026
+ACTV RAPIDO v20 — PACCHETTO PWA
 
-NOVITÀ
-- Calendario generale sostituito con il nuovo prospetto 2627.pdf.
-- Periodo: 12/08/2026–31/12/2027.
-- Incluse le colonne Altra sede VE e Decentramento / tournée.
-- Pulsante Calendario generale in Home tra Regia e Organico.
+CONTENUTO
+- index.html
+- manifest.webmanifest
+- service-worker.js
+- icons/icon-192.png
+- icons/icon-512.png
 
-FUNZIONI MANTENUTE / RICOSTRUITE
-- Home con prossimo impegno.
-- Cambio rapido produzione.
-- ODG Smart: Tutti, Solisti, Coro, Orchestra, Tecnica.
-- Raggruppamento Mattina / Pomeriggio / Sera.
-- Chiusura ODG “Grazie e buona serata 🌙”.
-- Piano prove modificabile, duplicabile, eliminabile.
-- Viste Giorno / 7 giorni / Tutto.
-- Colori per tipologia attività.
-- Import/export JSON FenicePalcoProduction.
-- Recupero automatico dei dati locali delle versioni precedenti quando disponibili nello stesso browser/origine.
+MIGLIORIE v20
+- Carica solo i dati necessari al percorso scelto (BUS, NAV o entrambi).
+- Se un dataset fallisce, gli altri percorsi non vengono bloccati inutilmente.
+- Nuovo tentativo automatico dopo un errore di caricamento.
+- Realtime opzionale: se non risponde resta disponibile l'orario programmato.
+- Pulsante Aggiorna corse e Inverti percorso.
+- Aggiornamento automatico ogni 60 secondi con app aperta.
+- Stato rete online/offline e indicazione dell'ora dell'ultimo aggiornamento.
+- PWA completa con manifest, service worker e icone.
 
-FILE PRINCIPALE: index.html
-CALENDARIO: calendario_generale.html
+IMPORTANTE PER IL GPS
+Il GPS del browser richiede che questa cartella sia pubblicata su un indirizzo HTTPS (non basta aprire index.html come file locale).
+Una volta pubblicata su HTTPS, aprire il sito in Chrome Android e consentire la Posizione.
+
+FONTE DATI
+L'app usa i feed GTFS ACTV/AVM configurati nel codice e un feed realtime di supporto quando disponibile.
