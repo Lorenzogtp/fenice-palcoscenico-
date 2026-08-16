@@ -7,7 +7,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<link rel="manifest" href="manifest.webmanifest?v=4.9.2">
+<link rel="manifest" href="manifest.webmanifest?v=4.9.3">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -43,7 +43,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.9.2</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V4.9.2 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
+<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.9.3</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V4.9.3 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
 
 <section class="grid">
 <button class="tile primary" onclick="openDay(0)"><span class="ico">🎭</span><b>OGGI</b><small>Piano della produzione attiva</small></button>
@@ -108,10 +108,10 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <label>Attività</label><input id="planActivity" placeholder="Es. Prova di regia">
 <label>Luogo</label><input id="planPlace" placeholder="Es. Loggione Fenice">
 <label>Convocati specifici <span class="small">(lasci vuoto = tutto il cast)</span></label><div id="planCastChips" class="chips"></div>
-<div class="toolbar"><button class="action green" onclick="addPlanItem()">Aggiungi al piano</button></div>
+<div class="toolbar"><button class="action green" onclick="addPlanItem()">Aggiungi al piano</button><button class="action gold" onclick="openSmart(document.getElementById('planDate').value||todayYMD())">⚡ ODG SMART DELLA DATA</button></div>
 </div>
 <div class="toolbar"><label class="fileLabel blue">🔄 Aggiorna da PDF Pagliacci<input type="file" accept="application/pdf,.pdf" style="display:none" onchange="importPagliacciPdf(event)"></label><button class="action alt" onclick="undoLastPdfImport()">↩ Annulla ultimo import</button><button class="action alt" onclick="planFilter='future';renderPlan()">Da oggi</button><button class="action alt" onclick="planFilter='all';renderPlan()">Tutto</button></div>
-<div class="notice"><b>V4.9.2:</b> il PDF viene letto e confrontato con il piano già presente. Prima di modificare i dati vede le differenze; l’app crea automaticamente un backup e può annullare l’ultimo import.</div>
+<div class="notice"><b>V4.9.3:</b> ODG Smart è disponibile per ogni giornata del Piano prove. Il PDF viene letto e confrontato con il piano già presente; l’app crea automaticamente un backup e può annullare l’ultimo import.</div>
 <div id="planList"></div>
 </section>
 
@@ -159,7 +159,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="notice">Per un nuovo piano ricevuto in PDF/Word può farlo trasformare nel file JSON di importazione e poi caricarlo qui, senza ricopiare gli orari.</div>
 </section>
 
-<div class="notice">V4.9.2 · ODG automatico evoluto · Convocati adesso · Modalità recita · aggiornamento intelligente PDF · backup automatico · Home ADESSO/PROSSIMO.</div>
+<div class="notice">V4.9.3 · ODG Smart anche nel Piano prove · Convocati adesso · Modalità recita · aggiornamento intelligente PDF · backup automatico · Home ADESSO/PROSSIMO.</div>
 </div>
 <button class="fab" onclick="home()">⌂</button>
 
@@ -252,7 +252,7 @@ function activeProd(){return state.productions.find(p=>p.id===state.activeProduc
 function updateHeader(){document.getElementById('headDate').textContent=fmtDate(new Date());const p=activeProd();document.getElementById('activeProdLabel').textContent=`Produzione attiva: ${p.title} · ${p.venue||p.kind}`;}
 updateHeader();
 
-const BUILD_LABEL='V4.9.2 · 16/08/2026';
+const BUILD_LABEL='V4.9.3 · 16/08/2026';
 let selectedDate=todayYMD(),smartMode='solisti',planFilter='future',selectedPlanCast=new Set();
 document.getElementById('smartDate').value=todayYMD();document.getElementById('planDate').value=todayYMD();
 
@@ -341,7 +341,7 @@ function renderPlan(){
  const groups=arr.reduce((acc,x)=>{(acc[x.date]??=[]).push(x);return acc},{});
  const days=Object.keys(groups);
  document.getElementById('planProdName').textContent=`Produzione attiva: ${p.title} · ${days.length} giorni · ${arr.length} attività`;
- document.getElementById('planList').innerHTML=arr.length?days.map(date=>`<div class="card planDay"><div class="calDate">${esc(fmtDate(parseDate(date)))}</div><div class="dayActivities">${groups[date].map(renderPlanRow).join('')}</div></div>`).join(''):'<div class="empty">Nessuna voce nel piano prove.</div>';
+ document.getElementById('planList').innerHTML=arr.length?days.map(date=>`<div class="card planDay"><div class="calDate">${esc(fmtDate(parseDate(date)))}</div><div class="toolbar"><button class="action gold" onclick="openSmart('${date}')">⚡ ODG SMART</button></div><div class="dayActivities">${groups[date].map(renderPlanRow).join('')}</div></div>`).join(''):'<div class="empty">Nessuna voce nel piano prove.</div>';
 }
 
 
@@ -542,7 +542,7 @@ setInterval(()=>{renderQuickDashboard();if(document.getElementById('stage')?.cla
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      const reg = await navigator.serviceWorker.register('./sw.js?v=4.9.2', { updateViaCache: 'none' });
+      const reg = await navigator.serviceWorker.register('./sw.js?v=4.9.3', { updateViaCache: 'none' });
       await reg.update();
       // Se una nuova versione prende il controllo, ricarica una sola volta la pagina.
       let refreshing = false;
