@@ -1,0 +1,19 @@
+FENICE — PALCOSCENICO V4.9.4
+
+NOVITÀ
+- Aggiornamento intelligente del Piano prove da PDF Pagliacci
+- ODG Smart disponibile anche nel Piano prove, per ogni giornata
+- Menu ODG Smart per selezionare solisti, coro e relativi orari di convocazione
+- Lettura reale del PDF e filtro delle sole attività Pagliacci
+- Confronto prima/nuovo prima di modificare il piano
+- Selezione delle singole variazioni oppure “Accetta tutte”
+- Backup automatico prima di applicare un import
+- Pulsante “Annulla ultimo import”
+- Date raggruppate una sola volta nel Piano prove
+
+INSTALLAZIONE GITHUB PAGES
+Caricare e sostituire tutti i file di questa cartella nella root del repository.
+Aprire una volta il sito in Chrome e verificare V4.9.4 in alto.
+
+NOTA
+La lettura PDF usa PDF.js caricato via rete: per importare un PDF è necessaria la connessione Internet al momento dell’operazione.

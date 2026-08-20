@@ -7,7 +7,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<link rel="manifest" href="manifest.webmanifest?v=4.9.3">
+<link rel="manifest" href="manifest.webmanifest?v=4.9.4">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -38,12 +38,12 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 @media(min-width:700px){.quickDash{padding:18px}.stageItem{padding:20px}.stageItem .stageTime{font-size:36px}}
 
 
-.smartModal{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:9999;display:none;align-items:center;justify-content:center;padding:18px}.smartModal.show{display:flex}.smartBox{width:min(860px,100%);max-height:88vh;overflow:auto;background:#181a20;border:1px solid #454957;border-radius:22px;box-shadow:0 20px 70px rgba(0,0,0,.55);padding:20px}.smartHead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}.smartTitle{font-size:24px;font-weight:900}.smartStats{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.smartBadge{padding:7px 10px;border-radius:999px;background:#2c303a;font-weight:800}.smartChange{display:grid;grid-template-columns:32px 1fr;gap:10px;padding:12px;border:1px solid #3b3f49;border-radius:14px;margin:9px 0;background:#20232b}.smartChange.new{border-left:5px solid #3f9f74}.smartChange.changed{border-left:5px solid #d8ab44}.smartChange.removed{border-left:5px solid #b34354}.smartOld{opacity:.68;text-decoration:line-through;margin-top:5px}.smartNew{font-weight:800;margin-top:4px}.smartBtns{position:sticky;bottom:-20px;background:#181a20;padding:14px 0 2px;display:flex;gap:8px;flex-wrap:wrap}.smartEmpty{padding:22px;text-align:center;border:1px dashed #4a4e59;border-radius:14px;color:#c8c8c8}.smartSub{color:#b9bac0;font-size:14px;margin-top:3px}
+.smartModal{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:9999;display:none;align-items:center;justify-content:center;padding:18px}.smartModal.show{display:flex}.smartBox{width:min(860px,100%);max-height:88vh;overflow:auto;background:#181a20;border:1px solid #454957;border-radius:22px;box-shadow:0 20px 70px rgba(0,0,0,.55);padding:20px}.smartHead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}.smartTitle{font-size:24px;font-weight:900}.smartStats{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.smartBadge{padding:7px 10px;border-radius:999px;background:#2c303a;font-weight:800}.smartChange{display:grid;grid-template-columns:32px 1fr;gap:10px;padding:12px;border:1px solid #3b3f49;border-radius:14px;margin:9px 0;background:#20232b}.smartChange.new{border-left:5px solid #3f9f74}.smartChange.changed{border-left:5px solid #d8ab44}.smartChange.removed{border-left:5px solid #b34354}.smartOld{opacity:.68;text-decoration:line-through;margin-top:5px}.smartNew{font-weight:800;margin-top:4px}.smartBtns{position:sticky;bottom:-20px;background:#181a20;padding:14px 0 2px;display:flex;gap:8px;flex-wrap:wrap}.smartEmpty{padding:22px;text-align:center;border:1px dashed #4a4e59;border-radius:14px;color:#c8c8c8}.smartSub{color:#b9bac0;font-size:14px;margin-top:3px}.callRow{display:grid;grid-template-columns:minmax(0,2fr) minmax(105px,1fr) auto;gap:8px;align-items:end;margin:10px 0}.callRow label{margin:0}.callRow .action{min-height:47px}@media(max-width:560px){.callRow{grid-template-columns:1fr 115px auto}.callRow label{font-size:12px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.9.3</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V4.9.3 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
+<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.9.4</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V4.9.4 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
 
 <section class="grid">
 <button class="tile primary" onclick="openDay(0)"><span class="ico">🎭</span><b>OGGI</b><small>Piano della produzione attiva</small></button>
@@ -82,6 +82,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <h2>⚡ ODG SMART</h2><div class="sub">Genera il messaggio dalla produzione attiva.</div>
 <label>Data</label><input type="date" id="smartDate" onchange="generateSmart()">
 <div class="toolbar"><button id="modeSolisti" class="action gold" onclick="setSmartMode('solisti')">SOLISTI</button><button id="modeCompleto" class="action alt" onclick="setSmartMode('completo')">COMPLETO</button></div>
+<div class="card"><h3>⏰ Convocazioni personalizzate</h3><div class="small">Selezioni un solista o il coro e assegni l’orario. Può aggiungere più convocazioni.</div><div id="smartCallRows"></div><div class="toolbar"><button class="action blue" onclick="addSmartCall()">+ AGGIUNGI CONVOCAZIONE</button></div></div>
 <div id="smartInfo" class="notice"></div>
 <label>Messaggio WhatsApp — modificabile</label><textarea id="smartOutput" style="min-height:330px;overflow:hidden"></textarea>
 <div class="toolbar"><button class="action alt" onclick="copySmart()">Copia</button><button class="action green" onclick="shareText(document.getElementById('smartOutput').value)">Condividi</button></div>
@@ -111,7 +112,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="toolbar"><button class="action green" onclick="addPlanItem()">Aggiungi al piano</button><button class="action gold" onclick="openSmart(document.getElementById('planDate').value||todayYMD())">⚡ ODG SMART DELLA DATA</button></div>
 </div>
 <div class="toolbar"><label class="fileLabel blue">🔄 Aggiorna da PDF Pagliacci<input type="file" accept="application/pdf,.pdf" style="display:none" onchange="importPagliacciPdf(event)"></label><button class="action alt" onclick="undoLastPdfImport()">↩ Annulla ultimo import</button><button class="action alt" onclick="planFilter='future';renderPlan()">Da oggi</button><button class="action alt" onclick="planFilter='all';renderPlan()">Tutto</button></div>
-<div class="notice"><b>V4.9.3:</b> ODG Smart è disponibile per ogni giornata del Piano prove. Il PDF viene letto e confrontato con il piano già presente; l’app crea automaticamente un backup e può annullare l’ultimo import.</div>
+<div class="notice"><b>V4.9.4:</b> ODG Smart permette di selezionare solisti o coro e assegnare gli orari di convocazione. È disponibile per ogni giornata del Piano prove.</div>
 <div id="planList"></div>
 </section>
 
@@ -159,7 +160,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="notice">Per un nuovo piano ricevuto in PDF/Word può farlo trasformare nel file JSON di importazione e poi caricarlo qui, senza ricopiare gli orari.</div>
 </section>
 
-<div class="notice">V4.9.3 · ODG Smart anche nel Piano prove · Convocati adesso · Modalità recita · aggiornamento intelligente PDF · backup automatico · Home ADESSO/PROSSIMO.</div>
+<div class="notice">V4.9.4 · convocazioni personalizzate in ODG Smart · ODG Smart nel Piano prove · Modalità recita · aggiornamento intelligente PDF · backup automatico.</div>
 </div>
 <button class="fab" onclick="home()">⌂</button>
 
@@ -252,8 +253,8 @@ function activeProd(){return state.productions.find(p=>p.id===state.activeProduc
 function updateHeader(){document.getElementById('headDate').textContent=fmtDate(new Date());const p=activeProd();document.getElementById('activeProdLabel').textContent=`Produzione attiva: ${p.title} · ${p.venue||p.kind}`;}
 updateHeader();
 
-const BUILD_LABEL='V4.9.3 · 16/08/2026';
-let selectedDate=todayYMD(),smartMode='solisti',planFilter='future',selectedPlanCast=new Set();
+const BUILD_LABEL='V4.9.4 · 20/08/2026';
+let selectedDate=todayYMD(),smartMode='solisti',planFilter='future',selectedPlanCast=new Set(),smartCalls=[],smartCallDate='';
 document.getElementById('smartDate').value=todayYMD();document.getElementById('planDate').value=todayYMD();
 
 function openPanel(id){
@@ -287,10 +288,25 @@ function renderPlanRow(x){
 function buildDayText(date){const p=activeProd();let t=`🎭 ${fmtDate(parseDate(date))}\n${p.title}\n`;itemsFor(date).forEach(x=>t+=`\n${timeRange(x)} ${x.activity}${x.place?' — '+x.place:''}`);return t.trim()}
 
 function setSmartMode(m){smartMode=m;document.getElementById('modeSolisti').className='action '+(m==='solisti'?'gold':'alt');document.getElementById('modeCompleto').className='action '+(m==='completo'?'gold':'alt');generateSmart()}
-function openSmart(date){document.getElementById('smartDate').value=date||todayYMD();openPanel('smart');setSmartMode(smartMode)}
+function openSmart(date){const d=date||todayYMD();document.getElementById('smartDate').value=d;if(smartCallDate!==d){smartCalls=[];smartCallDate=d}if(!smartCalls.length)smartCalls.push({target:'',time:''});openPanel('smart');renderSmartCalls();setSmartMode(smartMode)}
+function smartTimeOptions(selected=''){
+ let out='<option value="">Ora…</option>';
+ for(let h=6;h<=23;h++)for(let m=0;m<60;m+=15){const v=`${pad(h)}:${pad(m)}`;out+=`<option value="${v}" ${v===selected?'selected':''}>${v.replace(':','.')}</option>`}
+ return out;
+}
+function smartTargetOptions(selected=''){
+ const p=activeProd();let out='<option value="">Convocato…</option><option value="chorus" '+(selected==='chorus'?'selected':'')+'>CORO</option><option value="chorus-women" '+(selected==='chorus-women'?'selected':'')+'>CORO DONNE</option><option value="chorus-men" '+(selected==='chorus-men'?'selected':'')+'>CORO UOMINI</option>';
+ out+=(p.cast||[]).map(c=>`<option value="cast:${esc(c.id)}" ${selected===`cast:${c.id}`?'selected':''}>${esc(c.role)} — ${esc(c.name)}</option>`).join('');return out;
+}
+function addSmartCall(){smartCalls.push({target:'',time:''});renderSmartCalls()}
+function updateSmartCall(i,key,value){if(!smartCalls[i])return;smartCalls[i][key]=value;generateSmart()}
+function removeSmartCall(i){smartCalls.splice(i,1);renderSmartCalls();generateSmart()}
+function renderSmartCalls(){const box=document.getElementById('smartCallRows');if(!box)return;box.innerHTML=smartCalls.length?smartCalls.map((c,i)=>`<div class="callRow"><label>Convocato<select onchange="updateSmartCall(${i},'target',this.value)">${smartTargetOptions(c.target)}</select></label><label>Ora<select onchange="updateSmartCall(${i},'time',this.value)">${smartTimeOptions(c.time)}</select></label><button class="action danger" onclick="removeSmartCall(${i})" aria-label="Elimina convocazione">×</button></div>`).join(''):'<div class="empty" style="margin-top:10px">Nessuna convocazione aggiunta.</div>'}
+function smartCallLabel(target){if(target==='chorus')return 'CORO';if(target==='chorus-women')return 'CORO DONNE';if(target==='chorus-men')return 'CORO UOMINI';if(target.startsWith('cast:')){const c=(activeProd().cast||[]).find(x=>x.id===target.slice(5));return c?`${c.name} — ${c.role}`:''}return ''}
 function activityLabel(a){const s=a.toLowerCase();if(s.includes('musicale'))return '🎼 *Prova musicale*';if(s.includes('regia'))return '🎭 *Prova di regia*';if(s.includes('assieme'))return '🎭 *Prova in assieme*';if(s.includes('recita'))return '🎭 *Recita*';if(s.includes('luci'))return '💡 *Luci*';if(s.includes('montaggio'))return '🛠️ *Montaggio*';if(s.includes('riposo'))return '🌙 *Riposo*';return `🎭 *${a}*`}
 function generateSmart(){
  const date=document.getElementById('smartDate').value||todayYMD(),p=activeProd();
+ if(smartCallDate!==date){smartCalls=[{target:'',time:''}];smartCallDate=date;renderSmartCalls()}
  const all=itemsFor(date),items=smartMode==='solisti'?all.filter(x=>x.audience!=='technical'):all;
  let t=`📌 *ORDINE DEL GIORNO* 📌\n*${fmtDate(parseDate(date))}*\n\n🎬 *${p.title}*\n`;
  if(!items.length)t+='\nNessuna attività prevista.';
@@ -304,6 +320,8 @@ function generateSmart(){
      if(selected.length)t+='\n'+selected.map(c=>`${c.name} — ${c.role}`).join('\n')+'\n';
    }
  });
+ const calls=smartCalls.map(c=>({label:smartCallLabel(c.target),time:c.time})).filter(c=>c.label&&c.time).sort((a,b)=>a.time.localeCompare(b.time));
+ if(calls.length){t+='\n\n----------\n\n⏰ *CONVOCAZIONI*\n';calls.forEach(c=>{t+=`\n*${c.time.replace(':','.')}* — ${c.label}`})}
  t=t.trim()+`\n\nGrazie e buona serata 🌙`;
  const out=document.getElementById('smartOutput');out.value=t;requestAnimationFrame(()=>{out.style.height='auto';out.style.height=(out.scrollHeight+8)+'px'});
  const excluded=all.length-items.length;document.getElementById('smartInfo').innerHTML=`Produzione: <b>${esc(p.title)}</b> · ${items.length} attività${excluded?` · escluse ${excluded} tecniche`:''}.`;
@@ -542,7 +560,7 @@ setInterval(()=>{renderQuickDashboard();if(document.getElementById('stage')?.cla
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      const reg = await navigator.serviceWorker.register('./sw.js?v=4.9.3', { updateViaCache: 'none' });
+      const reg = await navigator.serviceWorker.register('./sw.js?v=4.9.4', { updateViaCache: 'none' });
       await reg.update();
       // Se una nuova versione prende il controllo, ricarica una sola volta la pagina.
       let refreshing = false;
