@@ -7,7 +7,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<link rel="manifest" href="manifest.webmanifest?v=4.9.6">
+<link rel="manifest" href="manifest.webmanifest?v=4.9.8">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -29,7 +29,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 .searchBar{position:sticky;top:94px;z-index:5;background:var(--panel);padding:2px 0 8px}.calDate{font-size:13px;color:var(--gold);font-weight:900;margin-bottom:5px}.fab{position:fixed;right:18px;bottom:19px;width:58px;height:58px;border:0;border-radius:50%;background:#8b1830;color:#fff;font-size:25px;box-shadow:0 8px 24px rgba(0,0,0,.35);z-index:90}.notice{font-size:12px;color:#c8c4ba;background:#24262d;border-radius:11px;padding:10px;margin-top:12px;line-height:1.45}
 @media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}.tile{min-height:112px}}
 
-/* V4.6 — cruscotto operativo, ricerca globale e modalità palcoscenico */
+/* Cruscotto operativo e ricerca globale */
 .quickDash{margin-top:14px;background:linear-gradient(145deg,#1c1f26,#252831);border:1px solid #444854;border-radius:18px;padding:14px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
 .quickTop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.quickTop h2{font-size:16px;margin:0 0 4px}.nextTime{font-size:27px;font-weight:950;color:var(--gold);line-height:1}.nextActivity{font-size:18px;font-weight:900;margin-top:7px}.nextMeta{font-size:13px;color:#d0cdc5;margin-top:5px}.countdown{display:inline-block;margin-top:8px;padding:5px 9px;border-radius:999px;background:#30343d;color:#f6e3a6;font-size:12px;font-weight:850}.quickBtns{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.quickBtns button{flex:1;min-width:120px}.updated{font-size:11px;color:var(--muted);margin-top:9px}
 .searchResult{cursor:pointer}.searchResult:hover{border-color:#777}.searchType{font-size:10px;font-weight:900;letter-spacing:.07em;color:var(--gold);text-transform:uppercase}.searchMain{font-weight:850;margin-top:3px}.searchSub{font-size:12px;color:var(--muted);margin-top:3px}
@@ -43,14 +43,12 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.9.6</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V4.9.6 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
+<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.9.8</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V4.9.8 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
 
 <section class="grid">
 <button class="tile primary" onclick="openDay(0)"><span class="ico">🎭</span><b>OGGI</b><small>Piano della produzione attiva</small></button>
 <button class="tile" onclick="openDay(1)"><span class="ico">➡️</span><b>DOMANI</b><small>Anticipazione operativa</small></button>
 <button class="tile gold" onclick="openSmart(todayYMD())"><span class="ico">⚡</span><b>ODG SMART</b><small>WhatsApp automatico</small></button>
-<button class="tile gold" onclick="openConvocati()"><span class="ico">👥</span><b>CONVOCATI ADESSO</b><small>Chi deve essere presente</small></button>
-<button class="tile primary" onclick="openRecita()"><span class="ico">🎭</span><b>MODALITÀ RECITA</b><small>Recita, cast e camerini</small></button>
 <button class="tile blue" onclick="openPanel('productions')"><span class="ico">🎬</span><b>PRODUZIONI</b><small>Crea e cambia titolo</small></button>
 <button class="tile" onclick="openPanel('plan')"><span class="ico">🗓️</span><b>PIANO PROVE</b><small>Inserisci date e orari</small></button>
 <button class="tile" onclick="openPanel('cast')"><span class="ico">👤</span><b>CAST / SOLISTI</b><small>Ruoli e interpreti</small></button>
@@ -58,7 +56,6 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <button class="tile" onclick="openPanel('calendar')"><span class="ico">📅</span><b>CALENDARIO</b><small>Stagione Fenice</small></button>
 <button class="tile" onclick="openPanel('backup')"><span class="ico">💾</span><b>BACKUP / IMPORT</b><small>Salva e trasferisci dati</small></button>
 <button class="tile" onclick="openPanel('search')"><span class="ico">🔎</span><b>RICERCA</b><small>Tutto in un solo punto</small></button>
-<button class="tile primary" onclick="openStage(0)"><span class="ico">🎚️</span><b>MODALITÀ PALCO</b><small>Vista grande e immediata</small></button>
 </section>
 
 <section id="homeDashboard" class="quickDash">
@@ -68,7 +65,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
   <div style="height:1px;background:#3d4048;margin:14px 0"></div>
   <div class="quickTop"><div><h2>⏭ PROSSIMO</h2></div><div id="followingTime" class="nextTime">—</div></div>
   <div id="followingActivity" class="nextActivity" style="font-size:19px">—</div><div id="followingMeta" class="nextMeta"></div>
-  <div class="quickBtns" style="grid-template-columns:repeat(4,1fr)"><button class="action gold" onclick="openDay(0)">OGGI</button><button class="action alt" onclick="openDay(1)">DOMANI</button><button class="action gold" onclick="openSmart(todayYMD())">ODG</button><button class="action blue" onclick="openPanel('search')">CERCA</button><button class="action gold" onclick="openConvocati()">CONVOCATI</button><button class="action alt" onclick="openRecita()">RECITA</button></div>
+  <div class="quickBtns" style="grid-template-columns:repeat(4,1fr)"><button class="action gold" onclick="openDay(0)">OGGI</button><button class="action alt" onclick="openDay(1)">DOMANI</button><button class="action gold" onclick="openSmart(todayYMD())">ODG</button><button class="action blue" onclick="openPanel('search')">CERCA</button></div>
   <div id="updatedLabel" class="updated"></div>
 </section>
 
@@ -112,7 +109,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="toolbar"><button class="action green" onclick="addPlanItem()">Aggiungi al piano</button><button class="action gold" onclick="openSmart(document.getElementById('planDate').value||todayYMD())">⚡ ODG SMART DELLA DATA</button></div>
 </div>
 <div class="toolbar"><label class="fileLabel blue">🔄 Aggiorna da PDF Pagliacci<input type="file" accept="application/pdf,.pdf" style="display:none" onchange="importPagliacciPdf(event)"></label><button class="action alt" onclick="undoLastPdfImport()">↩ Annulla ultimo import</button><button class="action alt" onclick="planFilter='future';renderPlan()">Da oggi</button><button class="action alt" onclick="planFilter='all';renderPlan()">Tutto</button></div>
-<div class="notice"><b>V4.9.6:</b> allo stesso orario può convocare più solisti e il coro; l’orario compare una sola volta nell’ODG.</div>
+<div class="notice"><b>V4.9.8:</b> allo stesso orario può convocare più solisti e il coro; l’orario compare una sola volta nell’ODG.</div>
 <div id="planList"></div>
 </section>
 
@@ -138,14 +135,9 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div id="globalSearchInfo" class="notice">Scriva almeno 2 caratteri.</div><div id="globalSearchResults"></div>
 </section>
 
-<section id="stage" class="panel">
-<div class="stageToolbar"><h2>🎚️ Modalità palcoscenico</h2><div class="toolbar"><button class="action gold" onclick="openStage(0)">OGGI</button><button class="action alt" onclick="openStage(1)">DOMANI</button><button class="action alt" onclick="openPanel('plan')">PIANO COMPLETO</button></div></div>
-<div id="stageDate" class="stageDate"></div><div id="stageProd" class="sub"></div><div id="stageList"></div>
-</section>
-
 <section id="convocati" class="panel">
 <h2>👥 Convocati adesso</h2><div id="convocatiBody"></div>
-<div class="toolbar"><button class="action gold" onclick="openSmart(todayYMD())">📋 CREA ODG</button><button class="action alt" onclick="openStage(0)">🎚️ VISTA PALCO</button></div>
+<div class="toolbar"><button class="action gold" onclick="openSmart(todayYMD())">📋 CREA ODG</button></div>
 </section>
 
 <section id="recita" class="panel">
@@ -160,7 +152,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="notice">Per un nuovo piano ricevuto in PDF/Word può farlo trasformare nel file JSON di importazione e poi caricarlo qui, senza ricopiare gli orari.</div>
 </section>
 
-<div class="notice">V4.9.6 · selezione multipla dei convocati allo stesso orario · convocazioni associate alle singole prove · ODG Smart nel Piano prove.</div>
+<div class="notice">V4.9.8 · schermata principale semplificata · selezione multipla dei convocati allo stesso orario · ODG Smart nel Piano prove.</div>
 </div>
 <button class="fab" onclick="home()">⌂</button>
 
@@ -253,7 +245,7 @@ function activeProd(){return state.productions.find(p=>p.id===state.activeProduc
 function updateHeader(){document.getElementById('headDate').textContent=fmtDate(new Date());const p=activeProd();document.getElementById('activeProdLabel').textContent=`Produzione attiva: ${p.title} · ${p.venue||p.kind}`;}
 updateHeader();
 
-const BUILD_LABEL='V4.9.6 · 20/08/2026';
+const BUILD_LABEL='V4.9.8 · 20/08/2026';
 let selectedDate=todayYMD(),smartMode='solisti',planFilter='future',selectedPlanCast=new Set(),smartCalls=[],smartCallDate='';
 document.getElementById('smartDate').value=todayYMD();document.getElementById('planDate').value=todayYMD();
 
@@ -545,8 +537,6 @@ function peopleForItem(x){const p=activeProd();if(x.audience==='technical')retur
 function openConvocati(){openPanel('convocati');const p=activeProd(),items=currentItems(),out=document.getElementById('convocatiBody');if(!items.length){const next=futurePlanItems()[0];out.innerHTML=`<div class="hero"><strong>Nessuna attività in corso</strong><div class="small">${next?`Prossima: ${esc(next.start||'')} · ${esc(next.activity)}${next.place?' · 📍 '+esc(next.place):''}`:'Nessuna attività futura inserita.'}</div></div>`;return}out.innerHTML=items.map(x=>{const people=peopleForItem(x);return `<div class="card"><div class="time">${esc(timeRange(x))}</div><div class="activity">${esc(x.activity)}</div>${x.place?`<div class="place">📍 ${esc(x.place)}</div>`:''}<div class="section">CONVOCATI</div>${people.length?people.map(c=>`<div class="planRow"><div><b>${esc(c.name)}</b><div class="small">${esc(c.role)}</div></div></div>`).join(''):'<div class="empty">Nessun convocato specificato.</div>'}</div>`}).join('');}
 function recitaItems(){const p=activeProd();return [...(p.plan||[])].filter(x=>/recita/i.test(x.activity||'')).sort((a,b)=>itemDateTime(a)-itemDateTime(b));}
 function openRecita(){const rs=recitaItems(),now=new Date();let x=rs.find(r=>itemEndDateTime(r)>=now)||rs[rs.length-1];if(!x){openPanel('recita');document.getElementById('recitaBody').innerHTML='<div class="empty">Nessuna recita inserita nel piano della produzione attiva.</div>';return}selectedDate=x.date;openPanel('recita');const p=activeProd(),cast=peopleForItem(x);const rooms=(p.rooms||[]);document.getElementById('recitaBody').innerHTML=`<div class="hero"><strong>${esc(fmtDate(parseDate(x.date)))}</strong><div class="stageTime">${esc(x.start||'—')}</div><div class="stageAct">${esc(x.activity)}</div>${x.place?`<div class="stagePlace">📍 ${esc(x.place)}</div>`:''}</div><div class="section">CAST</div><div class="card">${cast.length?cast.map(c=>`<div><b>${esc(c.name)}</b> — ${esc(c.role)}</div>`).join(''): 'Cast non inserito.'}</div><div class="section">CAMERINI</div><div class="card">${rooms.length?rooms.map(r=>`<div><b>${esc(r.who)}</b> · ${esc(r.room||'—')}</div>`).join(''):'Camerini non inseriti.'}</div>`;}
-function openStage(offset=0){let d=new Date();d.setDate(d.getDate()+offset);selectedDate=ymd(d);openPanel('stage');renderStage(selectedDate)}
-function renderStage(date){const p=activeProd(),items=itemsFor(date),now=new Date();document.getElementById('stageDate').textContent=fmtDate(parseDate(date));document.getElementById('stageProd').textContent=`${p.title} · ${p.venue||p.kind} · ${items.length} attività`;document.getElementById('stageList').innerHTML=items.length?items.map(x=>{const live=date===todayYMD()&&now>=itemDateTime(x)&&now<=itemEndDateTime(x);let people='';if(x.audience==='cast'){const sel=(x.castIds||[]).length?p.cast.filter(c=>x.castIds.includes(c.id)):p.cast;if(sel.length)people=sel.map(c=>`${esc(c.name)} — ${esc(c.role)}`).join('<br>')}return `<div class="stageItem ${live?'live':''}"><div class="stageTime">${esc(timeRange(x)||'—')}</div><div class="stageAct">${esc(x.activity)}</div>${x.place?`<div class="stagePlace">📍 ${esc(x.place)}</div>`:''}${people?`<div class="stageCast">${people}</div>`:''}${live?'<span class="countdown">IN CORSO</span>':''}</div>`}).join(''):'<div class="stageEmpty">Nessuna attività inserita per questa giornata.</div>'}
 function globalHits(q){const z=q.toLowerCase(),hits=[];for(const p of state.productions||[]){if(`${p.title} ${p.kind} ${p.venue} ${p.notes}`.toLowerCase().includes(z))hits.push({type:'Produzione',main:p.title,sub:`${p.kind} · ${p.venue||''}`,go:`selectAndOpen('${p.id}','plan')`});for(const x of p.plan||[]){if(`${x.date} ${fmtDate(parseDate(x.date))} ${x.start} ${x.end} ${x.activity} ${x.place}`.toLowerCase().includes(z))hits.push({type:'Piano prove',main:`${fmtShort(x.date)} · ${x.start||''} ${x.activity}`,sub:`${p.title}${x.place?' · '+x.place:''}`,go:`state.activeProductionId='${p.id}';save();openDay('${x.date}')`})}for(const c of p.cast||[]){if(`${c.role} ${c.name} ${p.title}`.toLowerCase().includes(z))hits.push({type:'Cast',main:`${c.name} — ${c.role}`,sub:p.title,go:`selectAndOpen('${p.id}','cast')`})}for(const r of p.rooms||[]){if(`${r.room} ${r.who} ${p.title}`.toLowerCase().includes(z))hits.push({type:'Camerini',main:`${r.who} · ${r.room||'—'}`,sub:p.title,go:`selectAndOpen('${p.id}','rooms')`})}}
  for(const r of CALENDAR){if(`${r.join(' ')} ${fmtDate(parseDate(r[0]))}`.toLowerCase().includes(z)){const vals=r.slice(1).filter(Boolean).join(' · ');hits.push({type:'Calendario generale',main:fmtShort(r[0]).toUpperCase(),sub:vals.slice(0,220),go:`document.getElementById('calSearch').value='${r[0]}';openPanel('calendar')`})}}return hits.slice(0,80)}
 function renderGlobalSearch(){const el=document.getElementById('globalSearch'),out=document.getElementById('globalSearchResults'),info=document.getElementById('globalSearchInfo');if(!el||!out)return;const q=el.value.trim();if(q.length<2){info.textContent='Scriva almeno 2 caratteri.';out.innerHTML='';return}const hits=globalHits(q);info.innerHTML=`<b>${hits.length}</b> risultati per “${esc(q)}”`;out.innerHTML=hits.length?hits.map(h=>`<div class="card searchResult" onclick="${h.go}"><div class="searchType">${esc(h.type)}</div><div class="searchMain">${esc(h.main)}</div><div class="searchSub">${esc(h.sub||'')}</div></div>`).join(''):'<div class="empty">Nessun risultato.</div>'}
@@ -560,7 +550,7 @@ setInterval(()=>{renderQuickDashboard();if(document.getElementById('stage')?.cla
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      const reg = await navigator.serviceWorker.register('./sw.js?v=4.9.6', { updateViaCache: 'none' });
+      const reg = await navigator.serviceWorker.register('./sw.js?v=4.9.8', { updateViaCache: 'none' });
       await reg.update();
       // Se una nuova versione prende il controllo, ricarica una sola volta la pagina.
       let refreshing = false;
