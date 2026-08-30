@@ -1,0 +1,18 @@
+FENICE — PALCOSCENICO V4.9.10
+SPARTITI CONDIVISI SENZA SOTTOCARTELLE
+
+TUTTI I FILE VANNO NELLA ROOT DEL REPOSITORY GITHUB:
+
+index.html
+manifest.webmanifest
+sw.js
+icon-192.png
+icon-512.png
+The_Telephone_CP.pdf
+Trouble_in_Tahiti_CP.pdf
+
+Non esiste più la cartella "spartiti".
+
+IMPORTANTE:
+Caricare anche i due PDF nella stessa schermata/root dove si trova index.html.
+Poi aprire Fenice Palcoscenico online almeno una volta su ogni dispositivo.
