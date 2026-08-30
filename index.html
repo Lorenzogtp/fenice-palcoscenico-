@@ -7,7 +7,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<link rel="manifest" href="manifest.webmanifest?v=5.0">
+<link rel="manifest" href="manifest.webmanifest?v=5.1">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -40,7 +40,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 
 .smartModal{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:9999;display:none;align-items:center;justify-content:center;padding:18px}.smartModal.show{display:flex}.smartBox{width:min(860px,100%);max-height:88vh;overflow:auto;background:#181a20;border:1px solid #454957;border-radius:22px;box-shadow:0 20px 70px rgba(0,0,0,.55);padding:20px}.smartHead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}.smartTitle{font-size:24px;font-weight:900}.smartStats{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.smartBadge{padding:7px 10px;border-radius:999px;background:#2c303a;font-weight:800}.smartChange{display:grid;grid-template-columns:32px 1fr;gap:10px;padding:12px;border:1px solid #3b3f49;border-radius:14px;margin:9px 0;background:#20232b}.smartChange.new{border-left:5px solid #3f9f74}.smartChange.changed{border-left:5px solid #d8ab44}.smartChange.removed{border-left:5px solid #b34354}.smartOld{opacity:.68;text-decoration:line-through;margin-top:5px}.smartNew{font-weight:800;margin-top:4px}.smartBtns{position:sticky;bottom:-20px;background:#181a20;padding:14px 0 2px;display:flex;gap:8px;flex-wrap:wrap}.smartEmpty{padding:22px;text-align:center;border:1px dashed #4a4e59;border-radius:14px;color:#c8c8c8}.smartSub{color:#b9bac0;font-size:14px;margin-top:3px}.callRow{display:grid;grid-template-columns:minmax(150px,1.4fr) minmax(170px,1.6fr) minmax(100px,.7fr) auto;gap:8px;align-items:end;margin:10px 0}.callRow label{margin:0}.callRow .action{min-height:47px}.multiPick{position:relative}.multiPick summary{list-style:none;cursor:pointer;background:#111319;border:1px solid #4a4e59;border-radius:12px;padding:13px 12px;min-height:47px;color:#fff;font-weight:700}.multiPick summary::-webkit-details-marker{display:none}.multiPick[open] summary{border-color:#d8ab44}.multiMenu{position:absolute;z-index:30;left:0;right:0;max-height:290px;overflow:auto;background:#20232b;border:1px solid #575c69;border-radius:12px;padding:8px;box-shadow:0 14px 35px rgba(0,0,0,.55)}.multiChoice{display:flex!important;align-items:center;gap:9px;padding:9px 7px;margin:0!important;border-bottom:1px solid #343843;font-size:14px!important}.multiChoice:last-child{border-bottom:0}.multiChoice input{width:21px;height:21px;flex:0 0 auto}@media(max-width:680px){.callRow{grid-template-columns:1fr 110px auto}.callRow .callActivity,.callRow .callTargets{grid-column:1/-1}.callRow label{font-size:12px}}
 
-/* ===== FENICE PALCOSCENICO V5.0 ===== */
+/* ===== FENICE PALCOSCENICO V5.1 ===== */
 .v5grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.v5stat{padding:14px;border:1px solid #3d414c;border-radius:14px;background:#20232b}.v5stat b{display:block;font-size:24px;margin-top:4px}
 .dayOps{border-left:5px solid #d8ab44}.dayOps.tomorrow{border-left-color:#4e8bd8}.opsRow{display:grid;grid-template-columns:78px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid #363a44}.opsRow:last-child{border-bottom:0}.opsTime{font-size:18px;font-weight:900}.opsTitle{font-weight:800}
 .hubNav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}.hubNav button{min-height:54px}.priorityHigh{border-left:5px solid #b34354}.priorityMedium{border-left:5px solid #d8ab44}.priorityLow{border-left:5px solid #3f9f74}.workCard{border-left:5px solid #8f6fd8}
@@ -52,7 +52,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V5.0</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V5.0 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
+<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V5.1</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V5.1 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
 
 <section class="grid">
 <button class="tile primary" onclick="openDay(0)"><span class="ico">🎭</span><b>OGGI</b><small>Piano della produzione attiva</small></button>
@@ -125,7 +125,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="toolbar"><button class="action green" onclick="addPlanItem()">Aggiungi al piano</button><button class="action gold" onclick="openSmart(document.getElementById('planDate').value||todayYMD())">⚡ ODG SMART DELLA DATA</button></div>
 </div>
 <div class="toolbar"><label class="fileLabel blue">🔄 Aggiorna da PDF Pagliacci<input type="file" accept="application/pdf,.pdf" style="display:none" onchange="importPagliacciPdf(event)"></label><button class="action alt" onclick="undoLastPdfImport()">↩ Annulla ultimo import</button><button class="action alt" onclick="planFilter='future';renderPlan()">Da oggi</button><button class="action alt" onclick="planFilter='all';renderPlan()">Tutto</button></div>
-<div class="notice"><b>V5.0:</b> allo stesso orario può convocare più solisti e il coro; l’orario compare una sola volta nell’ODG.<div class="diffLegend"><span class="diffNew">VERDE · nuovo</span><span class="diffChanged">GIALLO · modificato</span><span class="diffRemoved">ROSSO · eliminato</span></div>Nel confronto PDF può approvare le variazioni singolarmente oppure tutte insieme.</div>
+<div class="notice"><b>V5.1:</b> allo stesso orario può convocare più solisti e il coro; l’orario compare una sola volta nell’ODG.<div class="diffLegend"><span class="diffNew">VERDE · nuovo</span><span class="diffChanged">GIALLO · modificato</span><span class="diffRemoved">ROSSO · eliminato</span></div>Nel confronto PDF può approvare le variazioni singolarmente oppure tutte insieme.</div>
 <div id="planList"></div>
 </section>
 
@@ -147,8 +147,8 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="section">Aggiungi un nuovo spartito</div>
 <div class="card">
 <div class="two"><div><label>Titolo</label><input id="scoreTitle" placeholder="Es. Partitura canto e piano"></div><div><label>Autore / compositore</label><input id="scoreComposer" placeholder="Facoltativo"></div></div>
-<label class="fileLabel blue" style="margin-top:10px">+ AGGIUNGI PDF DAL DISPOSITIVO<input id="scoreFile" type="file" accept="application/pdf,.pdf" style="display:none" onchange="addScoreFile(event)"></label>
-<div class="small" style="margin-top:10px">I PDF marcati CONDIVISO sono disponibili da tutti i dispositivi. Per nuovi materiali condivisi usi DOCUMENTI.</div>
+<label class="fileLabel blue" style="margin-top:10px">☁️ + AGGIUNGI SPARTITO PDF<input id="scoreFile" type="file" accept="application/pdf,.pdf" style="display:none" onchange="addScoreFile(event)"></label>
+<div class="small" style="margin-top:10px"><b>V5.1:</b> con Cloud configurato ogni nuovo spartito viene pubblicato automaticamente e marcato <b>CONDIVISO</b>. Senza token resta locale e potrà essere pubblicato in seguito.</div><div class="toolbar"><button class="action gold" onclick="shareLocalScores()">☁️ Condividi spartiti locali</button></div>
 </div>
 </section>
 
@@ -189,7 +189,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 
 <section id="documents" class="panel">
 <h2>📂 Documenti produzione</h2><div id="docsProdName" class="sub"></div>
-<div class="notice">I documenti CONDIVISI vengono caricati nel repository GitHub e diventano disponibili su tutti i dispositivi. Per caricare o sostituire un PDF serve la configurazione Cloud.</div>
+<div class="notice">I PDF caricati qui vengono pubblicati immediatamente su GitHub e registrati nell’archivio condiviso: dopo la sincronizzazione compaiono su tutti i dispositivi.</div>
 <div class="card"><div class="two"><div><label>Titolo</label><input id="docTitle" placeholder="Es. Piano prove aggiornato"></div><div><label>Categoria</label><select id="docCategory"><option>Piano prove</option><option>Ordine del giorno</option><option>Pianta scena</option><option>Scheda tecnica</option><option>Timing</option><option>Libretto</option><option>Sicurezza</option><option>Altro</option></select></div></div><label class="fileLabel blue" style="margin-top:10px">☁️ CARICA PDF CONDIVISO<input id="sharedDocFile" type="file" accept="application/pdf,.pdf" style="display:none" onchange="uploadSharedDocument(event)"></label></div><div id="sharedDocList"></div>
 </section>
 
@@ -203,7 +203,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <section id="cloud" class="panel">
 <h2>☁️ Sincronizzazione dispositivi</h2><div id="cloudStatusBox" class="notice"></div>
 <div class="card"><div class="two"><div><label>Owner GitHub</label><input id="cloudOwner"></div><div><label>Repository</label><input id="cloudRepo"></div></div><div class="two"><div><label>Branch</label><input id="cloudBranch" value="main"></div><div><label>File dati condivisi</label><input id="cloudPath" value="fenice-data.json"></div></div><label>Token GitHub fine-grained <span class="small">(resta solo su questo dispositivo)</span></label><input id="cloudToken" type="password" autocomplete="off" placeholder="github_pat_…"><label class="multiChoice" style="border:0"><input id="cloudAuto" type="checkbox"><span>Sincronizza automaticamente dopo le modifiche</span></label><div class="toolbar"><button class="action green" onclick="saveCloudConfig()">Salva configurazione</button><button class="action blue" onclick="cloudPush(true)">↑ Pubblica dati attuali</button><button class="action gold" onclick="cloudPull(true)">↓ Scarica dati condivisi</button><button class="action alt" onclick="testCloud()">Verifica</button></div></div>
-<div class="notice"><b>V5.0 local-first:</b> l’app salva sempre una copia locale. Con Cloud configurato, produzioni, cast, piano prove, camerini, ODG, note e documenti possono essere condivisi fra telefono, tablet e computer.</div>
+<div class="notice"><b>V5.1 local-first:</b> l’app salva sempre una copia locale. Con Cloud configurato, produzioni, cast, piano prove, camerini, ODG, note e documenti possono essere condivisi fra telefono, tablet e computer.</div>
 </section>
 <section id="backup" class="panel">
 <h2>💾 Backup / Import</h2><div class="sub">Serve anche per trasferire un piano prove preparato altrove.</div>
@@ -211,7 +211,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="section">Produzione attiva</div><div class="toolbar"><button class="action blue" onclick="exportProduction()">Esporta produzione</button><label class="fileLabel alt">Importa produzione<input type="file" accept=".json,application/json" style="display:none" onchange="importProduction(event)"></label></div>
 <div class="notice">Per un nuovo piano ricevuto in PDF/Word può farlo trasformare nel file JSON di importazione e poi caricarlo qui, senza ricopiare gli orari.</div><div class="section">Storico automatico · ultime 10 versioni</div><div id="backupHistory"></div></section>
 
-<div class="notice">V5.0 · nuova produzione Dittico · sezione SPARTITI con The Telephone e Trouble in Tahiti · possibilità di aggiungere nuovi PDF dal dispositivo.</div>
+<div class="notice">V5.1 · nuova produzione Dittico · sezione SPARTITI con The Telephone e Trouble in Tahiti · possibilità di aggiungere nuovi PDF dal dispositivo.</div>
 </div>
 <button class="fab" onclick="home()">⌂</button>
 
@@ -291,7 +291,7 @@ try{
  if(changed)localStorage.setItem(K4,JSON.stringify(state));
 }catch(e){}
 
-// V5.0: gli spartiti del Dittico diventano CONDIVISI e disponibili su ogni dispositivo.
+// V5.1: gli spartiti del Dittico diventano CONDIVISI e disponibili su ogni dispositivo.
 // Se sul dispositivo esiste già la voce aggiunta manualmente, ne conserva titolo/compositore
 // ma la collega al PDF pubblicato con l'app, evitando doppioni.
 try{
@@ -349,11 +349,11 @@ try{
  }
  for(const p of state.productions||[]){if(!Array.isArray(p.documents)){p.documents=[];changedDit=true;}}
  if(changedDit)localStorage.setItem(K4,JSON.stringify(state));
-}catch(e){console.warn('Migrazione Dittico V5.0 non completata',e)}
+}catch(e){console.warn('Migrazione Dittico V5.1 non completata',e)}
 
 
-// V5.0 — struttura dati estesa, senza cancellare personalizzazioni.
-try{let ch=false;for(const p of state.productions||[]){if(!Array.isArray(p.sharedDocs)){p.sharedDocs=[];ch=true}if(!Array.isArray(p.contacts)){p.contacts=[];ch=true}if(!Array.isArray(p.technicalNotes)){p.technicalNotes=[];ch=true}if(!Array.isArray(p.odgHistory)){p.odgHistory=[];ch=true}if(!p.odgDrafts||typeof p.odgDrafts!=='object'){p.odgDrafts={};ch=true}if(!Array.isArray(p.showCues)){p.showCues=[];ch=true}if(!Array.isArray(p.works)){p.works=[];ch=true}if((p.title||'').trim().toLowerCase()==='dittico'&&!p.works.length){p.works=[{id:'work-telephone',title:'The Telephone',composer:'Gian Carlo Menotti'},{id:'work-tahiti',title:'Trouble in Tahiti',composer:'Leonard Bernstein'}];ch=true}}state._meta=state._meta||{};state._meta.schema='5.0';if(ch)localStorage.setItem(K4,JSON.stringify(state))}catch(e){console.warn('Migrazione V5.0',e)}
+// V5.1 — struttura dati estesa, senza cancellare personalizzazioni.
+try{let ch=false;for(const p of state.productions||[]){if(!Array.isArray(p.sharedDocs)){p.sharedDocs=[];ch=true}if(!Array.isArray(p.contacts)){p.contacts=[];ch=true}if(!Array.isArray(p.technicalNotes)){p.technicalNotes=[];ch=true}if(!Array.isArray(p.odgHistory)){p.odgHistory=[];ch=true}if(!p.odgDrafts||typeof p.odgDrafts!=='object'){p.odgDrafts={};ch=true}if(!Array.isArray(p.showCues)){p.showCues=[];ch=true}if(!Array.isArray(p.works)){p.works=[];ch=true}if((p.title||'').trim().toLowerCase()==='dittico'&&!p.works.length){p.works=[{id:'work-telephone',title:'The Telephone',composer:'Gian Carlo Menotti'},{id:'work-tahiti',title:'Trouble in Tahiti',composer:'Leonard Bernstein'}];ch=true}}state._meta=state._meta||{};state._meta.schema='5.1';if(ch)localStorage.setItem(K4,JSON.stringify(state))}catch(e){console.warn('Migrazione V5.1',e)}
 const pad=n=>String(n).padStart(2,'0');
 function ymd(d){return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`}
 function todayYMD(){return ymd(new Date())}
@@ -362,12 +362,12 @@ function fmtDate(d){return new Intl.DateTimeFormat('it-IT',{weekday:'long',day:'
 function fmtShort(s){return new Intl.DateTimeFormat('it-IT',{weekday:'short',day:'numeric',month:'short'}).format(parseDate(s))}
 function esc(s){return(s??'').toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
 function uid(prefix='id'){return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2,7)}`}
-function save(opts={}){if(!opts.skipHistory)rememberBackupSnapshot();state._meta=state._meta||{};state._meta.lastSaved=new Date().toISOString();state._meta.version='5.0';localStorage.setItem(K4,JSON.stringify(state));updateHeader();renderQuickDashboard();renderOps48();const s=document.getElementById('status');if(s){s.textContent='Salvato ✓';setTimeout(()=>s.textContent='Dati locali · Cloud Sync V5.0',1000)}if(!opts.skipCloud)scheduleCloudPush()}
+function save(opts={}){if(!opts.skipHistory)rememberBackupSnapshot();state._meta=state._meta||{};state._meta.lastSaved=new Date().toISOString();state._meta.version='5.1';localStorage.setItem(K4,JSON.stringify(state));updateHeader();renderQuickDashboard();renderOps48();const s=document.getElementById('status');if(s){s.textContent='Salvato ✓';setTimeout(()=>s.textContent='Dati locali · Cloud Sync V5.1',1000)}if(!opts.skipCloud)scheduleCloudPush()}
 function activeProd(){return state.productions.find(p=>p.id===state.activeProductionId)||state.productions[0]}
 function updateHeader(){document.getElementById('headDate').textContent=fmtDate(new Date());const p=activeProd();document.getElementById('activeProdLabel').textContent=`Produzione attiva: ${p.title} · ${p.venue||p.kind}`;}
 updateHeader();
 
-const BUILD_LABEL='V5.0 · 30/08/2026';
+const BUILD_LABEL='V5.1 · 30/08/2026';
 let selectedDate=todayYMD(),smartMode='solisti',planFilter='future',selectedPlanCast=new Set(),smartCalls=[],smartCallDate='';
 document.getElementById('smartDate').value=todayYMD();document.getElementById('planDate').value=todayYMD();
 
@@ -604,7 +604,7 @@ function undoLastPdfImport(){
 async function importPagliacciPdf(ev){
  const input=ev.target,f=input.files&&input.files[0];if(!f)return;if(!/\.pdf$/i.test(f.name||'')){alert('Selezioni un file PDF.');input.value='';return}
  let p=(state.productions||[]).find(x=>/pagliacci/i.test((x.title||'').trim()));if(!p){p={id:uid('prod'),title:'Pagliacci',venue:'Teatro Malibran',cast:[],rooms:[],plan:[]};state.productions.push(p)}
- try{const lines=await extractPdfLines(f),incoming=parsePagliacciLines(lines);if(!incoming.length)throw new Error('Nel PDF non ho riconosciuto attività Pagliacci. Verifichi che sia una pianificazione dell’Ufficio Produzione.');const changes=comparePlans(p.plan||[],incoming);state.activeProductionId=p.id;save();showPdfCompare(f,p,incoming,changes)}catch(e){console.error(e);alert('Importazione PDF non riuscita.\n'+(e.message||'Riprovi con il PDF originale.'))}finally{input.value=''}
+ try{const lines=await extractPdfLines(f),incoming=parsePagliacciLines(lines);if(!incoming.length)throw new Error('Nel PDF non ho riconosciuto attività Pagliacci. Verifichi che sia una pianificazione dell’Ufficio Produzione.');const changes=comparePlans(p.plan||[],incoming);state.activeProductionId=p.id;save();showPdfCompare(f,p,incoming,changes);autoArchivePdf(f,p,'Piano prove importato','Piano prove')}catch(e){console.error(e);alert('Importazione PDF non riuscita.\n'+(e.message||'Riprovi con il PDF originale.'))}finally{input.value=''}
 }
 
 function addCast(){const p=activeProd(),role=document.getElementById('castRole').value.trim(),name=document.getElementById('castName').value.trim();if(!name)return;p.cast.push({id:uid('cast'),role,name});document.getElementById('castRole').value='';document.getElementById('castName').value='';save();renderCast()}
@@ -626,10 +626,54 @@ function renderScores(){
  document.getElementById('scoreList').innerHTML=p.documents.length?p.documents.map(d=>`<div class="card"><div class="prodTitle"><div><strong>📄 ${esc(d.title||d.filename||'Spartito')}</strong>${d.composer?`<div class="small">${esc(d.composer)}</div>`:''}${d.shared?'<span class="badge active">CONDIVISO</span>':(d.builtin?'<span class="badge active">INTEGRATO</span>':'<span class="badge">DISPOSITIVO</span>')}</div></div><div class="toolbar"><button class="action blue" onclick="openScore('${d.id}')">APRI PDF</button>${(d.builtin||d.shared)?'':`<button class="action danger" onclick="deleteScore('${d.id}')">Elimina</button>`}</div></div>`).join(''):'<div class="empty">Nessuno spartito inserito per questa produzione.</div>';
 }
 async function addScoreFile(ev){
- const f=ev.target.files?.[0];if(!f)return;if(f.type&&f.type!=='application/pdf'&&!/\.pdf$/i.test(f.name))return alert('Selezioni un file PDF.');
- const p=activeProd(),id=uid('score'),title=document.getElementById('scoreTitle').value.trim()||f.name.replace(/\.pdf$/i,''),composer=document.getElementById('scoreComposer').value.trim();
- try{await putScoreBlob(id,f);p.documents=Array.isArray(p.documents)?p.documents:[];p.documents.push({id,title,composer,filename:f.name,source:'idb'});save();document.getElementById('scoreTitle').value='';document.getElementById('scoreComposer').value='';ev.target.value='';renderScores();}
- catch(e){console.error(e);alert('Non è stato possibile memorizzare il PDF sul dispositivo.');}
+ const f=ev.target.files?.[0];if(!f)return;
+ if(f.type&&f.type!=='application/pdf'&&!/\.pdf$/i.test(f.name))return alert('Selezioni un file PDF.');
+ const p=ensureProdV5(activeProd()),id=uid('score'),title=document.getElementById('scoreTitle').value.trim()||f.name.replace(/\.pdf$/i,''),composer=document.getElementById('scoreComposer').value.trim(),c=getCloudConfig();
+ try{
+  if(c.token&&c.owner&&c.repo){
+   const path=`spartiti/${safeFileName(p.id)}/${Date.now()}_${safeFileName(f.name)}`;
+   await ghPut(c,path,ab64(await f.arrayBuffer()),`Aggiunge spartito ${title}`);
+   p.documents=Array.isArray(p.documents)?p.documents:[];
+   p.documents.push({id,title,composer,filename:f.name,path,url:`https://raw.githubusercontent.com/${c.owner}/${c.repo}/${c.branch}/${path}`,shared:true,source:'shared',updatedAt:new Date().toISOString()});
+   save({skipCloud:true});
+   await cloudPush(false);
+   alert('Spartito pubblicato e condiviso su tutti i dispositivi.');
+  }else{
+   await putScoreBlob(id,f);
+   p.documents=Array.isArray(p.documents)?p.documents:[];
+   p.documents.push({id,title,composer,filename:f.name,source:'idb'});
+   save();
+   alert('Cloud non configurato su questo dispositivo: lo spartito è stato salvato solo localmente. Potrà condividerlo in seguito con “Condividi spartiti locali”.');
+  }
+  document.getElementById('scoreTitle').value='';
+  document.getElementById('scoreComposer').value='';
+  ev.target.value='';
+  renderScores();
+ }catch(e){console.error(e);alert('Non è stato possibile aggiungere il PDF: '+(e.message||''));}
+}
+
+async function shareLocalScores(){
+ const p=ensureProdV5(activeProd()),c=getCloudConfig();
+ if(!c.token||!c.owner||!c.repo)return alert('Prima configuri SINCRONIZZA con il token GitHub.');
+ const locals=(p.documents||[]).filter(d=>!d.shared&&!d.builtin&&d.source==='idb');
+ if(!locals.length)return alert('Non ci sono spartiti locali da condividere.');
+ if(!confirm(`Pubblicare su GitHub ${locals.length} spartit${locals.length===1?'o':'i'} locali?`))return;
+ let ok=0,fail=0;
+ for(const d of locals){
+  try{
+   const blob=await getScoreBlob(d.id);if(!blob){fail++;continue}
+   const path=`spartiti/${safeFileName(p.id)}/${Date.now()}_${safeFileName(d.filename||((d.title||'spartito')+'.pdf'))}`;
+   await ghPut(c,path,ab64(await blob.arrayBuffer()),`Condivide spartito ${d.title||d.filename||'Spartito'}`);
+   d.path=path;d.url=`https://raw.githubusercontent.com/${c.owner}/${c.repo}/${c.branch}/${path}`;
+   d.shared=true;d.source='shared';d.updatedAt=new Date().toISOString();
+   try{await removeScoreBlob(d.id)}catch(_){}
+   ok++;
+  }catch(e){console.error(e);fail++}
+ }
+ save({skipCloud:true});
+ if(ok)await cloudPush(false);
+ renderScores();
+ alert(`Condivisione completata: ${ok} pubblicati${fail?`, ${fail} non riusciti`:''}.`);
 }
 async function openScore(id){
  const p=activeProd(),d=(p.documents||[]).find(x=>x.id===id);if(!d)return;
@@ -713,16 +757,26 @@ function renderCloudPanel(){const c=getCloudConfig();cloudOwner.value=c.owner;cl
 function b64utf8(s){return btoa(unescape(encodeURIComponent(s)))}function unb64(s){return decodeURIComponent(escape(atob(s.replace(/\n/g,''))))}
 async function ghGet(c,path=c.path){const h={Accept:'application/vnd.github+json'};if(c.token)h.Authorization=`Bearer ${c.token}`;const r=await fetch(`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${path.split('/').map(encodeURIComponent).join('/')}?ref=${encodeURIComponent(c.branch)}`,{headers:h,cache:'no-store'});if(r.status===404)return null;if(!r.ok)throw new Error(`GitHub ${r.status}`);return r.json()}
 async function ghPut(c,path,content,message){if(!c.token)throw new Error('Serve il token GitHub per scrivere.');const ex=await ghGet(c,path),h={Accept:'application/vnd.github+json','Content-Type':'application/json',Authorization:`Bearer ${c.token}`},body={message,content,branch:c.branch};if(ex?.sha)body.sha=ex.sha;const r=await fetch(`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${path.split('/').map(encodeURIComponent).join('/')}`,{method:'PUT',headers:h,body:JSON.stringify(body)});if(!r.ok){let x={};try{x=await r.json()}catch(e){}throw new Error(`GitHub ${r.status}${x.message?' · '+x.message:''}`)}return r.json()}
-async function cloudPush(manual=false){if(cloudBusy)return;const c=getCloudConfig();if(!c.owner||!c.repo)return manual&&alert('Configuri il repository.');if(!c.token)return manual&&alert('Per pubblicare serve un token GitHub fine-grained con Contents: Read and write.');cloudBusy=true;try{state._meta=state._meta||{};state._meta.cloudUpdatedAt=new Date().toISOString();await ghPut(c,c.path,b64utf8(JSON.stringify({app:'FenicePalcoscenico',version:'5.0',updatedAt:state._meta.cloudUpdatedAt,state},null,2)),'Aggiorna dati Fenice Palcoscenico');localStorage.setItem(K4,JSON.stringify(state));if(manual)alert('Dati pubblicati: ora gli altri dispositivi possono sincronizzarsi.')}catch(e){if(manual)alert('Pubblicazione non riuscita: '+e.message)}finally{cloudBusy=false}}
+async function cloudPush(manual=false){if(cloudBusy)return;const c=getCloudConfig();if(!c.owner||!c.repo)return manual&&alert('Configuri il repository.');if(!c.token)return manual&&alert('Per pubblicare serve un token GitHub fine-grained con Contents: Read and write.');cloudBusy=true;try{state._meta=state._meta||{};state._meta.cloudUpdatedAt=new Date().toISOString();await ghPut(c,c.path,b64utf8(JSON.stringify({app:'FenicePalcoscenico',version:'5.1',updatedAt:state._meta.cloudUpdatedAt,state},null,2)),'Aggiorna dati Fenice Palcoscenico');localStorage.setItem(K4,JSON.stringify(state));if(manual)alert('Dati pubblicati: ora gli altri dispositivi possono sincronizzarsi.')}catch(e){if(manual)alert('Pubblicazione non riuscita: '+e.message)}finally{cloudBusy=false}}
 async function cloudPull(manual=false){if(cloudBusy)return;const c=getCloudConfig();if(!c.owner||!c.repo)return manual&&alert('Configuri il repository.');cloudBusy=true;try{const f=await ghGet(c,c.path);if(!f?.content)return manual&&alert('Archivio condiviso non ancora creato. Sul dispositivo principale prema “Pubblica dati attuali”.');const p=JSON.parse(unb64(f.content));if(!p.state)throw new Error('Archivio non valido');if(manual&&new Date(state._meta?.lastSaved||0)>new Date(p.updatedAt||0)&&!confirm('I dati locali sono più recenti. Sostituirli comunque?'))return;rememberBackupSnapshot();state=p.state;for(const x of state.productions||[])ensureProdV5(x);save({skipHistory:true,skipCloud:true});if(manual)alert('Dati condivisi scaricati.')}catch(e){if(manual)alert('Sincronizzazione non riuscita: '+e.message)}finally{cloudBusy=false}}
 function scheduleCloudPush(){const c=getCloudConfig();if(!c.auto||!c.token||cloudBusy)return;clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>cloudPush(false),1800)}
 async function testCloud(){const c=getCloudConfig();if(!c.owner||!c.repo)return alert('Configuri owner e repository.');try{const f=await ghGet(c,c.path);alert(f?'Connessione riuscita: archivio trovato.':'Connessione riuscita: archivio non ancora creato.')}catch(e){alert('Verifica non riuscita: '+e.message)}}
 async function autoCloudPull(){const c=getCloudConfig();if(!c.owner||!c.repo)return;try{const f=await ghGet(c,c.path);if(!f?.content)return;const p=JSON.parse(unb64(f.content)),rt=new Date(p.updatedAt||0).getTime(),lt=new Date(state._meta?.cloudUpdatedAt||0).getTime();if(rt>lt&&p.state){state=p.state;for(const x of state.productions||[])ensureProdV5(x);save({skipHistory:true,skipCloud:true})}}catch(e){}}
 function safeFileName(n){return(n||'documento.pdf').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9._-]+/g,'_')}function ab64(b){let s='',u=new Uint8Array(b);for(let i=0;i<u.length;i+=32768)s+=String.fromCharCode(...u.subarray(i,Math.min(i+32768,u.length)));return btoa(s)}
-async function uploadSharedDocument(ev){const f=ev.target.files?.[0];if(!f)return;const c=getCloudConfig();if(!c.token)return alert('Configuri prima Cloud con un token GitHub.');const p=ensureProdV5(),title=docTitle.value.trim()||f.name,cat=docCategory.value,path=`documenti/${safeFileName(p.id)}/${Date.now()}_${safeFileName(f.name)}`;try{await ghPut(c,path,ab64(await f.arrayBuffer()),`Aggiunge documento ${title}`);p.sharedDocs.push({id:uid('doc'),title,category:cat,filename:f.name,path,url:`https://raw.githubusercontent.com/${c.owner}/${c.repo}/${c.branch}/${path}`,shared:true,updatedAt:new Date().toISOString()});docTitle.value='';ev.target.value='';save();renderSharedDocuments();alert('Documento condiviso pubblicato.')}catch(e){alert('Caricamento non riuscito: '+e.message)}}
-async function replaceSharedDoc(id,ev){const f=ev.target.files?.[0],c=getCloudConfig(),d=ensureProdV5().sharedDocs.find(x=>x.id===id);if(!f||!d)return;if(!c.token)return alert('Serve il token GitHub.');try{await ghPut(c,d.path,ab64(await f.arrayBuffer()),`Aggiorna ${d.title}`);d.filename=f.name;d.updatedAt=new Date().toISOString();d.url=`https://raw.githubusercontent.com/${c.owner}/${c.repo}/${c.branch}/${d.path}?v=${Date.now()}`;save();renderSharedDocuments()}catch(e){alert('Sostituzione non riuscita: '+e.message)}}
+async function autoArchivePdf(file,p=activeProd(),title='PDF importato',category='Altro'){
+ const c=getCloudConfig();if(!c.token||!c.owner||!c.repo)return;
+ try{
+  p=ensureProdV5(p);
+  const path=`documenti/${safeFileName(p.id)}/${Date.now()}_${safeFileName(file.name)}`;
+  await ghPut(c,path,ab64(await file.arrayBuffer()),`Archivia ${title}`);
+  p.sharedDocs.push({id:uid('doc'),title:`${title} — ${file.name.replace(/\.pdf$/i,'')}`,category,filename:file.name,path,url:`https://raw.githubusercontent.com/${c.owner}/${c.repo}/${c.branch}/${path}`,shared:true,updatedAt:new Date().toISOString()});
+  save({skipCloud:true});await cloudPush(false);
+ }catch(e){console.warn('Archiviazione automatica PDF non riuscita',e)}
+}
+async function uploadSharedDocument(ev){const f=ev.target.files?.[0];if(!f)return;const c=getCloudConfig();if(!c.token)return alert('Configuri prima Cloud con un token GitHub.');const p=ensureProdV5(),title=docTitle.value.trim()||f.name,cat=docCategory.value,path=`documenti/${safeFileName(p.id)}/${Date.now()}_${safeFileName(f.name)}`;try{await ghPut(c,path,ab64(await f.arrayBuffer()),`Aggiunge documento ${title}`);p.sharedDocs.push({id:uid('doc'),title,category:cat,filename:f.name,path,url:`https://raw.githubusercontent.com/${c.owner}/${c.repo}/${c.branch}/${path}`,shared:true,updatedAt:new Date().toISOString()});docTitle.value='';ev.target.value='';save({skipCloud:true});await cloudPush(false);renderSharedDocuments();alert('Documento pubblicato: è già registrato nell’archivio condiviso.')}catch(e){alert('Caricamento non riuscito: '+e.message)}}
+async function replaceSharedDoc(id,ev){const f=ev.target.files?.[0],c=getCloudConfig(),d=ensureProdV5().sharedDocs.find(x=>x.id===id);if(!f||!d)return;if(!c.token)return alert('Serve il token GitHub.');try{await ghPut(c,d.path,ab64(await f.arrayBuffer()),`Aggiorna ${d.title}`);d.filename=f.name;d.updatedAt=new Date().toISOString();d.url=`https://raw.githubusercontent.com/${c.owner}/${c.repo}/${c.branch}/${d.path}?v=${Date.now()}`;save({skipCloud:true});await cloudPush(false);renderSharedDocuments();alert('Nuova versione pubblicata e registrata nell’archivio condiviso.')}catch(e){alert('Sostituzione non riuscita: '+e.message)}}
 function renderSharedDocuments(){const p=ensureProdV5();docsProdName.textContent=`Produzione attiva: ${p.title}`;sharedDocList.innerHTML=p.sharedDocs.length?p.sharedDocs.map(d=>`<div class="card"><b>${esc(d.title)}</b> <span class="badge active">CONDIVISO</span><div class="small">${esc(d.category||'Documento')} · ${esc(d.filename||'')}</div><div class="docActions"><button class="action blue" onclick="window.open('${esc(d.url)}','_blank')">Apri</button><button class="action alt" onclick="shareText('${esc(d.url)}')">Condividi</button><label class="fileLabel gold">Sostituisci versione<input type="file" accept="application/pdf,.pdf" style="display:none" onchange="replaceSharedDoc('${d.id}',event)"></label><button class="action danger" onclick="deleteSharedDoc('${d.id}')">Rimuovi voce</button></div></div>`).join(''):'<div class="empty">Nessun documento condiviso.</div>'}
-function deleteSharedDoc(id){const p=ensureProdV5();if(!confirm('Rimuovere la voce dall’app? Il file resta su GitHub per sicurezza.'))return;p.sharedDocs=p.sharedDocs.filter(x=>x.id!==id);save();renderSharedDocuments()}
+async function deleteSharedDoc(id){const p=ensureProdV5();if(!confirm('Rimuovere la voce dall’app? Il file resta su GitHub per sicurezza.'))return;p.sharedDocs=p.sharedDocs.filter(x=>x.id!==id);save({skipCloud:true});await cloudPush(false);renderSharedDocuments()}
 function openShowMode(){const p=ensureProdV5(),r=p.plan.filter(x=>/recita|generale|concerto/i.test(x.activity||'')).sort((a,b)=>itemDateTime(a)-itemDateTime(b)),x=r.find(x=>itemEndDateTime(x)>=new Date())||futurePlanItems()[0];showDate.value=x?.date||todayYMD();openPanel('showmode')}
 function setShowDate(o){let d=new Date();d.setDate(d.getDate()+o);showDate.value=ymd(d);renderShowMode()}
 function renderShowMode(){const p=ensureProdV5(),d=showDate?.value||todayYMD();if(showDate)showDate.value=d;showProd.textContent=`${p.title} · ${p.venue||p.kind}`;showDateLabel.textContent=fmtDate(parseDate(d));showClock.textContent=new Intl.DateTimeFormat('it-IT',{hour:'2-digit',minute:'2-digit'}).format(new Date());const a=itemsFor(d),draft=p.odgDrafts?.[d];showItems.innerHTML=a.length?a.map(x=>{const calls=(draft?.calls||[]).filter(c=>c.itemId===x.id&&c.time).flatMap(c=>(c.targets||[]).map(t=>`${c.time.replace(':','.')} · ${smartCallLabel(t)}`));return`<div class="showCue"><div class="showCueTime">${esc(timeRange(x)||'—')}</div><div class="showCueText">${esc(x.activity)}</div>${x.place?`<div>📍 ${esc(x.place)}</div>`:''}${calls.length?`<div class="section">Chiamate</div>${calls.map(y=>`<div>${esc(y)}</div>`).join('')}`:''}</div>`}).join(''):'<div class="empty">Nessuna attività.</div>';renderShowCues()}
@@ -737,7 +791,7 @@ setInterval(()=>{renderQuickDashboard();renderOps48();if(document.getElementById
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      const reg = await navigator.serviceWorker.register('./sw.js?v=5.0', { updateViaCache: 'none' });
+      const reg = await navigator.serviceWorker.register('./sw.js?v=5.1', { updateViaCache: 'none' });
       await reg.update();
       // Se una nuova versione prende il controllo, ricarica una sola volta la pagina.
       let refreshing = false;

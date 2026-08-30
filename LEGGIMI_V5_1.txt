@@ -1,0 +1,22 @@
+FENICE — PALCOSCENICO V5.1
+PDF / DOCUMENTI / SPARTITI CONDIVISI AUTOMATICAMENTE
+
+- Nuovi spartiti: con Cloud configurato vengono caricati direttamente su GitHub,
+  marcati CONDIVISO e registrati subito in fenice-data.json.
+- “Condividi spartiti locali” pubblica anche vecchi PDF rimasti sul solo dispositivo.
+- Nuovi documenti PDF e nuove versioni vengono registrati immediatamente nel cloud,
+  anche se la sincronizzazione automatica generale non è selezionata.
+- I PDF usati nell’import del piano Pagliacci vengono archiviati automaticamente
+  fra i Documenti condivisi quando il token è disponibile.
+- Gli altri dispositivi devono soltanto sincronizzare; non occorre reinserire i PDF.
+- Il token GitHub resta esclusivamente nel localStorage del dispositivo e non è incluso nei file.
+
+PUBBLICAZIONE
+Caricare nella root del repository tutti i file di questo pacchetto:
+index.html
+manifest.webmanifest
+sw.js
+icon-192.png
+icon-512.png
+The_Telephone_CP.pdf
+Trouble_in_Tahiti_CP.pdf
