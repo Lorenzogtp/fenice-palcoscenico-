@@ -1,23 +1,24 @@
 FENICE — PALCOSCENICO V4.9.8
 
-NOVITÀ
-- Aggiornamento intelligente del Piano prove da PDF Pagliacci
-- ODG Smart disponibile anche nel Piano prove, per ogni giornata
-- Menu ODG Smart per selezionare solisti, coro e relativi orari di convocazione
-- Convocazioni associate alla singola prova e inserite sotto la relativa attività
-- Selezione multipla di solisti e coro allo stesso orario
-- Rimossi dalla schermata i pulsanti “Convocati adesso” e “Modalità recita”
-- Rimosso dalla schermata anche il pulsante “Modalità palco”
-- Lettura reale del PDF e filtro delle sole attività Pagliacci
-- Confronto prima/nuovo prima di modificare il piano
-- Selezione delle singole variazioni oppure “Accetta tutte”
-- Backup automatico prima di applicare un import
-- Pulsante “Annulla ultimo import”
-- Date raggruppate una sola volta nel Piano prove
+MODIFICA DITTICO / SPARTITI
+- Eliminate le due vecchie voci PDF INTEGRATO:
+  * The Telephone
+  * Trouble in Tahiti
+- Conservati gli spartiti aggiunti manualmente sul dispositivo.
+- La migrazione elimina esclusivamente gli ID delle due vecchie voci integrate.
+- I file PDF salvati manualmente in IndexedDB non vengono cancellati.
+- Resta disponibile la funzione per aggiungere/eliminare spartiti manualmente.
 
-INSTALLAZIONE GITHUB PAGES
-Caricare e sostituire tutti i file di questa cartella nella root del repository.
-Aprire una volta il sito in Chrome e verificare V4.9.8 in alto.
+AGGIORNAMENTO GITHUB PAGES
+Sostituire nella root del repository:
+- index.html
+- manifest.webmanifest
+- sw.js
+- icon-192.png
+- icon-512.png
 
-NOTA
-La lettura PDF usa PDF.js caricato via rete: per importare un PDF è necessaria la connessione Internet al momento dell’operazione.
+Non è più necessaria la cartella "spartiti" della V4.9.7.
+
+IMPORTANTE
+L'aggiornamento dell'app non cancella i dati locali del browser.
+Dopo la pubblicazione, aprire il sito una volta online per ricevere la nuova versione.
