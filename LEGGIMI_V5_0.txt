@@ -1,0 +1,27 @@
+FENICE — PALCOSCENICO V5.0
+
+Implementati i 10 punti richiesti:
+1. Sincronizzazione fra dispositivi con architettura local-first + GitHub Cloud Sync.
+2. Hub completo per ogni produzione; Dittico suddiviso in The Telephone e Trouble in Tahiti.
+3. ODG Smart evoluto: Tutti, Coro, Figuranti, singoli solisti, più convocati alla stessa ora, orari differenziati, copia giorno precedente, bozza e storico.
+4. Home OGGI / DOMANI con operativo 48 ore e priorità.
+5. Documenti PDF condivisi: upload, apertura, condivisione e sostituzione versione.
+6. Piano prove: confronto PDF con legenda verde/giallo/rosso e approvazione singola o totale.
+7. Backup automatico delle ultime 10 versioni e ripristino.
+8. Ricerca globale estesa anche a opere, documenti, contatti, note tecniche, ODG e cue.
+9. Nuova Modalità Spettacolo con orari, chiamate, cue e cambi scena.
+10. V5.0 offline/local-first + sincronizzazione online.
+
+PUBBLICAZIONE
+Caricare tutti i file dello ZIP nella root del repository GitHub.
+
+PRIMA SINCRONIZZAZIONE
+- Aprire V5.0 sul dispositivo principale.
+- SINCRONIZZA: owner/repository vengono normalmente rilevati automaticamente su GitHub Pages.
+- Inserire un token GitHub fine-grained limitato al solo repository, permesso Contents: Read and write.
+- Premere “Pubblica dati attuali”.
+- Sugli altri dispositivi premere “Scarica dati condivisi”.
+- Facoltativo: attivare sincronizzazione automatica.
+
+SICUREZZA
+Il token GitHub resta nel localStorage del singolo dispositivo e non viene inserito nel codice, nel repository o nei backup.
