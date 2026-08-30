@@ -1,0 +1,1494 @@
+{
+  "app": "FenicePalcoscenico",
+  "version": "5.0",
+  "updatedAt": "2026-08-30T12:49:31.544Z",
+  "state": {
+    "activeProductionId": "prod-elisir-2026",
+    "productions": [
+      {
+        "id": "prod-elisir-2026",
+        "title": "L’Elisir d’amore",
+        "kind": "Opera",
+        "venue": "Teatro Malibran",
+        "start": "2026-08-11",
+        "end": "2026-09-01",
+        "notes": "Recite 26, 28, 30 agosto e 1 settembre 2026",
+        "cast": [
+          {
+            "id": "cast-adina",
+            "role": "Adina",
+            "name": "Gilda Fiume"
+          },
+          {
+            "id": "cast-nemorino",
+            "role": "Nemorino",
+            "name": "Valerio Borgioni"
+          },
+          {
+            "id": "cast-belcore",
+            "role": "Belcore",
+            "name": "Alessandro Luongo"
+          },
+          {
+            "id": "cast-dulcamara",
+            "role": "Dulcamara",
+            "name": "Bruno Taddia"
+          },
+          {
+            "id": "cast-giannetta",
+            "role": "Giannetta",
+            "name": "Barbara Massaro"
+          }
+        ],
+        "rooms": [
+          {
+            "room": "17",
+            "who": "Adina — Gilda Fiume"
+          },
+          {
+            "room": "18",
+            "who": "Nemorino — Valerio Borgioni"
+          },
+          {
+            "room": "19",
+            "who": "Giannetta — Barbara Massaro"
+          },
+          {
+            "room": "20",
+            "who": "Maestri collaboratori"
+          },
+          {
+            "room": "21",
+            "who": "Orchestra Donne"
+          },
+          {
+            "room": "24",
+            "who": "Belcore — Alessandro Luongo / Dulcamara — Bruno Taddia"
+          },
+          {
+            "room": "25",
+            "who": "Coro Uomini"
+          },
+          {
+            "room": "26",
+            "who": "Coro Donne"
+          },
+          {
+            "room": "27",
+            "who": "Figuranti Donne"
+          },
+          {
+            "room": "28",
+            "who": "Coro Donne"
+          },
+          {
+            "room": "31–32–34",
+            "who": "Figuranti"
+          },
+          {
+            "room": "35",
+            "who": "Coro Uomini"
+          },
+          {
+            "room": "36",
+            "who": "Direttore — M° Francesco Ivan Ciampa"
+          }
+        ],
+        "plan": [
+          {
+            "id": "e-0811-a",
+            "date": "2026-08-11",
+            "start": "08:00",
+            "end": "14:00",
+            "activity": "Montaggio",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "e-0811-b",
+            "date": "2026-08-11",
+            "start": "10:30",
+            "end": "14:00",
+            "activity": "Incontro compagnia / Prova musicale",
+            "place": "Loggione Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0811-c",
+            "date": "2026-08-11",
+            "start": "15:30",
+            "end": "19:30",
+            "activity": "Prova di regia",
+            "place": "Loggione Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0812-a",
+            "date": "2026-08-12",
+            "start": "08:00",
+            "end": "14:00",
+            "activity": "Montaggio",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "e-0812-b",
+            "date": "2026-08-12",
+            "start": "10:00",
+            "end": "13:00",
+            "activity": "Prova musicale",
+            "place": "Loggione Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0812-c",
+            "date": "2026-08-12",
+            "start": "14:30",
+            "end": "19:30",
+            "activity": "Prova di regia",
+            "place": "Loggione Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0813-a",
+            "date": "2026-08-13",
+            "start": "09:00",
+            "end": "13:30",
+            "activity": "Prova tecnica",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "e-0813-c",
+            "date": "2026-08-13",
+            "start": "15:00",
+            "end": "19:30",
+            "activity": "Prova di regia",
+            "place": "Loggione Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0814-a",
+            "date": "2026-08-14",
+            "start": "10:00",
+            "end": "13:30",
+            "activity": "Prova di regia",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0815-a",
+            "date": "2026-08-15",
+            "start": "",
+            "end": "",
+            "activity": "Giornata festiva — Ferragosto",
+            "place": "",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "e-0816-a",
+            "date": "2026-08-16",
+            "start": "10:00",
+            "end": "13:30",
+            "activity": "Prova di regia",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0817-a",
+            "date": "2026-08-17",
+            "start": "",
+            "end": "",
+            "activity": "Riposo",
+            "place": "Teatro Malibran",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "e-0818-a",
+            "date": "2026-08-18",
+            "start": "10:00",
+            "end": "13:30",
+            "activity": "Prova di regia — Compagnia/Maestri",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0818-b",
+            "date": "2026-08-18",
+            "start": "15:00",
+            "end": "18:30",
+            "activity": "Prova di regia — Compagnia/Maestri + Coro 15:00–16:45",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0819-a",
+            "date": "2026-08-19",
+            "start": "10:00",
+            "end": "13:00",
+            "activity": "Prova di regia — Compagnia/Maestri + Coro 11:15–13:00",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0819-b",
+            "date": "2026-08-19",
+            "start": "15:00",
+            "end": "18:00",
+            "activity": "Prova di regia — Compagnia/Maestri + Coro 15:00–16:45",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0819-c",
+            "date": "2026-08-19",
+            "start": "18:15",
+            "end": "22:15",
+            "activity": "Prove luci",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "e-0820-a",
+            "date": "2026-08-20",
+            "start": "10:00",
+            "end": "13:00",
+            "activity": "Prova di regia — Compagnia/Maestri",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0820-b",
+            "date": "2026-08-20",
+            "start": "15:00",
+            "end": "18:00",
+            "activity": "Prova di regia — Compagnia/Maestri + Coro",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0820-c",
+            "date": "2026-08-20",
+            "start": "18:15",
+            "end": "22:15",
+            "activity": "Prove luci",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "e-0821-a",
+            "date": "2026-08-21",
+            "start": "09:00",
+            "end": "13:30",
+            "activity": "Prove luci",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "e-0821-b",
+            "date": "2026-08-21",
+            "start": "16:00",
+            "end": "20:00",
+            "activity": "Antepiano in costume / trucco / parrucca",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0821-c",
+            "date": "2026-08-21",
+            "start": "15:00",
+            "end": "19:00",
+            "activity": "Lettura orchestra",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "e-0822-a",
+            "date": "2026-08-22",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Prova in assieme — M° Ciampa",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0822-b",
+            "date": "2026-08-22",
+            "start": "15:00",
+            "end": "18:00",
+            "activity": "Prova in assieme — M° Ciampa",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0823-a",
+            "date": "2026-08-23",
+            "start": "10:00",
+            "end": "13:00",
+            "activity": "Prova in assieme — M° Ciampa",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0824-a",
+            "date": "2026-08-24",
+            "start": "",
+            "end": "",
+            "activity": "Riposo",
+            "place": "Teatro Malibran",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "e-0825-a",
+            "date": "2026-08-25",
+            "start": "09:00",
+            "end": "13:30",
+            "activity": "Prove luci",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "e-0825-b",
+            "date": "2026-08-25",
+            "start": "18:00",
+            "end": "22:00",
+            "activity": "Prova in assieme — M° Ciampa, in costume",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0826-a",
+            "date": "2026-08-26",
+            "start": "09:00",
+            "end": "13:30",
+            "activity": "Prove luci",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "e-0826-b",
+            "date": "2026-08-26",
+            "start": "19:00",
+            "end": "",
+            "activity": "1ª recita — M° Ciampa · Diretta Rai Radio 3",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0828-a",
+            "date": "2026-08-28",
+            "start": "19:00",
+            "end": "",
+            "activity": "2ª recita",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0830-a",
+            "date": "2026-08-30",
+            "start": "17:00",
+            "end": "",
+            "activity": "3ª recita",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "e-0901-a",
+            "date": "2026-09-01",
+            "start": "",
+            "end": "",
+            "activity": "4ª recita",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          }
+        ],
+        "documents": [],
+        "sharedDocs": [],
+        "contacts": [],
+        "technicalNotes": [],
+        "odgHistory": [],
+        "odgDrafts": {},
+        "showCues": [],
+        "works": []
+      },
+      {
+        "id": "prod-pagliacci-2026",
+        "title": "Pagliacci",
+        "kind": "Opera",
+        "venue": "Teatro Malibran",
+        "start": "2026-09-01",
+        "end": "2026-09-26",
+        "notes": "M° Callegari · Recite 18, 20, 22, 24 e 26 settembre 2026",
+        "cast": [
+          {
+            "id": "cast-pag-nedda",
+            "role": "Nedda",
+            "name": "Selene Zanetti"
+          },
+          {
+            "id": "cast-pag-canio",
+            "role": "Canio",
+            "name": "Gregory Kunde"
+          },
+          {
+            "id": "cast-pag-tonio",
+            "role": "Tonio",
+            "name": "Dimitri Platanias"
+          },
+          {
+            "id": "cast-pag-peppe",
+            "role": "Peppe",
+            "name": "Andrea Schifaudo"
+          },
+          {
+            "id": "cast-pag-silvio",
+            "role": "Silvio",
+            "name": "Alberto Petricca"
+          },
+          {
+            "id": "cast-pag-contadino-a",
+            "role": "Un contadino (18, 20, 22/9)",
+            "name": "Enzo Borghetti"
+          },
+          {
+            "id": "cast-pag-contadino-b",
+            "role": "Un contadino (24, 26/9)",
+            "name": "Umberto Imbrenda"
+          },
+          {
+            "id": "cast-pag-altro-a",
+            "role": "Un altro contadino (18, 20, 22/9)",
+            "name": "Enrico Masiero"
+          },
+          {
+            "id": "cast-pag-altro-b",
+            "role": "Un altro contadino (24, 26/9)",
+            "name": "Alessandro Vannucci"
+          }
+        ],
+        "rooms": [],
+        "plan": [
+          {
+            "id": "plan-1786628104229-xd62q",
+            "date": "2026-09-01",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "INC. COMPAGNIA / PROVA MUSICALE: Compagnia / M°",
+            "place": "Fen. loggione",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104229-9avvz",
+            "date": "2026-09-01",
+            "start": "15:00",
+            "end": "19:00",
+            "activity": "PROVA DI REGIA: Compagnia / Maestri",
+            "place": "Fen. loggione",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "p-0902-03",
+            "date": "2026-09-02",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Prova musicale — Compagnia / Maestri",
+            "place": "Loggione Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104229-tadzo",
+            "date": "2026-09-02",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "PROVA MUSICALE: Compagnia / Maestri",
+            "place": "Fen. loggione",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "p-0902-04",
+            "date": "2026-09-02",
+            "start": "15:00",
+            "end": "19:30",
+            "activity": "Prova di regia — Compagnia / Maestri",
+            "place": "Loggione Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104229-qsbx1",
+            "date": "2026-09-02",
+            "start": "15:00",
+            "end": "19:30",
+            "activity": "PROVA DI REGIA: Compagnia / Maestri",
+            "place": "Fen. loggione",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "p-0903-05",
+            "date": "2026-09-03",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Prova musicale — Compagnia / Maestri",
+            "place": "Loggione Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104229-uwj3a",
+            "date": "2026-09-03",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "PROVA MUSICALE: Compagnia / Maestri",
+            "place": "Fen. loggione",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "p-0903-06",
+            "date": "2026-09-03",
+            "start": "14:00",
+            "end": "20:00",
+            "activity": "Ingresso allestimento / Montaggio",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104229-4d58g",
+            "date": "2026-09-03",
+            "start": "14:00",
+            "end": "20:00",
+            "activity": "INGRESSO ALLESTIMENTO / MONTAGGIO",
+            "place": "Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "p-0903-07",
+            "date": "2026-09-03",
+            "start": "15:00",
+            "end": "19:30",
+            "activity": "Prova di regia — Compagnia / Maestri",
+            "place": "Loggione Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104229-02iyr",
+            "date": "2026-09-03",
+            "start": "15:00",
+            "end": "19:30",
+            "activity": "PROVA DI REGIA: Compagnia / Maestri",
+            "place": "Fen. loggione",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "p-0904-08",
+            "date": "2026-09-04",
+            "start": "08:00",
+            "end": "20:00",
+            "activity": "Montaggio",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104229-pxzms",
+            "date": "2026-09-04",
+            "start": "08:00",
+            "end": "20:00",
+            "activity": "MONTAGGIO",
+            "place": "Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "p-0904-09",
+            "date": "2026-09-04",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Prova di regia — Compagnia / Maestri",
+            "place": "Loggione Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104229-xawer",
+            "date": "2026-09-04",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "PROVE DI REGIA: Compagnia / Maestri",
+            "place": "Fen. loggione",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "p-0904-10",
+            "date": "2026-09-04",
+            "start": "15:00",
+            "end": "18:30",
+            "activity": "Prova di regia — Compagnia / Maestri",
+            "place": "Loggione Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104229-gisnx",
+            "date": "2026-09-04",
+            "start": "15:00",
+            "end": "18:30",
+            "activity": "PROVE DI REGIA: Compagnia / Maestri",
+            "place": "Fen. loggione",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "p-0905-11",
+            "date": "2026-09-05",
+            "start": "08:00",
+            "end": "20:00",
+            "activity": "Montaggio",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-1mm8g",
+            "date": "2026-09-05",
+            "start": "08:00",
+            "end": "20:00",
+            "activity": "MONTAGGIO",
+            "place": "Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "p-0905-12",
+            "date": "2026-09-05",
+            "start": "10:00",
+            "end": "13:00",
+            "activity": "Prova di regia — Compagnia / Maestri",
+            "place": "Loggione Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-0qmn0",
+            "date": "2026-09-05",
+            "start": "10:00",
+            "end": "13:00",
+            "activity": "PROVE DI REGIA: Compagnia / Maestri",
+            "place": "Fen. loggione",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "p-0905-13",
+            "date": "2026-09-05",
+            "start": "14:30",
+            "end": "17:00",
+            "activity": "Prova di regia — Compagnia / Maestri (evento h 19:30)",
+            "place": "Loggione Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-274xz",
+            "date": "2026-09-05",
+            "start": "14:30",
+            "end": "17:00",
+            "activity": "PROVE DI REGIA: Compagnia / Maestri (Evento h 19:30)",
+            "place": "Fen. loggione",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "p-0906-14",
+            "date": "2026-09-06",
+            "start": "08:00",
+            "end": "14:00",
+            "activity": "Montaggio",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-jn0tz",
+            "date": "2026-09-06",
+            "start": "08:00",
+            "end": "14:00",
+            "activity": "MONTAGGIO",
+            "place": "Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "p-0906-15",
+            "date": "2026-09-06",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Prova di regia — Compagnia / Maestri",
+            "place": "Loggione Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-1nr8e",
+            "date": "2026-09-06",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "PROVA DI REGIA: Compagnia / Maestri",
+            "place": "Fen. loggione",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "p-0907-16",
+            "date": "2026-09-07",
+            "start": "",
+            "end": "",
+            "activity": "Riposo",
+            "place": "",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0908-17",
+            "date": "2026-09-08",
+            "start": "09:00",
+            "end": "13:30",
+            "activity": "Prova tecnica",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-8jn07",
+            "date": "2026-09-08",
+            "start": "09:00",
+            "end": "13:30",
+            "activity": "PROVA TECNICA",
+            "place": "Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "p-0908-18",
+            "date": "2026-09-08",
+            "start": "15:00",
+            "end": "19:30",
+            "activity": "Prova di regia — Compagnia / Maestri",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-kna6b",
+            "date": "2026-09-08",
+            "start": "15:00",
+            "end": "19:30",
+            "activity": "PROVA DI REGIA: Compagnia / Maestri",
+            "place": "Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "p-0908-19",
+            "date": "2026-09-08",
+            "start": "18:00",
+            "end": "20:00",
+            "activity": "Prova musicale Coro e Piccoli Cantori + Direttore / M° Callegari",
+            "place": "Sala Rossi Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-yunr7",
+            "date": "2026-09-08",
+            "start": "18:00",
+            "end": "20:00",
+            "activity": "MUSICALE CORO e Piccoli C + Dir. / M° Callegari",
+            "place": "Fen. s.Rossi",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0909-20",
+            "date": "2026-09-09",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Prova di regia — Compagnia / Maestri",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-648md",
+            "date": "2026-09-09",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "PROVA DI REGIA: Compagnia / Maestri",
+            "place": "Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "p-0909-21",
+            "date": "2026-09-09",
+            "start": "15:00",
+            "end": "19:30",
+            "activity": "Prova di regia — Compagnia / Maestri + Coro e Piccoli Cantori 16:30–19:00",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-tjph2",
+            "date": "2026-09-09",
+            "start": "15:00",
+            "end": "19:30",
+            "activity": "REGIA: Compagnia / Maestri + CORO e Piccoli C. 16:30/19:00",
+            "place": "Malibran",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0910-22",
+            "date": "2026-09-10",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Prova di regia — Compagnia / Maestri",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-3ssju",
+            "date": "2026-09-10",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "PROVA DI REGIA: Compagnia / Maestri",
+            "place": "Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "p-0910-23",
+            "date": "2026-09-10",
+            "start": "15:00",
+            "end": "18:30",
+            "activity": "Prova di regia — Compagnia / M° + Coro e Piccoli Cantori 16:45–18:30",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "p-0910-24",
+            "date": "2026-09-10",
+            "start": "15:00",
+            "end": "19:00",
+            "activity": "Prova di lettura — M° Callegari",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-64xzr",
+            "date": "2026-09-10",
+            "start": "15:00",
+            "end": "18:30",
+            "activity": "REGIA: Compagnia / M° + CORO e Piccoli C. 16:45/18:30",
+            "place": "Malibran",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-hcd9z",
+            "date": "2026-09-10",
+            "start": "15:00",
+            "end": "19:00",
+            "activity": "PROVA DI LETTURA / M° Callegari",
+            "place": "Fen. s.esposiz.",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0910-25",
+            "date": "2026-09-10",
+            "start": "18:30",
+            "end": "23:15",
+            "activity": "Preset luci",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-npq8k",
+            "date": "2026-09-10",
+            "start": "18:30",
+            "end": "23:15",
+            "activity": "PRESET luci",
+            "place": "Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "p-0911-26",
+            "date": "2026-09-11",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Prova di regia — Compagnia / Maestri + Coro",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "p-0911-27",
+            "date": "2026-09-11",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Prova di lettura — M° Callegari",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-k8gn0",
+            "date": "2026-09-11",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "PROVA DI REGIA: Compagnia / Maestri + CORO",
+            "place": "Malibran",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-jetz4",
+            "date": "2026-09-11",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "PROVA DI LETTURA / M° Callegari",
+            "place": "Fen. s.esposiz.",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0911-28",
+            "date": "2026-09-11",
+            "start": "15:00",
+            "end": "18:00",
+            "activity": "Prova di lettura — M° Callegari",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "p-0911-29",
+            "date": "2026-09-11",
+            "start": "15:00",
+            "end": "18:30",
+            "activity": "Prova di regia — Compagnia / Maestri",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-mkr3b",
+            "date": "2026-09-11",
+            "start": "15:00",
+            "end": "18:30",
+            "activity": "PROVA DI REGIA: Compagnia / Maestri",
+            "place": "Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-06qlf",
+            "date": "2026-09-11",
+            "start": "15:00",
+            "end": "18:00",
+            "activity": "PROVA DI LETTURA / M° Callegari",
+            "place": "Fen. s.esposiz.",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0911-30",
+            "date": "2026-09-11",
+            "start": "18:45",
+            "end": "23:15",
+            "activity": "Prove luci",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-ts88r",
+            "date": "2026-09-11",
+            "start": "18:45",
+            "end": "23:15",
+            "activity": "PROVE LUCI",
+            "place": "Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "p-0912-31",
+            "date": "2026-09-12",
+            "start": "10:30",
+            "end": "14:00",
+            "activity": "Prova all’italiana — M° Callegari",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-a3964",
+            "date": "2026-09-12",
+            "start": "10:30",
+            "end": "14:00",
+            "activity": "PROVA ALL’ITALIANA / M° Callegari",
+            "place": "Malibran",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0912-32",
+            "date": "2026-09-12",
+            "start": "16:00",
+            "end": "20:00",
+            "activity": "Antepiano in costume / trucco / parrucco",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-x6k6s",
+            "date": "2026-09-12",
+            "start": "16:00",
+            "end": "20:00",
+            "activity": "ANTEPIANO IN COSTUME / TRUCCO / PARRUCCO",
+            "place": "Malibran",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0913-33",
+            "date": "2026-09-13",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Prova in assieme con Piccoli Cantori — M° Callegari",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-w28n9",
+            "date": "2026-09-13",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "PROVA IN ASSIEME con Piccoli C. / M° Callegari",
+            "place": "Malibran",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0914-34",
+            "date": "2026-09-14",
+            "start": "",
+            "end": "",
+            "activity": "Riposo",
+            "place": "",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0915-35",
+            "date": "2026-09-15",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Prova in assieme — M° Callegari",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-1cbvg",
+            "date": "2026-09-15",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "PROVA IN ASSIEME / M° Callegari",
+            "place": "Malibran",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0915-36",
+            "date": "2026-09-15",
+            "start": "15:00",
+            "end": "18:00",
+            "activity": "Prova in assieme con Piccoli Cantori — M° Callegari",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-yclm1",
+            "date": "2026-09-15",
+            "start": "15:00",
+            "end": "18:00",
+            "activity": "PROVA IN ASSIEME con Piccoli C. / M° Callegari",
+            "place": "Malibran",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0915-37",
+            "date": "2026-09-15",
+            "start": "18:15",
+            "end": "23:15",
+            "activity": "Prove luci",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-slkhz",
+            "date": "2026-09-15",
+            "start": "18:15",
+            "end": "23:15",
+            "activity": "PROVE LUCI",
+            "place": "Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "p-0916-38",
+            "date": "2026-09-16",
+            "start": "09:00",
+            "end": "13:30",
+            "activity": "Prove luci",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-mqmyw",
+            "date": "2026-09-16",
+            "start": "09:00",
+            "end": "13:30",
+            "activity": "PROVE LUCI",
+            "place": "Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "p-0916-39",
+            "date": "2026-09-16",
+            "start": "15:30",
+            "end": "",
+            "activity": "Prova generale — M° Callegari",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-vpj55",
+            "date": "2026-09-16",
+            "start": "15:30",
+            "end": "",
+            "activity": "PROVA GENERALE / M° Callegari",
+            "place": "Malibran",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0917-40",
+            "date": "2026-09-17",
+            "start": "09:00",
+            "end": "13:30",
+            "activity": "Prove luci",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-yb4do",
+            "date": "2026-09-17",
+            "start": "09:00",
+            "end": "13:30",
+            "activity": "PROVE LUCI",
+            "place": "Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "p-0917-41",
+            "date": "2026-09-17",
+            "start": "15:00",
+            "end": "19:30",
+            "activity": "Prove luci",
+            "place": "Teatro Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "plan-1786628104230-arrmw",
+            "date": "2026-09-17",
+            "start": "15:00",
+            "end": "19:30",
+            "activity": "PROVE LUCI",
+            "place": "Malibran",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "p-0918-42",
+            "date": "2026-09-18",
+            "start": "19:00",
+            "end": "",
+            "activity": "1ª recita — M° Callegari · Diretta Radio 3",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": [
+              "cast-pag-nedda",
+              "cast-pag-canio",
+              "cast-pag-tonio",
+              "cast-pag-peppe",
+              "cast-pag-silvio",
+              "cast-pag-contadino-a",
+              "cast-pag-altro-a"
+            ]
+          },
+          {
+            "id": "plan-1786628104230-r0qkm",
+            "date": "2026-09-18",
+            "start": "19:00",
+            "end": "",
+            "activity": "1ª RECITA / M° Callegari · Diretta Radio 3",
+            "place": "Malibran",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0920-43",
+            "date": "2026-09-20",
+            "start": "17:00",
+            "end": "",
+            "activity": "2ª recita — M° Callegari",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": [
+              "cast-pag-nedda",
+              "cast-pag-canio",
+              "cast-pag-tonio",
+              "cast-pag-peppe",
+              "cast-pag-silvio",
+              "cast-pag-contadino-a",
+              "cast-pag-altro-a"
+            ]
+          },
+          {
+            "id": "plan-1786628104230-26f62",
+            "date": "2026-09-20",
+            "start": "17:00",
+            "end": "",
+            "activity": "2ª RECITA / M° Callegari",
+            "place": "Malibran",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0922-44",
+            "date": "2026-09-22",
+            "start": "19:00",
+            "end": "",
+            "activity": "3ª recita — M° Callegari",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": [
+              "cast-pag-nedda",
+              "cast-pag-canio",
+              "cast-pag-tonio",
+              "cast-pag-peppe",
+              "cast-pag-silvio",
+              "cast-pag-contadino-a",
+              "cast-pag-altro-a"
+            ]
+          },
+          {
+            "id": "plan-1786628104230-hlucc",
+            "date": "2026-09-22",
+            "start": "19:00",
+            "end": "",
+            "activity": "3ª RECITA / M° Callegari",
+            "place": "Malibran",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0924-45",
+            "date": "2026-09-24",
+            "start": "19:00",
+            "end": "",
+            "activity": "4ª recita — M° Callegari",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": [
+              "cast-pag-nedda",
+              "cast-pag-canio",
+              "cast-pag-tonio",
+              "cast-pag-peppe",
+              "cast-pag-silvio",
+              "cast-pag-contadino-b",
+              "cast-pag-altro-b"
+            ]
+          },
+          {
+            "id": "plan-1786628104230-8yf2f",
+            "date": "2026-09-24",
+            "start": "19:00",
+            "end": "",
+            "activity": "4ª RECITA / M° Callegari",
+            "place": "Malibran",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0926-46",
+            "date": "2026-09-26",
+            "start": "17:00",
+            "end": "",
+            "activity": "5ª recita — M° Callegari",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": [
+              "cast-pag-nedda",
+              "cast-pag-canio",
+              "cast-pag-tonio",
+              "cast-pag-peppe",
+              "cast-pag-silvio",
+              "cast-pag-contadino-b",
+              "cast-pag-altro-b"
+            ]
+          },
+          {
+            "id": "plan-1786628104230-05y1d",
+            "date": "2026-09-26",
+            "start": "17:00",
+            "end": "",
+            "activity": "5ª RECITA / M° Callegari",
+            "place": "Malibran",
+            "audience": "all",
+            "castIds": []
+          }
+        ],
+        "documents": [],
+        "sharedDocs": [],
+        "contacts": [],
+        "technicalNotes": [],
+        "odgHistory": [],
+        "odgDrafts": {},
+        "showCues": [],
+        "works": []
+      },
+      {
+        "id": "prod-1788080213069-q7dkk",
+        "title": "Dittico",
+        "kind": "Opera",
+        "venue": "Teatro Goldoni",
+        "start": "",
+        "end": "",
+        "notes": "Serata unica composta da: The Telephone — Gian Carlo Menotti; Trouble in Tahiti — Leonard Bernstein. Produzione predisposta per successivo inserimento/aggiornamento di cast, piano prove, camerini, sede, date e note operative.",
+        "cast": [],
+        "rooms": [],
+        "plan": [],
+        "documents": [
+          {
+            "id": "score-1788083272478-nddxi",
+            "title": "Spartito - Trouble in Tahiti",
+            "composer": "Leonard Bernstein",
+            "filename": "Spartito - Trouble in Tahiti.pdf",
+            "source": "shared",
+            "url": "Trouble_in_Tahiti_CP.pdf",
+            "shared": true
+          },
+          {
+            "id": "score-1788083306884-p84et",
+            "title": "Spartito - The Telephone",
+            "composer": "Gian Carlo Menotti",
+            "filename": "Spartito - The Telephone.pdf",
+            "source": "shared",
+            "url": "The_Telephone_CP.pdf",
+            "shared": true
+          }
+        ],
+        "sharedDocs": [],
+        "contacts": [],
+        "technicalNotes": [],
+        "odgHistory": [],
+        "odgDrafts": {},
+        "showCues": [],
+        "works": [
+          {
+            "id": "work-telephone",
+            "title": "The Telephone",
+            "composer": "Gian Carlo Menotti"
+          },
+          {
+            "id": "work-tahiti",
+            "title": "Trouble in Tahiti",
+            "composer": "Leonard Bernstein"
+          }
+        ]
+      }
+    ],
+    "notes": "",
+    "_meta": {
+      "lastSaved": "2026-08-30T11:09:12.131Z",
+      "schema": "5.0",
+      "version": "5.0",
+      "cloudUpdatedAt": "2026-08-30T12:49:31.544Z"
+    }
+  }
+}
