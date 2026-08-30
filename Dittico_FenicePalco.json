@@ -5,42 +5,28 @@
     "id": "prod-dittico-2026",
     "title": "Dittico",
     "kind": "Opera",
-    "venue": "",
+    "venue": "Teatro Goldoni",
     "start": "",
     "end": "",
-    "notes": "Serata unica composta da: The Telephone — Gian Carlo Menotti; Trouble in Tahiti — Leonard Bernstein. Materiali allegati nella sezione SPARTITI: i due PDF delle partiture. Produzione predisposta per successivo inserimento/aggiornamento di cast, piano prove, camerini, sede, date, note operative e altri documenti.",
+    "notes": "Serata unica: The Telephone — Gian Carlo Menotti / Trouble in Tahiti — Leonard Bernstein. Dati di produzione aggiornabili progressivamente.",
     "cast": [],
     "rooms": [],
-    "plan": [],
-    "works": [
-      {
-        "id": "work-telephone",
-        "title": "The Telephone",
-        "composer": "Gian Carlo Menotti"
-      },
-      {
-        "id": "work-trouble-tahiti",
-        "title": "Trouble in Tahiti",
-        "composer": "Leonard Bernstein"
-      }
-    ],
     "documents": [
       {
-        "id": "score-telephone",
-        "category": "Spartiti",
+        "id": "score-dittico-telephone",
         "title": "The Telephone",
         "composer": "Gian Carlo Menotti",
-        "type": "pdf",
-        "file": "Spartiti/Spartito - The Telephone.pdf"
+        "url": "spartiti/The_Telephone_CP.pdf",
+        "builtin": true
       },
       {
-        "id": "score-trouble-tahiti",
-        "category": "Spartiti",
+        "id": "score-dittico-tahiti",
         "title": "Trouble in Tahiti",
         "composer": "Leonard Bernstein",
-        "type": "pdf",
-        "file": "Spartiti/Spartito - Trouble in Tahiti.pdf"
+        "url": "spartiti/Trouble_in_Tahiti_CP.pdf",
+        "builtin": true
       }
-    ]
+    ],
+    "plan": []
   }
 }

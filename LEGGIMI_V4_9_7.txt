@@ -1,0 +1,22 @@
+FENICE — PALCOSCENICO V4.9.7
+
+NOVITÀ
+- Nuova produzione DITTICO integrata nell'app.
+- Dittico = The Telephone (Gian Carlo Menotti) + Trouble in Tahiti (Leonard Bernstein).
+- Nuova sezione SPARTITI per ogni produzione.
+- Nel Dittico sono già integrati e cliccabili:
+  1. The Telephone — spartito PDF
+  2. Trouble in Tahiti — spartito PDF
+- Dalla sezione SPARTITI è possibile aggiungere in seguito altri PDF dal dispositivo.
+- La migrazione V4.9.7 aggiunge Dittico e i due spartiti anche se l'app contiene già dati locali delle versioni precedenti, senza cancellare piani, cast o camerini personalizzati.
+- Ricerca globale estesa anche agli spartiti.
+
+INSTALLAZIONE / AGGIORNAMENTO GITHUB PAGES
+1. Caricare TUTTI i file e la cartella "spartiti" nella root del repository, mantenendo la struttura.
+2. Sostituire index.html, manifest.webmanifest e sw.js.
+3. Caricare icon-192.png e icon-512.png.
+4. Caricare la cartella spartiti con entrambi i PDF.
+5. Aprire il sito in Chrome e verificare V4.9.7 in alto.
+
+NOTA
+I due PDF del Dittico fanno parte del pacchetto e possono essere messi in cache per l'uso offline. I PDF aggiunti successivamente dall'interfaccia vengono salvati localmente sul singolo dispositivo tramite IndexedDB.
