@@ -1,7 +1,7 @@
 {
   "app": "FenicePalcoscenico",
-  "version": "5.0",
-  "updatedAt": "2026-08-30T12:49:31.544Z",
+  "version": "5.1",
+  "updatedAt": "2026-08-30T13:21:56.321Z",
   "state": {
     "activeProductionId": "prod-elisir-2026",
     "productions": [
@@ -436,7 +436,19 @@
             "castIds": []
           }
         ],
-        "documents": [],
+        "documents": [
+          {
+            "id": "score-1788096113456-9rpgl",
+            "title": "2 Blame-It-on-My-Youth",
+            "composer": "",
+            "filename": "2 Blame-It-on-My-Youth.pdf",
+            "path": "spartiti/prod-elisir-2026/1788096113457_2_Blame-It-on-My-Youth.pdf",
+            "url": "https://raw.githubusercontent.com/lorenzogtp/fenice-palcoscenico-/main/spartiti/prod-elisir-2026/1788096113457_2_Blame-It-on-My-Youth.pdf",
+            "shared": true,
+            "source": "shared",
+            "updatedAt": "2026-08-30T13:21:56.289Z"
+          }
+        ],
         "sharedDocs": [],
         "contacts": [],
         "technicalNotes": [],
@@ -1485,10 +1497,10 @@
     ],
     "notes": "",
     "_meta": {
-      "lastSaved": "2026-08-30T11:09:12.131Z",
-      "schema": "5.0",
-      "version": "5.0",
-      "cloudUpdatedAt": "2026-08-30T12:49:31.544Z"
+      "lastSaved": "2026-08-30T13:21:56.313Z",
+      "schema": "5.1",
+      "version": "5.1",
+      "cloudUpdatedAt": "2026-08-30T13:21:56.321Z"
     }
   }
 }
