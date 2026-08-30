@@ -1,0 +1,16 @@
+{
+  "type": "FenicePalcoProduction",
+  "version": 1,
+  "production": {
+    "id": "prod-dittico-2026",
+    "title": "Dittico",
+    "kind": "Opera",
+    "venue": "",
+    "start": "",
+    "end": "",
+    "notes": "Serata unica composta da: The Telephone — Gian Carlo Menotti; Trouble in Tahiti — Leonard Bernstein. Produzione predisposta per successivo inserimento/aggiornamento di cast, piano prove, camerini, sede, date e note operative.",
+    "cast": [],
+    "rooms": [],
+    "plan": []
+  }
+}
