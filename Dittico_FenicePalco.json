@@ -8,9 +8,39 @@
     "venue": "",
     "start": "",
     "end": "",
-    "notes": "Serata unica composta da: The Telephone — Gian Carlo Menotti; Trouble in Tahiti — Leonard Bernstein. Produzione predisposta per successivo inserimento/aggiornamento di cast, piano prove, camerini, sede, date e note operative.",
+    "notes": "Serata unica composta da: The Telephone — Gian Carlo Menotti; Trouble in Tahiti — Leonard Bernstein. Materiali allegati nella sezione SPARTITI: i due PDF delle partiture. Produzione predisposta per successivo inserimento/aggiornamento di cast, piano prove, camerini, sede, date, note operative e altri documenti.",
     "cast": [],
     "rooms": [],
-    "plan": []
+    "plan": [],
+    "works": [
+      {
+        "id": "work-telephone",
+        "title": "The Telephone",
+        "composer": "Gian Carlo Menotti"
+      },
+      {
+        "id": "work-trouble-tahiti",
+        "title": "Trouble in Tahiti",
+        "composer": "Leonard Bernstein"
+      }
+    ],
+    "documents": [
+      {
+        "id": "score-telephone",
+        "category": "Spartiti",
+        "title": "The Telephone",
+        "composer": "Gian Carlo Menotti",
+        "type": "pdf",
+        "file": "Spartiti/Spartito - The Telephone.pdf"
+      },
+      {
+        "id": "score-trouble-tahiti",
+        "category": "Spartiti",
+        "title": "Trouble in Tahiti",
+        "composer": "Leonard Bernstein",
+        "type": "pdf",
+        "file": "Spartiti/Spartito - Trouble in Tahiti.pdf"
+      }
+    ]
   }
 }
