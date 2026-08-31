@@ -1,7 +1,7 @@
 {
   "app": "FenicePalcoscenico",
   "version": "5.1",
-  "updatedAt": "2026-08-31T09:01:06.378Z",
+  "updatedAt": "2026-08-31T09:31:19.118Z",
   "state": {
     "activeProductionId": "prod-pagliacci-2026",
     "productions": [
@@ -1446,6 +1446,16 @@
             "url": "https://raw.githubusercontent.com/lorenzogtp/fenice-palcoscenico-/main/documenti/prod-pagliacci-2026/1788166497045_ISTANZA_INL_CONSEGNATA.pdf",
             "shared": true,
             "updatedAt": "2026-08-31T08:54:59.970Z"
+          },
+          {
+            "id": "doc-1788168679049-f8870",
+            "title": "INL_-_LISTA_CORO.pdf",
+            "category": "Piano prove",
+            "filename": "INL_-_LISTA_CORO.pdf",
+            "path": "documenti/prod-pagliacci-2026/1788168675530_INL_-_LISTA_CORO.pdf",
+            "url": "https://raw.githubusercontent.com/lorenzogtp/fenice-palcoscenico-/main/documenti/prod-pagliacci-2026/1788168675530_INL_-_LISTA_CORO.pdf",
+            "shared": true,
+            "updatedAt": "2026-08-31T09:31:19.049Z"
           }
         ],
         "contacts": [],
@@ -1508,10 +1518,10 @@
     ],
     "notes": "",
     "_meta": {
-      "lastSaved": "2026-08-31T09:01:06.373Z",
+      "lastSaved": "2026-08-31T09:31:19.082Z",
       "schema": "5.1",
       "version": "5.1",
-      "cloudUpdatedAt": "2026-08-31T09:01:06.378Z"
+      "cloudUpdatedAt": "2026-08-31T09:31:19.118Z"
     }
   }
 }
