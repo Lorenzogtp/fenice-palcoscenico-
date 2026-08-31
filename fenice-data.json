@@ -1,7 +1,7 @@
 {
   "app": "FenicePalcoscenico",
   "version": "5.1",
-  "updatedAt": "2026-08-31T08:54:12.589Z",
+  "updatedAt": "2026-08-31T08:54:59.998Z",
   "state": {
     "activeProductionId": "prod-pagliacci-2026",
     "productions": [
@@ -1436,7 +1436,18 @@
           }
         ],
         "documents": [],
-        "sharedDocs": [],
+        "sharedDocs": [
+          {
+            "id": "doc-1788166499969-n0jw4",
+            "title": "ISTANZA INL CONSEGNATA.pdf",
+            "category": "Altro",
+            "filename": "ISTANZA INL CONSEGNATA.pdf",
+            "path": "documenti/prod-pagliacci-2026/1788166497045_ISTANZA_INL_CONSEGNATA.pdf",
+            "url": "https://raw.githubusercontent.com/lorenzogtp/fenice-palcoscenico-/main/documenti/prod-pagliacci-2026/1788166497045_ISTANZA_INL_CONSEGNATA.pdf",
+            "shared": true,
+            "updatedAt": "2026-08-31T08:54:59.970Z"
+          }
+        ],
         "contacts": [],
         "technicalNotes": [],
         "odgHistory": [],
@@ -1497,10 +1508,10 @@
     ],
     "notes": "",
     "_meta": {
-      "lastSaved": "2026-08-31T08:54:10.775Z",
+      "lastSaved": "2026-08-31T08:54:59.990Z",
       "schema": "5.1",
       "version": "5.1",
-      "cloudUpdatedAt": "2026-08-31T08:54:12.589Z"
+      "cloudUpdatedAt": "2026-08-31T08:54:59.998Z"
     }
   }
 }
