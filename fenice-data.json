@@ -1,9 +1,9 @@
 {
   "app": "FenicePalcoscenico",
-  "version": "5.1.2",
-  "updatedAt": "2026-09-01T13:33:02.266Z",
+  "version": "5.1.3",
+  "updatedAt": "2026-09-01T15:19:39.292Z",
   "state": {
-    "activeProductionId": "prod-1788080213069-q7dkk",
+    "activeProductionId": "prod-pagliacci-2026",
     "productions": [
       {
         "id": "prod-elisir-2026",
@@ -1230,12 +1230,593 @@
         "title": "Dittico",
         "kind": "Opera",
         "venue": "Teatro Goldoni",
-        "start": "",
-        "end": "",
-        "notes": "Serata unica composta da: The Telephone — Gian Carlo Menotti; Trouble in Tahiti — Leonard Bernstein. Produzione predisposta per successivo inserimento/aggiornamento di cast, piano prove, camerini, sede, date e note operative.",
+        "start": "2026-09-17",
+        "end": "2026-10-15",
+        "notes": "Pianificazione Ufficio Produzione aggiornata al 31/08/2026. Recite 9, 10, 11, 13 e 14 ottobre 2026. M° Brusa.",
         "cast": [],
         "rooms": [],
-        "plan": [],
+        "plan": [
+          {
+            "id": "d-0917-03",
+            "date": "2026-09-17",
+            "start": "10:00",
+            "end": "17:30",
+            "activity": "A disposizione per ballo (no assistenza)",
+            "place": "Loggione Fenice",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-0917-01",
+            "date": "2026-09-17",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Incontro compagnia / Prova musicale - Compagnia / M°",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0917-02",
+            "date": "2026-09-17",
+            "start": "15:00",
+            "end": "19:00",
+            "activity": "Prova di regia - Compagnia / M° (attr. fino alle 17:45)",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0918-03",
+            "date": "2026-09-18",
+            "start": "10:00",
+            "end": "17:30",
+            "activity": "A disposizione per ballo (no assistenza)",
+            "place": "Loggione Fenice",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-0918-01",
+            "date": "2026-09-18",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Prova musicale - Compagnia / M°",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0918-02",
+            "date": "2026-09-18",
+            "start": "15:00",
+            "end": "19:30",
+            "activity": "Prova di regia - Compagnia / M°",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0919-01",
+            "date": "2026-09-19",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Prova musicale - Compagnia / M°",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0919-02",
+            "date": "2026-09-19",
+            "start": "15:00",
+            "end": "19:00",
+            "activity": "Prova di regia - Compagnia / M°",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0920-01",
+            "date": "2026-09-20",
+            "start": "10:00",
+            "end": "13:30",
+            "activity": "Prova di regia - Compagnia / M°",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0920-02",
+            "date": "2026-09-20",
+            "start": "10:00",
+            "end": "20:00",
+            "activity": "A disposizione per ballo (no assistenza)",
+            "place": "Loggione Fenice",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-0921-02",
+            "date": "2026-09-21",
+            "start": "",
+            "end": "",
+            "activity": "Riposo",
+            "place": "",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "d-0921-01",
+            "date": "2026-09-21",
+            "start": "10:00",
+            "end": "17:00",
+            "activity": "A disposizione per ballo (no assistenza)",
+            "place": "Loggione Fenice",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-0922-01",
+            "date": "2026-09-22",
+            "start": "08:00",
+            "end": "20:00",
+            "activity": "Ingresso allestimento / MT - tecnici 08:00-14:00 + 14:00-20:00",
+            "place": "Teatro Goldoni",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-0922-04",
+            "date": "2026-09-22",
+            "start": "10:00",
+            "end": "19:00",
+            "activity": "A disposizione per ballo (no assistenza)",
+            "place": "Loggione Fenice",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-0922-02",
+            "date": "2026-09-22",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Prova di regia - Compagnia / M°",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0922-03",
+            "date": "2026-09-22",
+            "start": "15:00",
+            "end": "19:00",
+            "activity": "Prova di regia - Compagnia / M° (attr. fino alle 18:15)",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0923-01",
+            "date": "2026-09-23",
+            "start": "08:00",
+            "end": "20:00",
+            "activity": "Montaggio - tecnici 08:00-14:00 + 14:00-20:00",
+            "place": "Teatro Goldoni",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-0923-02",
+            "date": "2026-09-23",
+            "start": "10:00",
+            "end": "13:30",
+            "activity": "Prova di regia - Compagnia / M°",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0923-04",
+            "date": "2026-09-23",
+            "start": "10:00",
+            "end": "17:00",
+            "activity": "A disposizione per ballo (no assistenza)",
+            "place": "Loggione Fenice",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-0923-03",
+            "date": "2026-09-23",
+            "start": "15:00",
+            "end": "19:00",
+            "activity": "Prova di regia - Compagnia / M° (attr. fino alle 17:45)",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0924-01",
+            "date": "2026-09-24",
+            "start": "08:00",
+            "end": "20:00",
+            "activity": "Montaggio - tecnici 08:00-14:00 + 14:00-20:00",
+            "place": "Teatro Goldoni",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-0924-02",
+            "date": "2026-09-24",
+            "start": "10:00",
+            "end": "13:30",
+            "activity": "Prova di regia - Compagnia / M°",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0924-03",
+            "date": "2026-09-24",
+            "start": "15:00",
+            "end": "17:30",
+            "activity": "Prova di regia - Compagnia / M°",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0925-01",
+            "date": "2026-09-25",
+            "start": "08:00",
+            "end": "18:30",
+            "activity": "Montaggio - tecnici 08:00-12:30 + 14:00-18:30",
+            "place": "Teatro Goldoni",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-0925-02",
+            "date": "2026-09-25",
+            "start": "10:00",
+            "end": "13:30",
+            "activity": "Prova di regia - Compagnia / M°",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0925-03",
+            "date": "2026-09-25",
+            "start": "10:00",
+            "end": "14:00",
+            "activity": "A disposizione per ballo (no assistenza)",
+            "place": "Loggione Fenice",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-0926-01",
+            "date": "2026-09-26",
+            "start": "09:00",
+            "end": "13:00",
+            "activity": "Prova tecnica - personale 08:00-14:00",
+            "place": "Teatro Goldoni",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-0926-02",
+            "date": "2026-09-26",
+            "start": "15:00",
+            "end": "18:30",
+            "activity": "Prova di regia - Compagnia / M° - personale 14:00-20:00",
+            "place": "Teatro Goldoni",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0927-01",
+            "date": "2026-09-27",
+            "start": "10:00",
+            "end": "13:15",
+            "activity": "Prova di regia - Compagnia / M° - personale 08:00-14:00",
+            "place": "Teatro Goldoni",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0928-01",
+            "date": "2026-09-28",
+            "start": "",
+            "end": "",
+            "activity": "Riposo (nessuna presenza in teatro)",
+            "place": "Teatro Goldoni",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "d-0928-02",
+            "date": "2026-09-28",
+            "start": "10:00",
+            "end": "14:00",
+            "activity": "A disposizione per ballo (no assistenza)",
+            "place": "Loggione Fenice",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-0929-01",
+            "date": "2026-09-29",
+            "start": "10:00",
+            "end": "13:30",
+            "activity": "Prova di regia - Compagnia / M° - personale 08:00-14:00",
+            "place": "Teatro Goldoni",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0929-02",
+            "date": "2026-09-29",
+            "start": "15:00",
+            "end": "19:30",
+            "activity": "Prova di regia - Compagnia / M° - personale 14:00-20:00",
+            "place": "Teatro Goldoni",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-0930-01",
+            "date": "2026-09-30",
+            "start": "10:00",
+            "end": "13:30",
+            "activity": "Preset luci - personale 08:00-14:00",
+            "place": "Teatro Goldoni",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-0930-02",
+            "date": "2026-09-30",
+            "start": "15:00",
+            "end": "19:30",
+            "activity": "Prova di regia - Compagnia / M° - personale 14:00-20:00",
+            "place": "Teatro Goldoni",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-1001-01",
+            "date": "2026-10-01",
+            "start": "09:00",
+            "end": "13:30",
+            "activity": "Prove luci - personale 08:00-14:00",
+            "place": "Teatro Goldoni",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-1001-02",
+            "date": "2026-10-01",
+            "start": "15:00",
+            "end": "19:00",
+            "activity": "Prova di regia - Compagnia / M° - personale 14:00-20:00",
+            "place": "Teatro Goldoni",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-1002-01",
+            "date": "2026-10-02",
+            "start": "09:00",
+            "end": "13:30",
+            "activity": "Prove luci - personale 08:00-14:00",
+            "place": "Teatro Goldoni",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-1002-02",
+            "date": "2026-10-02",
+            "start": "15:30",
+            "end": "19:30",
+            "activity": "Antepiano in costume - personale 14:00-20:00",
+            "place": "Teatro Goldoni",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-1003-01",
+            "date": "2026-10-03",
+            "start": "09:00",
+            "end": "13:30",
+            "activity": "Prove luci - personale 08:00-14:00",
+            "place": "Teatro Goldoni",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-1003-02",
+            "date": "2026-10-03",
+            "start": "15:00",
+            "end": "19:30",
+            "activity": "Prove luci - personale 14:00-20:00",
+            "place": "Teatro Goldoni",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-1003-03",
+            "date": "2026-10-03",
+            "start": "15:00",
+            "end": "18:00",
+            "activity": "Letture",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "d-1003-04",
+            "date": "2026-10-03",
+            "start": "19:30",
+            "end": "22:30",
+            "activity": "Prova all’italiana",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "d-1004-01",
+            "date": "2026-10-04",
+            "start": "",
+            "end": "",
+            "activity": "Giornata festiva",
+            "place": "",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "d-1005-01",
+            "date": "2026-10-05",
+            "start": "",
+            "end": "",
+            "activity": "Riposo",
+            "place": "",
+            "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "d-1006-01",
+            "date": "2026-10-06",
+            "start": "10:30",
+            "end": "13:30",
+            "activity": "Prova in assieme - M° Brusa - personale 08:00-14:00",
+            "place": "Teatro Goldoni",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-1006-02",
+            "date": "2026-10-06",
+            "start": "15:00",
+            "end": "18:00",
+            "activity": "Prova in assieme - M° Brusa - personale 14:00-20:00",
+            "place": "Teatro Goldoni",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-1007-01",
+            "date": "2026-10-07",
+            "start": "09:30",
+            "end": "13:30",
+            "activity": "Prove luci - personale 08:00-14:00",
+            "place": "Teatro Goldoni",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-1007-02",
+            "date": "2026-10-07",
+            "start": "15:30",
+            "end": "",
+            "activity": "Prova generale - M° Brusa - personale 14:00-20:00",
+            "place": "Teatro Goldoni",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-1008-01",
+            "date": "2026-10-08",
+            "start": "09:00",
+            "end": "13:30",
+            "activity": "Prove luci - personale 08:00-14:00",
+            "place": "Teatro Goldoni",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-1008-02",
+            "date": "2026-10-08",
+            "start": "15:00",
+            "end": "19:00",
+            "activity": "Prove luci - personale 14:00-20:00",
+            "place": "Teatro Goldoni",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-1009-01",
+            "date": "2026-10-09",
+            "start": "19:00",
+            "end": "",
+            "activity": "1ª recita - M° Brusa - personale 16:00-22:00",
+            "place": "Teatro Goldoni",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-1010-01",
+            "date": "2026-10-10",
+            "start": "19:00",
+            "end": "",
+            "activity": "2ª recita - M° Brusa - personale 16:00-22:00",
+            "place": "Teatro Goldoni",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-1011-01",
+            "date": "2026-10-11",
+            "start": "15:30",
+            "end": "",
+            "activity": "3ª recita - M° Brusa - personale 14:00-20:00",
+            "place": "Teatro Goldoni",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-1013-01",
+            "date": "2026-10-13",
+            "start": "19:00",
+            "end": "",
+            "activity": "4ª recita - M° Brusa - personale 16:00-22:00",
+            "place": "Teatro Goldoni",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-1014-01",
+            "date": "2026-10-14",
+            "start": "19:00",
+            "end": "",
+            "activity": "5ª recita - M° Brusa - personale 16:00-22:00 + smontaggio",
+            "place": "Teatro Goldoni",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
+            "id": "d-1015-01",
+            "date": "2026-10-15",
+            "start": "08:00",
+            "end": "12:30",
+            "activity": "Smontaggio / uscita allestimento",
+            "place": "Teatro Goldoni",
+            "audience": "technical",
+            "castIds": []
+          },
+          {
+            "id": "d-1015-02",
+            "date": "2026-10-15",
+            "start": "14:00",
+            "end": "17:30",
+            "activity": "Smontaggio / uscita allestimento",
+            "place": "Teatro Goldoni",
+            "audience": "technical",
+            "castIds": []
+          }
+        ],
         "documents": [
           {
             "id": "score-1788083272478-nddxi",
@@ -1273,15 +1854,16 @@
             "title": "Trouble in Tahiti",
             "composer": "Leonard Bernstein"
           }
-        ]
+        ],
+        "_planRevision": "2026-08-31"
       }
     ],
     "notes": "",
     "_meta": {
-      "lastSaved": "2026-09-01T13:33:00.460Z",
-      "schema": "5.1.2",
-      "version": "5.1.2",
-      "cloudUpdatedAt": "2026-09-01T13:33:02.266Z"
+      "lastSaved": "2026-09-01T15:19:37.486Z",
+      "schema": "5.1.3",
+      "version": "5.1.3",
+      "cloudUpdatedAt": "2026-09-01T15:19:39.292Z"
     }
   }
 }
