@@ -1,9 +1,9 @@
 {
   "app": "FenicePalcoscenico",
-  "version": "5.1",
-  "updatedAt": "2026-09-01T12:08:04.056Z",
+  "version": "5.1.2",
+  "updatedAt": "2026-09-01T13:33:02.266Z",
   "state": {
-    "activeProductionId": "prod-pagliacci-2026",
+    "activeProductionId": "prod-1788080213069-q7dkk",
     "productions": [
       {
         "id": "prod-elisir-2026",
@@ -545,32 +545,12 @@
             "castIds": []
           },
           {
-            "id": "plan-1786628104229-tadzo",
-            "date": "2026-09-02",
-            "start": "10:30",
-            "end": "13:30",
-            "activity": "PROVA MUSICALE: Compagnia / Maestri",
-            "place": "Fen. loggione",
-            "audience": "cast",
-            "castIds": []
-          },
-          {
             "id": "p-0902-04",
             "date": "2026-09-02",
             "start": "15:00",
             "end": "19:30",
             "activity": "Prova di regia — Compagnia / Maestri",
             "place": "Loggione Fenice",
-            "audience": "cast",
-            "castIds": []
-          },
-          {
-            "id": "plan-1786628104229-qsbx1",
-            "date": "2026-09-02",
-            "start": "15:00",
-            "end": "19:30",
-            "activity": "PROVA DI REGIA: Compagnia / Maestri",
-            "place": "Fen. loggione",
             "audience": "cast",
             "castIds": []
           },
@@ -585,32 +565,12 @@
             "castIds": []
           },
           {
-            "id": "plan-1786628104229-uwj3a",
-            "date": "2026-09-03",
-            "start": "10:30",
-            "end": "13:30",
-            "activity": "PROVA MUSICALE: Compagnia / Maestri",
-            "place": "Fen. loggione",
-            "audience": "cast",
-            "castIds": []
-          },
-          {
             "id": "p-0903-06",
             "date": "2026-09-03",
             "start": "14:00",
             "end": "20:00",
             "activity": "Ingresso allestimento / Montaggio",
             "place": "Teatro Malibran",
-            "audience": "technical",
-            "castIds": []
-          },
-          {
-            "id": "plan-1786628104229-4d58g",
-            "date": "2026-09-03",
-            "start": "14:00",
-            "end": "20:00",
-            "activity": "INGRESSO ALLESTIMENTO / MONTAGGIO",
-            "place": "Malibran",
             "audience": "technical",
             "castIds": []
           },
@@ -625,32 +585,12 @@
             "castIds": []
           },
           {
-            "id": "plan-1786628104229-02iyr",
-            "date": "2026-09-03",
-            "start": "15:00",
-            "end": "19:30",
-            "activity": "PROVA DI REGIA: Compagnia / Maestri",
-            "place": "Fen. loggione",
-            "audience": "cast",
-            "castIds": []
-          },
-          {
             "id": "p-0904-08",
             "date": "2026-09-04",
             "start": "08:00",
             "end": "20:00",
             "activity": "Montaggio",
             "place": "Teatro Malibran",
-            "audience": "technical",
-            "castIds": []
-          },
-          {
-            "id": "plan-1786628104229-pxzms",
-            "date": "2026-09-04",
-            "start": "08:00",
-            "end": "20:00",
-            "activity": "MONTAGGIO",
-            "place": "Malibran",
             "audience": "technical",
             "castIds": []
           },
@@ -665,32 +605,12 @@
             "castIds": []
           },
           {
-            "id": "plan-1786628104229-xawer",
-            "date": "2026-09-04",
-            "start": "10:30",
-            "end": "13:30",
-            "activity": "PROVE DI REGIA: Compagnia / Maestri",
-            "place": "Fen. loggione",
-            "audience": "cast",
-            "castIds": []
-          },
-          {
             "id": "p-0904-10",
             "date": "2026-09-04",
             "start": "15:00",
             "end": "18:30",
             "activity": "Prova di regia — Compagnia / Maestri",
             "place": "Loggione Fenice",
-            "audience": "cast",
-            "castIds": []
-          },
-          {
-            "id": "plan-1786628104229-gisnx",
-            "date": "2026-09-04",
-            "start": "15:00",
-            "end": "18:30",
-            "activity": "PROVE DI REGIA: Compagnia / Maestri",
-            "place": "Fen. loggione",
             "audience": "cast",
             "castIds": []
           },
@@ -705,32 +625,12 @@
             "castIds": []
           },
           {
-            "id": "plan-1786628104230-1mm8g",
-            "date": "2026-09-05",
-            "start": "08:00",
-            "end": "20:00",
-            "activity": "MONTAGGIO",
-            "place": "Malibran",
-            "audience": "technical",
-            "castIds": []
-          },
-          {
             "id": "p-0905-12",
             "date": "2026-09-05",
             "start": "10:00",
             "end": "13:00",
             "activity": "Prova di regia — Compagnia / Maestri",
             "place": "Loggione Fenice",
-            "audience": "cast",
-            "castIds": []
-          },
-          {
-            "id": "plan-1786628104230-0qmn0",
-            "date": "2026-09-05",
-            "start": "10:00",
-            "end": "13:00",
-            "activity": "PROVE DI REGIA: Compagnia / Maestri",
-            "place": "Fen. loggione",
             "audience": "cast",
             "castIds": []
           },
@@ -745,16 +645,6 @@
             "castIds": []
           },
           {
-            "id": "plan-1786628104230-274xz",
-            "date": "2026-09-05",
-            "start": "14:30",
-            "end": "17:00",
-            "activity": "PROVE DI REGIA: Compagnia / Maestri (Evento h 19:30)",
-            "place": "Fen. loggione",
-            "audience": "cast",
-            "castIds": []
-          },
-          {
             "id": "p-0906-14",
             "date": "2026-09-06",
             "start": "08:00",
@@ -765,32 +655,12 @@
             "castIds": []
           },
           {
-            "id": "plan-1786628104230-jn0tz",
-            "date": "2026-09-06",
-            "start": "08:00",
-            "end": "14:00",
-            "activity": "MONTAGGIO",
-            "place": "Malibran",
-            "audience": "technical",
-            "castIds": []
-          },
-          {
             "id": "p-0906-15",
             "date": "2026-09-06",
             "start": "10:30",
             "end": "13:30",
             "activity": "Prova di regia — Compagnia / Maestri",
             "place": "Loggione Fenice",
-            "audience": "cast",
-            "castIds": []
-          },
-          {
-            "id": "plan-1786628104230-1nr8e",
-            "date": "2026-09-06",
-            "start": "10:30",
-            "end": "13:30",
-            "activity": "PROVA DI REGIA: Compagnia / Maestri",
-            "place": "Fen. loggione",
             "audience": "cast",
             "castIds": []
           },
@@ -815,32 +685,12 @@
             "castIds": []
           },
           {
-            "id": "plan-1786628104230-8jn07",
-            "date": "2026-09-08",
-            "start": "09:00",
-            "end": "13:30",
-            "activity": "PROVA TECNICA",
-            "place": "Malibran",
-            "audience": "technical",
-            "castIds": []
-          },
-          {
             "id": "p-0908-18",
             "date": "2026-09-08",
             "start": "15:00",
             "end": "19:30",
             "activity": "Prova di regia — Compagnia / Maestri",
             "place": "Teatro Malibran",
-            "audience": "cast",
-            "castIds": []
-          },
-          {
-            "id": "plan-1786628104230-kna6b",
-            "date": "2026-09-08",
-            "start": "15:00",
-            "end": "19:30",
-            "activity": "PROVA DI REGIA: Compagnia / Maestri",
-            "place": "Malibran",
             "audience": "cast",
             "castIds": []
           },
@@ -875,16 +725,6 @@
             "castIds": []
           },
           {
-            "id": "plan-1786628104230-648md",
-            "date": "2026-09-09",
-            "start": "10:30",
-            "end": "13:30",
-            "activity": "PROVA DI REGIA: Compagnia / Maestri",
-            "place": "Malibran",
-            "audience": "cast",
-            "castIds": []
-          },
-          {
             "id": "p-0909-21",
             "date": "2026-09-09",
             "start": "15:00",
@@ -915,16 +755,6 @@
             "castIds": []
           },
           {
-            "id": "plan-1786628104230-3ssju",
-            "date": "2026-09-10",
-            "start": "10:30",
-            "end": "13:30",
-            "activity": "PROVA DI REGIA: Compagnia / Maestri",
-            "place": "Malibran",
-            "audience": "cast",
-            "castIds": []
-          },
-          {
             "id": "p-0910-23",
             "date": "2026-09-10",
             "start": "15:00",
@@ -935,16 +765,6 @@
             "castIds": []
           },
           {
-            "id": "p-0910-24",
-            "date": "2026-09-10",
-            "start": "15:00",
-            "end": "19:00",
-            "activity": "Prova di lettura — M° Callegari",
-            "place": "Sala Esposizioni Fenice",
-            "audience": "technical",
-            "castIds": []
-          },
-          {
             "id": "plan-1786628104230-64xzr",
             "date": "2026-09-10",
             "start": "15:00",
@@ -952,6 +772,16 @@
             "activity": "REGIA: Compagnia / M° + CORO e Piccoli C. 16:45/18:30",
             "place": "Malibran",
             "audience": "all",
+            "castIds": []
+          },
+          {
+            "id": "p-0910-24",
+            "date": "2026-09-10",
+            "start": "15:00",
+            "end": "19:00",
+            "activity": "Prova di lettura — M° Callegari",
+            "place": "Sala Esposizioni Fenice",
+            "audience": "technical",
             "castIds": []
           },
           {
@@ -971,16 +801,6 @@
             "end": "23:15",
             "activity": "Preset luci",
             "place": "Teatro Malibran",
-            "audience": "technical",
-            "castIds": []
-          },
-          {
-            "id": "plan-1786628104230-npq8k",
-            "date": "2026-09-10",
-            "start": "18:30",
-            "end": "23:15",
-            "activity": "PRESET luci",
-            "place": "Malibran",
             "audience": "technical",
             "castIds": []
           },
@@ -1035,26 +855,6 @@
             "castIds": []
           },
           {
-            "id": "p-0911-29",
-            "date": "2026-09-11",
-            "start": "15:00",
-            "end": "18:30",
-            "activity": "Prova di regia — Compagnia / Maestri",
-            "place": "Teatro Malibran",
-            "audience": "cast",
-            "castIds": []
-          },
-          {
-            "id": "plan-1786628104230-mkr3b",
-            "date": "2026-09-11",
-            "start": "15:00",
-            "end": "18:30",
-            "activity": "PROVA DI REGIA: Compagnia / Maestri",
-            "place": "Malibran",
-            "audience": "cast",
-            "castIds": []
-          },
-          {
             "id": "plan-1786628104230-06qlf",
             "date": "2026-09-11",
             "start": "15:00",
@@ -1065,22 +865,22 @@
             "castIds": []
           },
           {
+            "id": "p-0911-29",
+            "date": "2026-09-11",
+            "start": "15:00",
+            "end": "18:30",
+            "activity": "Prova di regia — Compagnia / Maestri",
+            "place": "Teatro Malibran",
+            "audience": "cast",
+            "castIds": []
+          },
+          {
             "id": "p-0911-30",
             "date": "2026-09-11",
             "start": "18:45",
             "end": "23:15",
             "activity": "Prove luci",
             "place": "Teatro Malibran",
-            "audience": "technical",
-            "castIds": []
-          },
-          {
-            "id": "plan-1786628104230-ts88r",
-            "date": "2026-09-11",
-            "start": "18:45",
-            "end": "23:15",
-            "activity": "PROVE LUCI",
-            "place": "Malibran",
             "audience": "technical",
             "castIds": []
           },
@@ -1205,32 +1005,12 @@
             "castIds": []
           },
           {
-            "id": "plan-1786628104230-slkhz",
-            "date": "2026-09-15",
-            "start": "18:15",
-            "end": "23:15",
-            "activity": "PROVE LUCI",
-            "place": "Malibran",
-            "audience": "technical",
-            "castIds": []
-          },
-          {
             "id": "p-0916-38",
             "date": "2026-09-16",
             "start": "09:00",
             "end": "13:30",
             "activity": "Prove luci",
             "place": "Teatro Malibran",
-            "audience": "technical",
-            "castIds": []
-          },
-          {
-            "id": "plan-1786628104230-mqmyw",
-            "date": "2026-09-16",
-            "start": "09:00",
-            "end": "13:30",
-            "activity": "PROVE LUCI",
-            "place": "Malibran",
             "audience": "technical",
             "castIds": []
           },
@@ -1265,32 +1045,12 @@
             "castIds": []
           },
           {
-            "id": "plan-1786628104230-yb4do",
-            "date": "2026-09-17",
-            "start": "09:00",
-            "end": "13:30",
-            "activity": "PROVE LUCI",
-            "place": "Malibran",
-            "audience": "technical",
-            "castIds": []
-          },
-          {
             "id": "p-0917-41",
             "date": "2026-09-17",
             "start": "15:00",
             "end": "19:30",
             "activity": "Prove luci",
             "place": "Teatro Malibran",
-            "audience": "technical",
-            "castIds": []
-          },
-          {
-            "id": "plan-1786628104230-arrmw",
-            "date": "2026-09-17",
-            "start": "15:00",
-            "end": "19:30",
-            "activity": "PROVE LUCI",
-            "place": "Malibran",
             "audience": "technical",
             "castIds": []
           },
@@ -1518,10 +1278,10 @@
     ],
     "notes": "",
     "_meta": {
-      "lastSaved": "2026-09-01T12:08:02.247Z",
-      "schema": "5.1",
-      "version": "5.1",
-      "cloudUpdatedAt": "2026-09-01T12:08:04.056Z"
+      "lastSaved": "2026-09-01T13:33:00.460Z",
+      "schema": "5.1.2",
+      "version": "5.1.2",
+      "cloudUpdatedAt": "2026-09-01T13:33:02.266Z"
     }
   }
 }
