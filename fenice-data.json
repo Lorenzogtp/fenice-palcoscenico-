@@ -1,7 +1,7 @@
 {
   "app": "FenicePalcoscenico",
   "version": "5.1.3",
-  "updatedAt": "2026-09-01T15:19:39.292Z",
+  "updatedAt": "2026-09-01T21:24:22.311Z",
   "state": {
     "activeProductionId": "prod-pagliacci-2026",
     "productions": [
@@ -1863,7 +1863,7 @@
       "lastSaved": "2026-09-01T15:19:37.486Z",
       "schema": "5.1.3",
       "version": "5.1.3",
-      "cloudUpdatedAt": "2026-09-01T15:19:39.292Z"
+      "cloudUpdatedAt": "2026-09-01T21:24:22.311Z"
     }
   }
 }
