@@ -1,7 +1,7 @@
 {
   "id": "./",
-  "name": "Fenice Palcoscenico V5.1",
-  "short_name": "Fenice V5.1",
+  "name": "Fenice Palcoscenico V5.1.2",
+  "short_name": "Fenice V5.1.2",
   "description": "Cruscotto operativo di palcoscenico — Teatro La Fenice",
   "start_url": "./?v=5.0",
   "scope": "./",

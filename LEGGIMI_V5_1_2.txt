@@ -1,0 +1,26 @@
+FENICE PALCOSCENICO V5.1.2
+
+CORREZIONE DEFINITIVA DOPPIONI — SOLO PAGLIACCI
+
+La precedente correzione eliminava eventuali orari ripetuti dentro il testo.
+Questa versione elimina invece le RIGHE DUPLICATE vere e proprie.
+
+Esempio corretto:
+10:30–13:30  Prova musicale — Compagnia / Maestri
+15:00–19:30  Prova di regia — Compagnia / Maestri
+
+Non vengono più mostrate anche le copie:
+10:30–13:30  PROVA MUSICALE: Compagnia / Maestri
+15:00–19:30  PROVA DI REGIA: Compagnia / Maestri
+
+La deduplicazione:
+- riguarda esclusivamente la produzione Pagliacci;
+- confronta giorno + orario + tipo di prova + luogo;
+- riconosce come uguali anche "Loggione Fenice" e "Fen. loggione";
+- conserva la riga meglio formattata;
+- unisce eventuali convocazioni/castIds;
+- pulisce anche i dati già salvati sul dispositivo;
+- pulisce i dati ricevuti dal Cloud;
+- impedisce ai futuri import PDF di ricreare gli stessi doppioni.
+
+Dittico e le altre produzioni non vengono toccate.
