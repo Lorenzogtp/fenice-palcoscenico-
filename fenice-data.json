@@ -1,7 +1,7 @@
 {
   "app": "FenicePalcoscenico",
   "version": "5.1.3",
-  "updatedAt": "2026-09-02T09:55:36.263Z",
+  "updatedAt": "2026-09-02T09:57:38.204Z",
   "state": {
     "activeProductionId": "prod-1788080213069-q7dkk",
     "productions": [
@@ -1233,7 +1233,68 @@
         "start": "2026-09-17",
         "end": "2026-10-15",
         "notes": "Pianificazione Ufficio Produzione aggiornata al 31/08/2026. Recite 9, 10, 11, 13 e 14 ottobre 2026. M° Brusa.",
-        "cast": [],
+        "cast": [
+          {
+            "id": "cast-dit-lucy",
+            "role": "Lucy",
+            "name": "Elisa Balbo"
+          },
+          {
+            "id": "cast-dit-ben",
+            "role": "Ben",
+            "name": "Allen Boxer"
+          },
+          {
+            "id": "cast-dit-sam",
+            "role": "Sam",
+            "name": "Allen Boxer"
+          },
+          {
+            "id": "cast-dit-dinah",
+            "role": "Dinah",
+            "name": "Elisa Balbo"
+          },
+          {
+            "id": "cast-dit-trio1",
+            "role": "1° membro del trio",
+            "name": "Julie Mossay"
+          },
+          {
+            "id": "cast-dit-trio2",
+            "role": "2° membro del trio",
+            "name": "Christian Schleinzer"
+          },
+          {
+            "id": "cast-dit-trio3",
+            "role": "3° membro del trio",
+            "name": "David Pogana"
+          },
+          {
+            "id": "cast-dit-ballo-1",
+            "role": "Ballo",
+            "name": "Veronica Barchielli"
+          },
+          {
+            "id": "cast-dit-ballo-2",
+            "role": "Ballo",
+            "name": "Robert Abotsie Ediogu"
+          },
+          {
+            "id": "cast-dit-ballo-3",
+            "role": "Ballo",
+            "name": "Ginevra Grossi"
+          },
+          {
+            "id": "cast-dit-ballo-4",
+            "role": "Ballo",
+            "name": "Alfonso Maria Mottola"
+          },
+          {
+            "id": "cast-dit-ballo-5",
+            "role": "Ballo",
+            "name": "Matteo Passini"
+          }
+        ],
         "rooms": [],
         "plan": [
           {
@@ -1860,10 +1921,10 @@
     ],
     "notes": "",
     "_meta": {
-      "lastSaved": "2026-09-02T09:55:34.453Z",
+      "lastSaved": "2026-09-02T09:57:36.399Z",
       "schema": "5.1.3",
       "version": "5.1.3",
-      "cloudUpdatedAt": "2026-09-02T09:55:36.263Z"
+      "cloudUpdatedAt": "2026-09-02T09:57:38.204Z"
     }
   }
 }
