@@ -1,7 +1,7 @@
 {
   "app": "FenicePalcoscenico",
   "version": "5.1.3",
-  "updatedAt": "2026-09-02T09:53:26.064Z",
+  "updatedAt": "2026-09-02T09:54:28.735Z",
   "state": {
     "activeProductionId": "prod-1788080213069-q7dkk",
     "productions": [
@@ -1860,10 +1860,10 @@
     ],
     "notes": "",
     "_meta": {
-      "lastSaved": "2026-09-02T09:53:24.257Z",
+      "lastSaved": "2026-09-02T09:53:46.445Z",
       "schema": "5.1.3",
       "version": "5.1.3",
-      "cloudUpdatedAt": "2026-09-02T09:53:26.064Z"
+      "cloudUpdatedAt": "2026-09-02T09:54:28.735Z"
     }
   }
 }
