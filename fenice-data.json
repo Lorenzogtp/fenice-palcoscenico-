@@ -1,7 +1,7 @@
 {
   "app": "FenicePalcoscenico",
   "version": "5.1.3",
-  "updatedAt": "2026-09-02T11:12:40.348Z",
+  "updatedAt": "2026-09-02T11:20:42.480Z",
   "state": {
     "activeProductionId": "prod-1788080213069-q7dkk",
     "productions": [
@@ -1898,7 +1898,30 @@
             "shared": true
           }
         ],
-        "sharedDocs": [],
+        "sharedDocs": [
+          {
+            "id": "audio-dittico-telephone-full",
+            "title": "🎧 The Telephone — opera completa",
+            "category": "Altro",
+            "filename": "",
+            "path": "",
+            "url": "https://www.youtube.com/watch?v=CSTuUMdhESo",
+            "shared": true,
+            "source": "external",
+            "updatedAt": "2026-09-02T10:35:00.000Z"
+          },
+          {
+            "id": "audio-dittico-tahiti-full",
+            "title": "🎧 Trouble in Tahiti — opera completa (audio)",
+            "category": "Altro",
+            "filename": "",
+            "path": "",
+            "url": "https://youtube.com/playlist?list=PLcvFO4lyuy_sxqL50D5KsjHDMbBmAj-pa",
+            "shared": true,
+            "source": "external",
+            "updatedAt": "2026-09-02T10:35:00.000Z"
+          }
+        ],
         "contacts": [],
         "technicalNotes": [],
         "odgHistory": [],
@@ -1921,10 +1944,10 @@
     ],
     "notes": "",
     "_meta": {
-      "lastSaved": "2026-09-02T11:12:38.540Z",
+      "lastSaved": "2026-09-02T11:20:40.591Z",
       "schema": "5.1.3",
       "version": "5.1.3",
-      "cloudUpdatedAt": "2026-09-02T11:12:40.348Z"
+      "cloudUpdatedAt": "2026-09-02T11:20:42.480Z"
     }
   }
 }
