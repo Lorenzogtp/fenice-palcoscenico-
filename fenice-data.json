@@ -1,9 +1,9 @@
 {
   "app": "FenicePalcoscenico",
   "version": "5.1.4",
-  "updatedAt": "2026-09-03T06:48:42.047Z",
+  "updatedAt": "2026-09-04T14:58:17.172Z",
   "state": {
-    "activeProductionId": "prod-pagliacci-2026",
+    "activeProductionId": "prod-1788080213069-q7dkk",
     "productions": [
       {
         "id": "prod-elisir-2026",
@@ -1944,10 +1944,10 @@
     ],
     "notes": "",
     "_meta": {
-      "lastSaved": "2026-09-03T06:48:40.240Z",
+      "lastSaved": "2026-09-04T14:58:15.363Z",
       "schema": "5.1.4",
       "version": "5.1.4",
-      "cloudUpdatedAt": "2026-09-03T06:48:42.047Z"
+      "cloudUpdatedAt": "2026-09-04T14:58:17.172Z"
     }
   }
 }
