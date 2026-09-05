@@ -1,9 +1,9 @@
 {
   "app": "FenicePalcoscenico",
-  "version": "5.1.4",
-  "updatedAt": "2026-09-04T14:58:17.172Z",
+  "version": "5.1.5",
+  "updatedAt": "2026-09-05T16:58:11.080Z",
   "state": {
-    "activeProductionId": "prod-1788080213069-q7dkk",
+    "activeProductionId": "prod-pagliacci-2026",
     "productions": [
       {
         "id": "prod-elisir-2026",
@@ -512,7 +512,64 @@
             "name": "Alessandro Vannucci"
           }
         ],
-        "rooms": [],
+        "rooms": [
+          {
+            "room": "17",
+            "who": "Canio — Gregory Kunde"
+          },
+          {
+            "room": "18",
+            "who": "Nedda — Selene Zanetti"
+          },
+          {
+            "room": "19",
+            "who": "Tonio — Dimitri Platanias"
+          },
+          {
+            "room": "20",
+            "who": "Maestri collaboratori"
+          },
+          {
+            "room": "21",
+            "who": "Coro Donne"
+          },
+          {
+            "room": "24",
+            "who": "Beppe / Silvio — Andrea Schifaudo / Alberto Pertica"
+          },
+          {
+            "room": "25",
+            "who": "Coro Donne"
+          },
+          {
+            "room": "26",
+            "who": "Figuranti uomini (4)"
+          },
+          {
+            "room": "27",
+            "who": "Figuranti Donne (2)"
+          },
+          {
+            "room": "28",
+            "who": "Orchestra donne"
+          },
+          {
+            "room": "31 – 32",
+            "who": "Piccoli Cantori Veneziani (19)"
+          },
+          {
+            "room": "34 - 35",
+            "who": "Coro Uomini"
+          },
+          {
+            "room": "36",
+            "who": "Direttore — M° Daniele Callegari"
+          },
+          {
+            "room": "saletta fumatori",
+            "who": "Orchestra Uomini"
+          }
+        ],
         "plan": [
           {
             "id": "plan-1786628104229-xd62q",
@@ -1223,7 +1280,8 @@
         "odgHistory": [],
         "odgDrafts": {},
         "showCues": [],
-        "works": []
+        "works": [],
+        "_roomsRevision": "2026-09-05-pdf-3"
       },
       {
         "id": "prod-1788080213069-q7dkk",
@@ -1944,10 +2002,10 @@
     ],
     "notes": "",
     "_meta": {
-      "lastSaved": "2026-09-04T14:58:15.363Z",
-      "schema": "5.1.4",
+      "lastSaved": "2026-09-04T15:27:26.457Z",
+      "schema": "5.1.5",
       "version": "5.1.4",
-      "cloudUpdatedAt": "2026-09-04T14:58:17.172Z"
+      "cloudUpdatedAt": "2026-09-05T16:58:11.080Z"
     }
   }
 }
