@@ -7,7 +7,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<link rel="manifest" href="manifest.webmanifest?v=5.1.4">
+<link rel="manifest" href="manifest.webmanifest?v=5.1.5">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -40,7 +40,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 
 .smartModal{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:9999;display:none;align-items:center;justify-content:center;padding:18px}.smartModal.show{display:flex}.smartBox{width:min(860px,100%);max-height:88vh;overflow:auto;background:#181a20;border:1px solid #454957;border-radius:22px;box-shadow:0 20px 70px rgba(0,0,0,.55);padding:20px}.smartHead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}.smartTitle{font-size:24px;font-weight:900}.smartStats{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.smartBadge{padding:7px 10px;border-radius:999px;background:#2c303a;font-weight:800}.smartChange{display:grid;grid-template-columns:32px 1fr;gap:10px;padding:12px;border:1px solid #3b3f49;border-radius:14px;margin:9px 0;background:#20232b}.smartChange.new{border-left:5px solid #3f9f74}.smartChange.changed{border-left:5px solid #d8ab44}.smartChange.removed{border-left:5px solid #b34354}.smartOld{opacity:.68;text-decoration:line-through;margin-top:5px}.smartNew{font-weight:800;margin-top:4px}.smartBtns{position:sticky;bottom:-20px;background:#181a20;padding:14px 0 2px;display:flex;gap:8px;flex-wrap:wrap}.smartEmpty{padding:22px;text-align:center;border:1px dashed #4a4e59;border-radius:14px;color:#c8c8c8}.smartSub{color:#b9bac0;font-size:14px;margin-top:3px}.callRow{display:grid;grid-template-columns:minmax(150px,1.4fr) minmax(170px,1.6fr) minmax(100px,.7fr) auto;gap:8px;align-items:end;margin:10px 0}.callRow label{margin:0}.callRow .action{min-height:47px}.multiPick{position:relative}.multiPick summary{list-style:none;cursor:pointer;background:#111319;border:1px solid #4a4e59;border-radius:12px;padding:13px 12px;min-height:47px;color:#fff;font-weight:700}.multiPick summary::-webkit-details-marker{display:none}.multiPick[open] summary{border-color:#d8ab44}.multiMenu{position:absolute;z-index:30;left:0;right:0;max-height:290px;overflow:auto;background:#20232b;border:1px solid #575c69;border-radius:12px;padding:8px;box-shadow:0 14px 35px rgba(0,0,0,.55)}.multiChoice{display:flex!important;align-items:center;gap:9px;padding:9px 7px;margin:0!important;border-bottom:1px solid #343843;font-size:14px!important}.multiChoice:last-child{border-bottom:0}.multiChoice input{width:21px;height:21px;flex:0 0 auto}@media(max-width:680px){.callRow{grid-template-columns:1fr 110px auto}.callRow .callActivity,.callRow .callTargets{grid-column:1/-1}.callRow label{font-size:12px}}
 
-/* ===== FENICE PALCOSCENICO V5.1.4 ===== */
+/* ===== FENICE PALCOSCENICO V5.1.5 ===== */
 .v5grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.v5stat{padding:14px;border:1px solid #3d414c;border-radius:14px;background:#20232b}.v5stat b{display:block;font-size:24px;margin-top:4px}
 .dayOps{border-left:5px solid #d8ab44}.dayOps.tomorrow{border-left-color:#4e8bd8}.opsRow{display:grid;grid-template-columns:78px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid #363a44}.opsRow:last-child{border-bottom:0}.opsTime{font-size:18px;font-weight:900}.opsTitle{font-weight:800}
 .hubNav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}.hubNav button{min-height:54px}.priorityHigh{border-left:5px solid #b34354}.priorityMedium{border-left:5px solid #d8ab44}.priorityLow{border-left:5px solid #3f9f74}.workCard{border-left:5px solid #8f6fd8}
@@ -52,7 +52,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V5.1.4</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V5.1.4 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
+<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V5.1.5</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V5.1.5 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
 
 <section class="grid">
 <button class="tile primary" onclick="openDay(0)"><span class="ico">🎭</span><b>OGGI</b><small>Piano della produzione attiva</small></button>
@@ -211,7 +211,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="section">Produzione attiva</div><div class="toolbar"><button class="action blue" onclick="exportProduction()">Esporta produzione</button><label class="fileLabel alt">Importa produzione<input type="file" accept=".json,application/json" style="display:none" onchange="importProduction(event)"></label></div>
 <div class="notice">Per un nuovo piano ricevuto in PDF/Word può farlo trasformare nel file JSON di importazione e poi caricarlo qui, senza ricopiare gli orari.</div><div class="section">Storico automatico · ultime 10 versioni</div><div id="backupHistory"></div></section>
 
-<div class="notice">V5.1.4 · Dittico aggiornato con piano prove ufficiale 17 settembre-15 ottobre 2026 · spartiti condivisi The Telephone e Trouble in Tahiti.</div>
+<div class="notice">V5.1.5 · Camerini Pagliacci aggiornati dal documento ufficiale · Dittico con piano prove 17 settembre-15 ottobre 2026 e spartiti condivisi.</div>
 </div>
 <button class="fab" onclick="home()">⌂</button>
 
@@ -316,6 +316,31 @@ function applyOfficialDitticoPlan(){
  return changed;
 }
 
+const PAGLIACCI_ROOMS_REV='2026-09-05-pdf-3';
+const PAGLIACCI_OFFICIAL_ROOMS=[
+ {room:'17',who:'Canio — Gregory Kunde'},
+ {room:'18',who:'Nedda — Selene Zanetti'},
+ {room:'19',who:'Tonio — Dimitri Platanias'},
+ {room:'20',who:'Maestri collaboratori'},
+ {room:'21',who:'Coro Donne'},
+ {room:'24',who:'Beppe / Silvio — Andrea Schifaudo / Alberto Pertica'},
+ {room:'25',who:'Coro Donne'},
+ {room:'26',who:'Figuranti uomini (4)'},
+ {room:'27',who:'Figuranti Donne (2)'},
+ {room:'28',who:'Orchestra donne'},
+ {room:'31 – 32',who:'Piccoli Cantori Veneziani (19)'},
+ {room:'34 - 35',who:'Coro Uomini'},
+ {room:'36',who:'Direttore — M° Daniele Callegari'},
+ {room:'saletta fumatori',who:'Orchestra Uomini'}
+];
+function applyOfficialPagliacciRooms(){
+ const pag=(state.productions||[]).find(p=>p.id==='prod-pagliacci-2026'||(p.title||'').trim().toLowerCase()==='pagliacci');
+ if(!pag||pag._roomsRevision===PAGLIACCI_ROOMS_REV)return false;
+ pag.rooms=structuredClone(PAGLIACCI_OFFICIAL_ROOMS);
+ pag._roomsRevision=PAGLIACCI_ROOMS_REV;
+ return true;
+}
+
 // V5.1.4: gli spartiti del Dittico diventano CONDIVISI e disponibili su ogni dispositivo.
 // Se sul dispositivo esiste già la voce aggiunta manualmente, ne conserva titolo/compositore
 // ma la collega al PDF pubblicato con l'app, evitando doppioni.
@@ -377,8 +402,8 @@ try{
 }catch(e){console.warn('Migrazione Dittico V5.1.4 non completata',e)}
 
 
-// V5.1.4 — struttura dati estesa, senza cancellare personalizzazioni.
-try{let ch=false;if(applyOfficialDitticoPlan()){ch=true;window.__ditticoPlanUpdated=true}for(const p of state.productions||[]){if(!Array.isArray(p.sharedDocs)){p.sharedDocs=[];ch=true}if(!Array.isArray(p.contacts)){p.contacts=[];ch=true}if(!Array.isArray(p.technicalNotes)){p.technicalNotes=[];ch=true}if(!Array.isArray(p.odgHistory)){p.odgHistory=[];ch=true}if(!p.odgDrafts||typeof p.odgDrafts!=='object'){p.odgDrafts={};ch=true}if(!Array.isArray(p.showCues)){p.showCues=[];ch=true}if(!Array.isArray(p.works)){p.works=[];ch=true}if((p.title||'').trim().toLowerCase()==='dittico'&&!p.works.length){p.works=[{id:'work-telephone',title:'The Telephone',composer:'Gian Carlo Menotti'},{id:'work-tahiti',title:'Trouble in Tahiti',composer:'Leonard Bernstein'}];ch=true}}if(cleanPagliacciDuplicateTimes())ch=true;if(dedupeAllPagliacciRows()>0)ch=true;state._meta=state._meta||{};state._meta.schema='5.1.4';if(ch)localStorage.setItem(K4,JSON.stringify(state))}catch(e){console.warn('Migrazione V5.1.4',e)}
+// V5.1.5 — struttura dati estesa e camerini ufficiali Pagliacci.
+try{let ch=false;if(applyOfficialDitticoPlan()){ch=true;window.__ditticoPlanUpdated=true}if(applyOfficialPagliacciRooms()){ch=true;window.__pagliacciRoomsUpdated=true}for(const p of state.productions||[]){if(!Array.isArray(p.sharedDocs)){p.sharedDocs=[];ch=true}if(!Array.isArray(p.contacts)){p.contacts=[];ch=true}if(!Array.isArray(p.technicalNotes)){p.technicalNotes=[];ch=true}if(!Array.isArray(p.odgHistory)){p.odgHistory=[];ch=true}if(!p.odgDrafts||typeof p.odgDrafts!=='object'){p.odgDrafts={};ch=true}if(!Array.isArray(p.showCues)){p.showCues=[];ch=true}if(!Array.isArray(p.works)){p.works=[];ch=true}if((p.title||'').trim().toLowerCase()==='dittico'&&!p.works.length){p.works=[{id:'work-telephone',title:'The Telephone',composer:'Gian Carlo Menotti'},{id:'work-tahiti',title:'Trouble in Tahiti',composer:'Leonard Bernstein'}];ch=true}}if(cleanPagliacciDuplicateTimes())ch=true;if(dedupeAllPagliacciRows()>0)ch=true;state._meta=state._meta||{};state._meta.schema='5.1.5';if(ch)localStorage.setItem(K4,JSON.stringify(state))}catch(e){console.warn('Migrazione V5.1.5',e)}
 
 // V5.1.4 — Dittico: cast ufficiale, sostituzione Igor Pane e ascolti completi.
 try{
@@ -450,8 +475,8 @@ try{
    dit.notes=(dit.notes||'').replace(/Alfonso Maria Mottola/g,'Igor Pane');
    if(ch){
      state._meta=state._meta||{};
-     state._meta.schema='5.1.4';
-     state._meta.version='5.1.4';
+     state._meta.schema='5.1.5';
+     state._meta.version='5.1.5';
      state._meta.lastSaved=new Date().toISOString();
      localStorage.setItem(K4,JSON.stringify(state));
    }
@@ -466,12 +491,12 @@ function fmtDate(d){return new Intl.DateTimeFormat('it-IT',{weekday:'long',day:'
 function fmtShort(s){return new Intl.DateTimeFormat('it-IT',{weekday:'short',day:'numeric',month:'short'}).format(parseDate(s))}
 function esc(s){return(s??'').toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
 function uid(prefix='id'){return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2,7)}`}
-function save(opts={}){if(!opts.skipHistory)rememberBackupSnapshot();state._meta=state._meta||{};state._meta.lastSaved=new Date().toISOString();state._meta.version='5.1.4';localStorage.setItem(K4,JSON.stringify(state));updateHeader();renderQuickDashboard();renderOps48();const s=document.getElementById('status');if(s){s.textContent='Salvato ✓';setTimeout(()=>s.textContent='Dati locali · Cloud Sync V5.1.4',1000)}if(!opts.skipCloud)scheduleCloudPush()}
+function save(opts={}){if(!opts.skipHistory)rememberBackupSnapshot();state._meta=state._meta||{};state._meta.lastSaved=new Date().toISOString();state._meta.version='5.1.5';localStorage.setItem(K4,JSON.stringify(state));updateHeader();renderQuickDashboard();renderOps48();const s=document.getElementById('status');if(s){s.textContent='Salvato ✓';setTimeout(()=>s.textContent='Dati locali · Cloud Sync V5.1.5',1000)}if(!opts.skipCloud)scheduleCloudPush()}
 function activeProd(){return state.productions.find(p=>p.id===state.activeProductionId)||state.productions[0]}
 function updateHeader(){document.getElementById('headDate').textContent=fmtDate(new Date());const p=activeProd();document.getElementById('activeProdLabel').textContent=`Produzione attiva: ${p.title} · ${p.venue||p.kind}`;}
 updateHeader();
 
-const BUILD_LABEL='V5.1.4 · 01/09/2026';
+const BUILD_LABEL='V5.1.5 · 05/09/2026';
 let selectedDate=todayYMD(),smartMode='solisti',planFilter='future',selectedPlanCast=new Set(),smartCalls=[],smartCallDate='';
 document.getElementById('smartDate').value=todayYMD();document.getElementById('planDate').value=todayYMD();
 
@@ -965,11 +990,11 @@ function renderCloudPanel(){const c=getCloudConfig();cloudOwner.value=c.owner;cl
 function b64utf8(s){return btoa(unescape(encodeURIComponent(s)))}function unb64(s){return decodeURIComponent(escape(atob(s.replace(/\n/g,''))))}
 async function ghGet(c,path=c.path){const h={Accept:'application/vnd.github+json'};if(c.token)h.Authorization=`Bearer ${c.token}`;const r=await fetch(`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${path.split('/').map(encodeURIComponent).join('/')}?ref=${encodeURIComponent(c.branch)}`,{headers:h,cache:'no-store'});if(r.status===404)return null;if(!r.ok)throw new Error(`GitHub ${r.status}`);return r.json()}
 async function ghPut(c,path,content,message){if(!c.token)throw new Error('Serve il token GitHub per scrivere.');const ex=await ghGet(c,path),h={Accept:'application/vnd.github+json','Content-Type':'application/json',Authorization:`Bearer ${c.token}`},body={message,content,branch:c.branch};if(ex?.sha)body.sha=ex.sha;const r=await fetch(`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${path.split('/').map(encodeURIComponent).join('/')}`,{method:'PUT',headers:h,body:JSON.stringify(body)});if(!r.ok){let x={};try{x=await r.json()}catch(e){}throw new Error(`GitHub ${r.status}${x.message?' · '+x.message:''}`)}return r.json()}
-async function cloudPush(manual=false){if(cloudBusy)return;const c=getCloudConfig();if(!c.owner||!c.repo)return manual&&alert('Configuri il repository.');if(!c.token)return manual&&alert('Per pubblicare serve un token GitHub fine-grained con Contents: Read and write.');cloudBusy=true;try{state._meta=state._meta||{};state._meta.cloudUpdatedAt=new Date().toISOString();await ghPut(c,c.path,b64utf8(JSON.stringify({app:'FenicePalcoscenico',version:'5.1.4',updatedAt:state._meta.cloudUpdatedAt,state},null,2)),'Aggiorna dati Fenice Palcoscenico');localStorage.setItem(K4,JSON.stringify(state));if(manual)alert('Dati pubblicati: ora gli altri dispositivi possono sincronizzarsi.')}catch(e){if(manual)alert('Pubblicazione non riuscita: '+e.message)}finally{cloudBusy=false}}
-async function cloudPull(manual=false){if(cloudBusy)return;const c=getCloudConfig();if(!c.owner||!c.repo)return manual&&alert('Configuri il repository.');cloudBusy=true;try{const f=await ghGet(c,c.path);if(!f?.content)return manual&&alert('Archivio condiviso non ancora creato. Sul dispositivo principale prema “Pubblica dati attuali”.');const p=JSON.parse(unb64(f.content));if(!p.state)throw new Error('Archivio non valido');if(manual&&new Date(state._meta?.lastSaved||0)>new Date(p.updatedAt||0)&&!confirm('I dati locali sono più recenti. Sostituirli comunque?'))return;rememberBackupSnapshot();state=p.state;for(const x of state.productions||[])ensureProdV5(x);cleanPagliacciDuplicateTimes();dedupeAllPagliacciRows();applyOfficialDitticoPlan();save({skipHistory:true,skipCloud:true});if(manual)alert('Dati condivisi scaricati.')}catch(e){if(manual)alert('Sincronizzazione non riuscita: '+e.message)}finally{cloudBusy=false}}
+async function cloudPush(manual=false){if(cloudBusy)return;const c=getCloudConfig();if(!c.owner||!c.repo)return manual&&alert('Configuri il repository.');if(!c.token)return manual&&alert('Per pubblicare serve un token GitHub fine-grained con Contents: Read and write.');cloudBusy=true;try{state._meta=state._meta||{};state._meta.cloudUpdatedAt=new Date().toISOString();await ghPut(c,c.path,b64utf8(JSON.stringify({app:'FenicePalcoscenico',version:'5.1.5',updatedAt:state._meta.cloudUpdatedAt,state},null,2)),'Aggiorna dati Fenice Palcoscenico');localStorage.setItem(K4,JSON.stringify(state));if(manual)alert('Dati pubblicati: ora gli altri dispositivi possono sincronizzarsi.')}catch(e){if(manual)alert('Pubblicazione non riuscita: '+e.message)}finally{cloudBusy=false}}
+async function cloudPull(manual=false){if(cloudBusy)return;const c=getCloudConfig();if(!c.owner||!c.repo)return manual&&alert('Configuri il repository.');cloudBusy=true;try{const f=await ghGet(c,c.path);if(!f?.content)return manual&&alert('Archivio condiviso non ancora creato. Sul dispositivo principale prema “Pubblica dati attuali”.');const p=JSON.parse(unb64(f.content));if(!p.state)throw new Error('Archivio non valido');if(manual&&new Date(state._meta?.lastSaved||0)>new Date(p.updatedAt||0)&&!confirm('I dati locali sono più recenti. Sostituirli comunque?'))return;rememberBackupSnapshot();state=p.state;for(const x of state.productions||[])ensureProdV5(x);cleanPagliacciDuplicateTimes();dedupeAllPagliacciRows();applyOfficialDitticoPlan();applyOfficialPagliacciRooms();save({skipHistory:true,skipCloud:true});if(manual)alert('Dati condivisi scaricati.')}catch(e){if(manual)alert('Sincronizzazione non riuscita: '+e.message)}finally{cloudBusy=false}}
 function scheduleCloudPush(){const c=getCloudConfig();if(!c.auto||!c.token||cloudBusy)return;clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>cloudPush(false),1800)}
 async function testCloud(){const c=getCloudConfig();if(!c.owner||!c.repo)return alert('Configuri owner e repository.');try{const f=await ghGet(c,c.path);alert(f?'Connessione riuscita: archivio trovato.':'Connessione riuscita: archivio non ancora creato.')}catch(e){alert('Verifica non riuscita: '+e.message)}}
-async function autoCloudPull(){const c=getCloudConfig();if(!c.owner||!c.repo)return;try{const f=await ghGet(c,c.path);if(!f?.content)return;const p=JSON.parse(unb64(f.content)),rt=new Date(p.updatedAt||0).getTime(),lt=new Date(state._meta?.cloudUpdatedAt||0).getTime();if(rt>lt&&p.state){state=p.state;for(const x of state.productions||[])ensureProdV5(x);applyOfficialDitticoPlan();save({skipHistory:true,skipCloud:true})}}catch(e){}}
+async function autoCloudPull(){const c=getCloudConfig();if(!c.owner||!c.repo)return;try{const f=await ghGet(c,c.path);if(!f?.content)return;const p=JSON.parse(unb64(f.content)),rt=new Date(p.updatedAt||0).getTime(),lt=new Date(state._meta?.cloudUpdatedAt||0).getTime();if(rt>lt&&p.state){state=p.state;for(const x of state.productions||[])ensureProdV5(x);applyOfficialDitticoPlan();applyOfficialPagliacciRooms();save({skipHistory:true,skipCloud:true})}}catch(e){}}
 function safeFileName(n){return(n||'documento.pdf').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9._-]+/g,'_')}function ab64(b){let s='',u=new Uint8Array(b);for(let i=0;i<u.length;i+=32768)s+=String.fromCharCode(...u.subarray(i,Math.min(i+32768,u.length)));return btoa(s)}
 async function autoArchivePdf(file,p=activeProd(),title='PDF importato',category='Altro'){
  const c=getCloudConfig();if(!c.token||!c.owner||!c.repo)return;
@@ -992,14 +1017,14 @@ function addShowCue(){const p=ensureProdV5(),t=cueTitle.value.trim();if(!t)retur
 function renderShowCues(){const p=ensureProdV5(),d=showDate?.value||todayYMD(),a=p.showCues.filter(x=>!x.date||x.date===d);showCues.innerHTML=a.length?a.map(c=>`<div class="showCue"><div class="showCueTime">${esc(c.time||'—')}</div><div class="showCueText">${esc(c.title)}</div><div>${esc(c.note||'')}</div><button class="action danger" onclick="deleteShowCue('${c.id}')">Elimina</button></div>`).join(''):'<div class="empty">Nessun cue inserito.</div>'}
 function deleteShowCue(id){const p=ensureProdV5();p.showCues=p.showCues.filter(x=>x.id!==id);save();renderShowMode()}
 
-renderQuickDashboard();renderOps48();if(window.__ditticoPlanUpdated)setTimeout(()=>scheduleCloudPush(),2400);
+renderQuickDashboard();renderOps48();if(window.__ditticoPlanUpdated||window.__pagliacciRoomsUpdated)setTimeout(()=>scheduleCloudPush(),2400);
 setInterval(()=>{renderQuickDashboard();renderOps48();if(document.getElementById('showmode')?.classList.contains('active'))renderShowMode()},60000);setTimeout(()=>autoCloudPull(),1800);
 
 // V4.9.2 — aggiornamento PWA affidabile: rete prima, cache solo offline.
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      const reg = await navigator.serviceWorker.register('./sw.js?v=5.1.4', { updateViaCache: 'none' });
+      const reg = await navigator.serviceWorker.register('./sw.js?v=5.1.5', { updateViaCache: 'none' });
       await reg.update();
       // Se una nuova versione prende il controllo, ricarica una sola volta la pagina.
       let refreshing = false;

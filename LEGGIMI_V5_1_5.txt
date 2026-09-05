@@ -1,0 +1,9 @@
+FENICE PALCOSCENICO V5.1.5
+
+Aggiornamento del 05/09/2026
+
+- Inserite 14 righe di assegnazione camerini per la produzione Pagliacci,
+  ricavate dal documento "camerini PAGLIACCI - Malibran (3).pdf".
+- Aggiornamento automatico una tantum anche sui dispositivi già utilizzati.
+- Le modifiche manuali effettuate dopo l'aggiornamento restano disponibili.
+- Aggiornata la cache PWA alla versione 5.1.5.
