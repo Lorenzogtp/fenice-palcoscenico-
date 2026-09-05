@@ -1,4 +1,4 @@
-const CACHE = "fenice-palcoscenico-v5.1.5";
+const CACHE = "fenice-palcoscenico-v5.2";
 const CORE = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./The_Telephone_CP.pdf", "./Trouble_in_Tahiti_CP.pdf"];
 self.addEventListener("install", event => { self.skipWaiting(); event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)).catch(() => {})); });
 self.addEventListener("activate", event => { event.waitUntil((async () => { const keys = await caches.keys(); await Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))); await self.clients.claim(); })()); });

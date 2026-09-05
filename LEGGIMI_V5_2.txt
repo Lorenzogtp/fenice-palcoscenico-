@@ -1,0 +1,26 @@
+FENICE PALCOSCENICO V5.2
+
+NOVITÀ
+- Centro variazioni: registra automaticamente gli aggiornamenti a produzioni,
+  piano prove, cast, camerini, spartiti, documenti, note tecniche e ODG.
+- Controllo dati: individua duplicati, orari non validi, fine precedente
+  all'inizio, luoghi mancanti, date fuori produzione e possibili
+  sovrapposizioni nella stessa sala.
+- Indicatori numerici nella Home per attività di oggi e domani, produzioni,
+  piano prove, cast, camerini, spartiti, variazioni e anomalie.
+- Cambio rapido della produzione: toccare la riga "Produzione attiva"
+  nell'intestazione e scegliere il titolo.
+
+COMPATIBILITÀ
+- Conserva i dati già presenti sul dispositivo.
+- Mantiene Pagliacci, Dittico, camerini, spartiti, ODG, backup e Cloud Sync.
+- Cache PWA aggiornata alla versione 5.2.
+
+PUBBLICAZIONE MANUALE
+Caricare nel repository almeno:
+- index.html
+- manifest.webmanifest
+- sw.js
+- LEGGIMI_V5_2.txt
+
+Poi attendere il completamento di GitHub Pages e chiudere/riaprire l'app.
