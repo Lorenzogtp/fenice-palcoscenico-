@@ -7,7 +7,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<link rel="manifest" href="manifest.webmanifest?v=4.9.6">
+<link rel="manifest" href="manifest.webmanifest?v=4.9.6.1">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -43,7 +43,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.9.6</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V4.9.6 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
+<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.9.6.1</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V4.9.6.1 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
 
 <section class="grid">
 <button class="tile primary" onclick="openDay(0)"><span class="ico">🎭</span><b>OGGI</b><small>Piano della produzione attiva</small></button>
@@ -253,7 +253,7 @@ function activeProd(){return state.productions.find(p=>p.id===state.activeProduc
 function updateHeader(){document.getElementById('headDate').textContent=fmtDate(new Date());const p=activeProd();document.getElementById('activeProdLabel').textContent=`Produzione attiva: ${p.title} · ${p.venue||p.kind}`;}
 updateHeader();
 
-const BUILD_LABEL='V4.9.6 · 20/08/2026';
+const BUILD_LABEL='V4.9.6.1 · 09/09/2026';
 let selectedDate=todayYMD(),smartMode='solisti',planFilter='future',selectedPlanCast=new Set(),smartCalls=[],smartCallDate='';
 document.getElementById('smartDate').value=todayYMD();document.getElementById('planDate').value=todayYMD();
 
@@ -270,6 +270,8 @@ function openPanel(id){
 }
 function home(){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));renderQuickDashboard();scrollTo({top:0,behavior:'smooth'})}
 function itemsFor(date){return [...(activeProd().plan||[])].filter(x=>x.date===date).sort((a,b)=>(a.start||'99').localeCompare(b.start||'99'))}
+function planKey(x){const norm=v=>(v||'').trim().replace(/\s+/g,' ').toLocaleLowerCase('it');return [x.date,x.start,x.end,norm(x.activity),norm(x.place)].join('|')}
+function uniquePlanItems(rows){const seen=new Set();return rows.filter(x=>{const key=planKey(x);if(seen.has(key))return false;seen.add(key);return true})}
 function timeRange(x){if(!x.start)return '';return x.end?`${x.start}–${x.end}`:x.start}
 
 function openDay(offsetOrDate){
@@ -297,7 +299,7 @@ function smartTimeOptions(selected=''){
 }
 function smartTargetChoices(i,selected=[]){const p=activeProd(),choices=[['chorus','CORO'],['chorus-women','CORO DONNE'],['chorus-men','CORO UOMINI'],...(p.cast||[]).map(c=>[`cast:${c.id}`,`${c.role} — ${c.name}`])];return choices.map(([v,label])=>`<label class="multiChoice"><input type="checkbox" ${selected.includes(v)?'checked':''} onchange="toggleSmartTarget(${i},'${esc(v)}',this.checked)"><span>${esc(label)}</span></label>`).join('')}
 function smartActivityOptions(selected=''){
- const d=document.getElementById('smartDate').value||todayYMD();const rows=itemsFor(d).filter(x=>smartMode==='completo'||x.audience!=='technical');
+ const d=document.getElementById('smartDate').value||todayYMD();const rows=uniquePlanItems(itemsFor(d).filter(x=>smartMode==='completo'||x.audience!=='technical'));
  let out='<option value="">Prova…</option>';out+=rows.map(x=>`<option value="${esc(x.id)}" ${selected===x.id?'selected':''}>${esc((x.start?x.start+' · ':'')+x.activity)}</option>`).join('');return out;
 }
 function addSmartCall(){smartCalls.push({itemId:firstSmartItemId(),targets:[],time:''});renderSmartCalls()}
@@ -310,7 +312,7 @@ function activityLabel(a){const s=a.toLowerCase();if(s.includes('musicale'))retu
 function generateSmart(){
  const date=document.getElementById('smartDate').value||todayYMD(),p=activeProd();
  if(smartCallDate!==date){smartCalls=[{itemId:firstSmartItemId(),targets:[],time:''}];smartCallDate=date;renderSmartCalls()}
- const all=itemsFor(date),items=smartMode==='solisti'?all.filter(x=>x.audience!=='technical'):all;
+ const raw=itemsFor(date),visible=smartMode==='solisti'?raw.filter(x=>x.audience!=='technical'):raw,items=uniquePlanItems(visible),all=raw;
  let t=`📌 *ORDINE DEL GIORNO* 📌\n*${fmtDate(parseDate(date))}*\n\n🎬 *${p.title}*\n`;
  if(!items.length)t+='\nNessuna attività prevista.';
  items.forEach((x,i)=>{
@@ -318,7 +320,7 @@ function generateSmart(){
    t+=`\n${activityLabel(x.activity)}\n`;
    if(x.start)t+=`*${timeRange(x)}*\n`;
    if(x.place)t+=`📍 ${x.place}\n`;
-   const grouped=new Map();smartCalls.filter(c=>c.itemId===x.id&&c.time).forEach(c=>{const targets=c.targets||(c.target?[c.target]:[]),labels=targets.map(smartCallLabel).filter(Boolean);if(!labels.length)return;const set=grouped.get(c.time)||new Set();labels.forEach(label=>set.add(label));grouped.set(c.time,set)});
+   const grouped=new Map();smartCalls.filter(c=>{const linked=raw.find(row=>row.id===c.itemId);return linked&&planKey(linked)===planKey(x)&&c.time}).forEach(c=>{const targets=c.targets||(c.target?[c.target]:[]),labels=targets.map(smartCallLabel).filter(Boolean);if(!labels.length)return;const set=grouped.get(c.time)||new Set();labels.forEach(label=>set.add(label));grouped.set(c.time,set)});
    t+='\n⏰ *Convocazioni:*\n';
    [...grouped.entries()].sort(([a],[b])=>a.localeCompare(b)).forEach(([time,labels])=>{const people=[...labels];if(people.length===1)t+=`\n*${time.replace(':','.')}* — ${people[0]}`;else{t+=`\n*${time.replace(':','.')}*`;people.forEach(label=>{t+=`\n• ${label}`})}});
  });
@@ -560,7 +562,7 @@ setInterval(()=>{renderQuickDashboard();if(document.getElementById('stage')?.cla
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      const reg = await navigator.serviceWorker.register('./sw.js?v=4.9.6', { updateViaCache: 'none' });
+      const reg = await navigator.serviceWorker.register('./sw.js?v=4.9.6.1', { updateViaCache: 'none' });
       await reg.update();
       // Se una nuova versione prende il controllo, ricarica una sola volta la pagina.
       let refreshing = false;
