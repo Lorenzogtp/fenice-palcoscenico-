@@ -7,7 +7,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<link rel="manifest" href="manifest.webmanifest?v=4.9.6.1">
+<link rel="manifest" href="manifest.webmanifest?v=4.9.6.2">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -43,7 +43,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.9.6.1</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V4.9.6.1 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
+<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V4.9.6.2</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V4.9.6.2 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
 
 <section class="grid">
 <button class="tile primary" onclick="openDay(0)"><span class="ico">🎭</span><b>OGGI</b><small>Piano della produzione attiva</small></button>
@@ -112,7 +112,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="toolbar"><button class="action green" onclick="addPlanItem()">Aggiungi al piano</button><button class="action gold" onclick="openSmart(document.getElementById('planDate').value||todayYMD())">⚡ ODG SMART DELLA DATA</button></div>
 </div>
 <div class="toolbar"><label class="fileLabel blue">🔄 Aggiorna da PDF Pagliacci<input type="file" accept="application/pdf,.pdf" style="display:none" onchange="importPagliacciPdf(event)"></label><button class="action alt" onclick="undoLastPdfImport()">↩ Annulla ultimo import</button><button class="action alt" onclick="planFilter='future';renderPlan()">Da oggi</button><button class="action alt" onclick="planFilter='all';renderPlan()">Tutto</button></div>
-<div class="notice"><b>V4.9.6:</b> allo stesso orario può convocare più solisti e il coro; l’orario compare una sola volta nell’ODG.</div>
+<div class="notice"><b>V4.9.6.2:</b> le prove duplicate con lo stesso orario compaiono una sola volta nell’ODG.</div>
 <div id="planList"></div>
 </section>
 
@@ -160,7 +160,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="notice">Per un nuovo piano ricevuto in PDF/Word può farlo trasformare nel file JSON di importazione e poi caricarlo qui, senza ricopiare gli orari.</div>
 </section>
 
-<div class="notice">V4.9.6 · selezione multipla dei convocati allo stesso orario · convocazioni associate alle singole prove · ODG Smart nel Piano prove.</div>
+<div class="notice">V4.9.6.2 · eliminazione automatica delle prove duplicate · ODG Smart nel Piano prove.</div>
 </div>
 <button class="fab" onclick="home()">⌂</button>
 
@@ -253,7 +253,7 @@ function activeProd(){return state.productions.find(p=>p.id===state.activeProduc
 function updateHeader(){document.getElementById('headDate').textContent=fmtDate(new Date());const p=activeProd();document.getElementById('activeProdLabel').textContent=`Produzione attiva: ${p.title} · ${p.venue||p.kind}`;}
 updateHeader();
 
-const BUILD_LABEL='V4.9.6.1 · 09/09/2026';
+const BUILD_LABEL='V4.9.6.2 · 09/09/2026';
 let selectedDate=todayYMD(),smartMode='solisti',planFilter='future',selectedPlanCast=new Set(),smartCalls=[],smartCallDate='';
 document.getElementById('smartDate').value=todayYMD();document.getElementById('planDate').value=todayYMD();
 
@@ -269,8 +269,8 @@ function openPanel(id){
  document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
 }
 function home(){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));renderQuickDashboard();scrollTo({top:0,behavior:'smooth'})}
-function itemsFor(date){return [...(activeProd().plan||[])].filter(x=>x.date===date).sort((a,b)=>(a.start||'99').localeCompare(b.start||'99'))}
-function planKey(x){const norm=v=>(v||'').trim().replace(/\s+/g,' ').toLocaleLowerCase('it');return [x.date,x.start,x.end,norm(x.activity),norm(x.place)].join('|')}
+function itemsFor(date){return uniquePlanItems([...(activeProd().plan||[])].filter(x=>x.date===date).sort((a,b)=>(a.start||'99').localeCompare(b.start||'99')))}
+function planKey(x){const norm=v=>(v||'').trim().replace(/\s+/g,' ').toLocaleLowerCase('it'),a=norm(x.activity);let type=a;if(a.includes('regia'))type='regia';else if(a.includes('lettura'))type='lettura';else if(a.includes('musical'))type='musicale';else if(a.includes('assieme'))type='assieme';else if(a.includes('recita'))type='recita';else if(a.includes('luci')||a.includes('preset'))type='luci';else if(a.includes('tecnica'))type='tecnica';else if(a.includes('montaggio'))type='montaggio';return [x.date,x.start,x.end,type].join('|')}
 function uniquePlanItems(rows){const seen=new Set();return rows.filter(x=>{const key=planKey(x);if(seen.has(key))return false;seen.add(key);return true})}
 function timeRange(x){if(!x.start)return '';return x.end?`${x.start}–${x.end}`:x.start}
 
@@ -562,7 +562,7 @@ setInterval(()=>{renderQuickDashboard();if(document.getElementById('stage')?.cla
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      const reg = await navigator.serviceWorker.register('./sw.js?v=4.9.6.1', { updateViaCache: 'none' });
+      const reg = await navigator.serviceWorker.register('./sw.js?v=4.9.6.2', { updateViaCache: 'none' });
       await reg.update();
       // Se una nuova versione prende il controllo, ricarica una sola volta la pagina.
       let refreshing = false;
