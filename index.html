@@ -52,7 +52,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V5.1.4</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V5.1.4 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
+<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V5.1.7</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V5.1.7 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
 
 <section class="grid">
 <button class="tile primary" onclick="openDay(0)"><span class="ico">🎭</span><b>OGGI</b><small>Piano della produzione attiva</small></button>
@@ -95,7 +95,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <h2>⚡ ODG SMART</h2><div class="sub">Genera il messaggio dalla produzione attiva.</div>
 <label>Data</label><input type="date" id="smartDate" onchange="generateSmart()">
 <div class="toolbar"><button id="modeSolisti" class="action gold" onclick="setSmartMode('solisti')">SOLISTI</button><button id="modeCompleto" class="action alt" onclick="setSmartMode('completo')">COMPLETO</button></div>
-<div class="card"><h3>⏰ Convocazioni personalizzate</h3><div class="small">Selezioni la prova e assegni più convocati alla stessa ora oppure orari differenti nella stessa sessione. Nel menu Prova è disponibile anche <b>👗 Prova costume</b>, con selezione delle persone convocate. Disponibili Tutti, Coro, Figuranti e singoli solisti.</div><div id="smartCallRows"></div><div class="toolbar"><button class="action blue" onclick="addSmartCall()">+ AGGIUNGI ORARIO</button></div></div>
+<div class="card"><h3>⏰ Convocazioni personalizzate</h3><div class="small">Selezioni la prova e assegni più convocati alla stessa ora oppure orari differenti nella stessa sessione. Con “+ AGGIUNGI ORARIO” la nuova riga mantiene automaticamente la stessa prova selezionata, incluse le prove musicali. Nel menu Prova è disponibile anche <b>👗 Prova costume</b>, con selezione delle persone convocate. Disponibili Tutti, Coro, Figuranti e singoli solisti.</div><div id="smartCallRows"></div><div class="toolbar"><button class="action blue" onclick="addSmartCall()">+ AGGIUNGI ORARIO</button></div></div>
 <div id="smartInfo" class="notice"></div>
 <label>Messaggio WhatsApp — modificabile</label><textarea id="smartOutput" style="min-height:330px;overflow:hidden"></textarea>
 <div class="toolbar"><button class="action alt" onclick="copyPreviousSmart()">↩ Giorno precedente</button><button class="action blue" onclick="saveSmartDraft()">Salva bozza</button><button class="action gold" onclick="saveSmartHistory()">Archivia ODG</button><button class="action alt" onclick="copySmart()">Copia</button><button class="action green" onclick="shareText(document.getElementById('smartOutput').value)">Condividi / WhatsApp</button></div>
@@ -125,7 +125,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="toolbar"><button class="action green" onclick="addPlanItem()">Aggiungi al piano</button><button class="action gold" onclick="openSmart(document.getElementById('planDate').value||todayYMD())">⚡ ODG SMART DELLA DATA</button></div>
 </div>
 <div class="toolbar"><label class="fileLabel blue">🔄 Aggiorna da PDF Pagliacci<input type="file" accept="application/pdf,.pdf" style="display:none" onchange="importPagliacciPdf(event)"></label><button class="action alt" onclick="undoLastPdfImport()">↩ Annulla ultimo import</button><button class="action alt" onclick="planFilter='future';renderPlan()">Da oggi</button><button class="action alt" onclick="planFilter='all';renderPlan()">Tutto</button></div>
-<div class="notice"><b>V5.1.4:</b> aggiunta <b>Prova costume</b> nell’ODG Smart con selezione multipla dei convocati. Allo stesso orario può convocare più solisti e il coro; l’orario compare una sola volta nell’ODG.<div class="diffLegend"><span class="diffNew">VERDE · nuovo</span><span class="diffChanged">GIALLO · modificato</span><span class="diffRemoved">ROSSO · eliminato</span></div>Nel confronto PDF può approvare le variazioni singolarmente oppure tutte insieme.</div>
+<div class="notice"><b>V5.1.7:</b> versione stabile ripristinata. Nel <b>Dittico</b> il cast mostra solo i nomi dei solisti, senza ruoli e senza doppioni. Restano attive le <b>convocazioni differenziate nelle prove musicali</b> e <b>Prova costume</b>.<div class="diffLegend"><span class="diffNew">VERDE · nuovo</span><span class="diffChanged">GIALLO · modificato</span><span class="diffRemoved">ROSSO · eliminato</span></div>Nel confronto PDF può approvare le variazioni singolarmente oppure tutte insieme.</div>
 <div id="planList"></div>
 </section>
 
@@ -148,7 +148,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <div class="card">
 <div class="two"><div><label>Titolo</label><input id="scoreTitle" placeholder="Es. Partitura canto e piano"></div><div><label>Autore / compositore</label><input id="scoreComposer" placeholder="Facoltativo"></div></div>
 <label class="fileLabel blue" style="margin-top:10px">☁️ + AGGIUNGI SPARTITO PDF<input id="scoreFile" type="file" accept="application/pdf,.pdf" style="display:none" onchange="addScoreFile(event)"></label>
-<div class="small" style="margin-top:10px"><b>V5.1.4:</b> con Cloud configurato ogni nuovo spartito viene pubblicato automaticamente e marcato <b>CONDIVISO</b>. Senza token resta locale e potrà essere pubblicato in seguito.</div><div class="toolbar"><button class="action gold" onclick="shareLocalScores()">☁️ Condividi spartiti locali</button></div>
+<div class="small" style="margin-top:10px"><b>V5.1.7:</b> con Cloud configurato ogni nuovo spartito viene pubblicato automaticamente e marcato <b>CONDIVISO</b>. Senza token resta locale e potrà essere pubblicato in seguito.</div><div class="toolbar"><button class="action gold" onclick="shareLocalScores()">☁️ Condividi spartiti locali</button></div>
 </div>
 </section>
 
@@ -316,7 +316,7 @@ function applyOfficialDitticoPlan(){
  return changed;
 }
 
-// V5.1.4: gli spartiti del Dittico diventano CONDIVISI e disponibili su ogni dispositivo.
+// V5.1.7: gli spartiti del Dittico diventano CONDIVISI e disponibili su ogni dispositivo.
 // Se sul dispositivo esiste già la voce aggiunta manualmente, ne conserva titolo/compositore
 // ma la collega al PDF pubblicato con l'app, evitando doppioni.
 try{
@@ -378,7 +378,7 @@ try{
 
 
 // V5.1.4 — struttura dati estesa, senza cancellare personalizzazioni.
-try{let ch=false;if(applyOfficialDitticoPlan()){ch=true;window.__ditticoPlanUpdated=true}for(const p of state.productions||[]){if(!Array.isArray(p.sharedDocs)){p.sharedDocs=[];ch=true}if(!Array.isArray(p.contacts)){p.contacts=[];ch=true}if(!Array.isArray(p.technicalNotes)){p.technicalNotes=[];ch=true}if(!Array.isArray(p.odgHistory)){p.odgHistory=[];ch=true}if(!p.odgDrafts||typeof p.odgDrafts!=='object'){p.odgDrafts={};ch=true}if(!Array.isArray(p.showCues)){p.showCues=[];ch=true}if(!Array.isArray(p.works)){p.works=[];ch=true}if((p.title||'').trim().toLowerCase()==='dittico'&&!p.works.length){p.works=[{id:'work-telephone',title:'The Telephone',composer:'Gian Carlo Menotti'},{id:'work-tahiti',title:'Trouble in Tahiti',composer:'Leonard Bernstein'}];ch=true}}if(cleanPagliacciDuplicateTimes())ch=true;if(dedupeAllPagliacciRows()>0)ch=true;state._meta=state._meta||{};state._meta.schema='5.1.4';if(ch)localStorage.setItem(K4,JSON.stringify(state))}catch(e){console.warn('Migrazione V5.1.4',e)}
+try{let ch=false;if(applyOfficialDitticoPlan()){ch=true;window.__ditticoPlanUpdated=true}for(const p of state.productions||[]){if(!Array.isArray(p.sharedDocs)){p.sharedDocs=[];ch=true}if(!Array.isArray(p.contacts)){p.contacts=[];ch=true}if(!Array.isArray(p.technicalNotes)){p.technicalNotes=[];ch=true}if(!Array.isArray(p.odgHistory)){p.odgHistory=[];ch=true}if(!p.odgDrafts||typeof p.odgDrafts!=='object'){p.odgDrafts={};ch=true}if(!Array.isArray(p.showCues)){p.showCues=[];ch=true}if(!Array.isArray(p.works)){p.works=[];ch=true}if((p.title||'').trim().toLowerCase()==='dittico'&&!p.works.length){p.works=[{id:'work-telephone',title:'The Telephone',composer:'Gian Carlo Menotti'},{id:'work-tahiti',title:'Trouble in Tahiti',composer:'Leonard Bernstein'}];ch=true}}if(cleanPagliacciDuplicateTimes())ch=true;if(dedupeAllPagliacciRows()>0)ch=true;state._meta=state._meta||{};state._meta.schema='5.1.7';if(ch)localStorage.setItem(K4,JSON.stringify(state))}catch(e){console.warn('Migrazione V5.1.7',e)}
 const pad=n=>String(n).padStart(2,'0');
 function ymd(d){return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`}
 function todayYMD(){return ymd(new Date())}
@@ -386,13 +386,22 @@ function parseDate(s){return new Date(s+'T12:00:00')}
 function fmtDate(d){return new Intl.DateTimeFormat('it-IT',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(d).toUpperCase()}
 function fmtShort(s){return new Intl.DateTimeFormat('it-IT',{weekday:'short',day:'numeric',month:'short'}).format(parseDate(s))}
 function esc(s){return(s??'').toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function isDitticoProd(p){return !!p&&((p.id||'')==='prod-dittico-2026'||(p.title||'').trim().toLowerCase()==='dittico')}
+function castNameKey(v){return (v||'').toString().trim().replace(/\s+/g,' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()}
+function uniqueCastByName(p){
+ const list=Array.isArray(p?.cast)?p.cast:[];
+ if(!isDitticoProd(p))return list;
+ const seen=new Set(),out=[];
+ for(const c of list){const k=castNameKey(c?.name);if(!k||seen.has(k))continue;seen.add(k);out.push(c)}
+ return out;
+}
 function uid(prefix='id'){return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2,7)}`}
-function save(opts={}){if(!opts.skipHistory)rememberBackupSnapshot();state._meta=state._meta||{};state._meta.lastSaved=new Date().toISOString();state._meta.version='5.1.4';localStorage.setItem(K4,JSON.stringify(state));updateHeader();renderQuickDashboard();renderOps48();const s=document.getElementById('status');if(s){s.textContent='Salvato ✓';setTimeout(()=>s.textContent='Dati locali · Cloud Sync V5.1.4',1000)}if(!opts.skipCloud)scheduleCloudPush()}
+function save(opts={}){if(!opts.skipHistory)rememberBackupSnapshot();state._meta=state._meta||{};state._meta.lastSaved=new Date().toISOString();state._meta.version='5.1.7';localStorage.setItem(K4,JSON.stringify(state));updateHeader();renderQuickDashboard();renderOps48();const s=document.getElementById('status');if(s){s.textContent='Salvato ✓';setTimeout(()=>s.textContent='Dati locali · Cloud Sync V5.1.7',1000)}if(!opts.skipCloud)scheduleCloudPush()}
 function activeProd(){return state.productions.find(p=>p.id===state.activeProductionId)||state.productions[0]}
 function updateHeader(){document.getElementById('headDate').textContent=fmtDate(new Date());const p=activeProd();document.getElementById('activeProdLabel').textContent=`Produzione attiva: ${p.title} · ${p.venue||p.kind}`;}
 updateHeader();
 
-const BUILD_LABEL='V5.1.4 · 17/09/2026';
+const BUILD_LABEL='V5.1.7 · 17/09/2026';
 let selectedDate=todayYMD(),smartMode='solisti',planFilter='future',selectedPlanCast=new Set(),smartCalls=[],smartCallDate='';
 document.getElementById('smartDate').value=todayYMD();document.getElementById('planDate').value=todayYMD();
 
@@ -534,7 +543,7 @@ function smartTimeOptions(selected=''){
  for(let h=6;h<=23;h++)for(let m=0;m<60;m+=15){const v=`${pad(h)}:${pad(m)}`;out+=`<option value="${v}" ${v===selected?'selected':''}>${v.replace(':','.')}</option>`}
  return out;
 }
-function smartTargetChoices(i,selected=[]){const p=activeProd(),choices=[['all','TUTTI'],['chorus','CORO'],['chorus-women','CORO DONNE'],['chorus-men','CORO UOMINI'],['extras','FIGURANTI'],...(p.cast||[]).map(c=>[`cast:${c.id}`,`${c.role} — ${c.name}`])];return choices.map(([v,label])=>`<label class="multiChoice"><input type="checkbox" ${selected.includes(v)?'checked':''} onchange="toggleSmartTarget(${i},'${esc(v)}',this.checked)"><span>${esc(label)}</span></label>`).join('')}
+function smartTargetChoices(i,selected=[]){const p=activeProd(),castChoices=uniqueCastByName(p).map(c=>[`cast:${c.id}`,isDitticoProd(p)?c.name:(c.role?`${c.role} — ${c.name}`:c.name)]),choices=[['all','TUTTI'],['chorus','CORO'],['chorus-women','CORO DONNE'],['chorus-men','CORO UOMINI'],['extras','FIGURANTI'],...castChoices];return choices.map(([v,label])=>`<label class="multiChoice"><input type="checkbox" ${selected.includes(v)?'checked':''} onchange="toggleSmartTarget(${i},'${esc(v)}',this.checked)"><span>${esc(label)}</span></label>`).join('')}
 function smartActivityOptions(selected=''){
  const d=document.getElementById('smartDate').value||todayYMD();const rows=itemsFor(d).filter(x=>smartMode==='completo'||x.audience!=='technical');
  let out='<option value="">Prova…</option>';
@@ -542,12 +551,12 @@ function smartActivityOptions(selected=''){
  out+=rows.map(x=>`<option value="${esc(x.id)}" ${selected===x.id?'selected':''}>${esc((x.start?x.start+' · ':'')+planActivityText(x))}</option>`).join('');
  return out;
 }
-function addSmartCall(){smartCalls.push({itemId:firstSmartItemId(),targets:[],time:''});renderSmartCalls()}
+function addSmartCall(){const last=smartCalls[smartCalls.length-1];const itemId=last?.itemId||firstSmartItemId();smartCalls.push({itemId,targets:[],time:''});renderSmartCalls();generateSmart()}
 function updateSmartCall(i,key,value){if(!smartCalls[i])return;smartCalls[i][key]=value;generateSmart()}
 function toggleSmartTarget(i,target,checked){if(!smartCalls[i])return;const current=smartCalls[i].targets||(smartCalls[i].target?[smartCalls[i].target]:[]);smartCalls[i].targets=checked?[...new Set([...current,target])]:current.filter(x=>x!==target);delete smartCalls[i].target;const summary=document.getElementById(`smartTargetSummary-${i}`);if(summary){const count=smartCalls[i].targets.length;summary.textContent=count?count+' selezionati':'Seleziona uno o più…'}generateSmart()}
 function removeSmartCall(i){smartCalls.splice(i,1);renderSmartCalls();generateSmart()}
 function renderSmartCalls(){const box=document.getElementById('smartCallRows');if(!box)return;box.innerHTML=smartCalls.length?smartCalls.map((c,i)=>{const selected=c.targets||(c.target?[c.target]:[]),count=selected.length;return `<div class="callRow"><label class="callActivity">Prova<select onchange="updateSmartCall(${i},'itemId',this.value)">${smartActivityOptions(c.itemId)}</select></label><label class="callTargets">Convocati<details class="multiPick"><summary id="smartTargetSummary-${i}">${count?count+' selezionati':'Seleziona uno o più…'}</summary><div class="multiMenu">${smartTargetChoices(i,selected)}</div></details></label><label>Ora<select onchange="updateSmartCall(${i},'time',this.value)">${smartTimeOptions(c.time)}</select></label><button class="action danger" onclick="removeSmartCall(${i})" aria-label="Elimina convocazione">×</button></div>`}).join(''):'<div class="empty" style="margin-top:10px">Nessuna convocazione aggiunta.</div>'}
-function smartCallLabel(target){if(target==='all')return 'TUTTI';if(target==='extras')return 'FIGURANTI';if(target==='chorus')return 'CORO';if(target==='chorus-women')return 'CORO DONNE';if(target==='chorus-men')return 'CORO UOMINI';if(target.startsWith('cast:')){const c=(activeProd().cast||[]).find(x=>x.id===target.slice(5));return c?`${c.name} — ${c.role}`:''}return ''}
+function smartCallLabel(target){if(target==='all')return 'TUTTI';if(target==='extras')return 'FIGURANTI';if(target==='chorus')return 'CORO';if(target==='chorus-women')return 'CORO DONNE';if(target==='chorus-men')return 'CORO UOMINI';if(target.startsWith('cast:')){const p=activeProd(),c=(p.cast||[]).find(x=>x.id===target.slice(5));return c?(isDitticoProd(p)?c.name:(c.role?`${c.name} — ${c.role}`:c.name)):''}return ''}
 function activityLabel(a){const s=a.toLowerCase();if(s.includes('musicale'))return '🎼 *Prova musicale*';if(s.includes('regia'))return '🎭 *Prova di regia*';if(s.includes('assieme'))return '🎭 *Prova in assieme*';if(s.includes('recita'))return '🎭 *Recita*';if(s.includes('luci'))return '💡 *Luci*';if(s.includes('montaggio'))return '🛠️ *Montaggio*';if(s.includes('riposo'))return '🌙 *Riposo*';return `🎭 *${a}*`}
 function generateSmart(){
  const date=document.getElementById('smartDate').value||todayYMD(),p=activeProd();
@@ -748,9 +757,9 @@ async function importPagliacciPdf(ev){
  try{dedupePagliacciPlan(p);const lines=await extractPdfLines(f),incoming=parsePagliacciLines(lines);if(!incoming.length)throw new Error('Nel PDF non ho riconosciuto attività Pagliacci. Verifichi che sia una pianificazione dell’Ufficio Produzione.');const changes=comparePlans(p.plan||[],incoming);state.activeProductionId=p.id;save();showPdfCompare(f,p,incoming,changes);autoArchivePdf(f,p,'Piano prove importato','Piano prove')}catch(e){console.error(e);alert('Importazione PDF non riuscita.\n'+(e.message||'Riprovi con il PDF originale.'))}finally{input.value=''}
 }
 
-function addCast(){const p=activeProd(),role=document.getElementById('castRole').value.trim(),name=document.getElementById('castName').value.trim();if(!name)return;p.cast.push({id:uid('cast'),role,name});document.getElementById('castRole').value='';document.getElementById('castName').value='';save();renderCast()}
+function addCast(){const p=activeProd(),role=document.getElementById('castRole').value.trim(),name=document.getElementById('castName').value.trim();if(!name)return;if(isDitticoProd(p)&&(p.cast||[]).some(c=>castNameKey(c.name)===castNameKey(name))){document.getElementById('castRole').value='';document.getElementById('castName').value='';renderCast();return}p.cast.push({id:uid('cast'),role:isDitticoProd(p)?'':role,name});document.getElementById('castRole').value='';document.getElementById('castName').value='';save();renderCast()}
 function deleteCast(id){const p=activeProd();p.cast=p.cast.filter(x=>x.id!==id);p.plan.forEach(x=>x.castIds=(x.castIds||[]).filter(cid=>cid!==id));save();renderCast()}
-function renderCast(){const p=activeProd();document.getElementById('castProdName').textContent=`Produzione attiva: ${p.title}`;document.getElementById('castList').innerHTML=p.cast.length?p.cast.map(c=>`<div class="card castRow"><div><strong>${esc(c.name)}</strong><div class="small">${esc(c.role||'')}</div></div><button class="action alt" onclick="deleteCast('${c.id}')">×</button></div>`).join(''):'<div class="empty">Nessun solista inserito.</div>'}
+function renderCast(){const p=activeProd(),list=uniqueCastByName(p);document.getElementById('castProdName').textContent=`Produzione attiva: ${p.title}`;document.getElementById('castList').innerHTML=list.length?list.map(c=>`<div class="card castRow"><div><strong>${esc(c.name)}</strong>${isDitticoProd(p)?'':`<div class="small">${esc(c.role||'')}</div>`}</div><button class="action alt" onclick="deleteCast('${c.id}')">×</button></div>`).join(''):'<div class="empty">Nessun solista inserito.</div>'}
 
 function addRoom(){const p=activeProd(),who=document.getElementById('roomWho').value.trim(),room=document.getElementById('roomNo').value.trim();if(!who)return;p.rooms.push({room,who});document.getElementById('roomWho').value='';document.getElementById('roomNo').value='';save();renderRooms()}
 function deleteRoom(i){activeProd().rooms.splice(i,1);save();renderRooms()}
@@ -898,7 +907,7 @@ function renderCloudPanel(){const c=getCloudConfig();cloudOwner.value=c.owner;cl
 function b64utf8(s){return btoa(unescape(encodeURIComponent(s)))}function unb64(s){return decodeURIComponent(escape(atob(s.replace(/\n/g,''))))}
 async function ghGet(c,path=c.path){const h={Accept:'application/vnd.github+json'};if(c.token)h.Authorization=`Bearer ${c.token}`;const r=await fetch(`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${path.split('/').map(encodeURIComponent).join('/')}?ref=${encodeURIComponent(c.branch)}`,{headers:h,cache:'no-store'});if(r.status===404)return null;if(!r.ok)throw new Error(`GitHub ${r.status}`);return r.json()}
 async function ghPut(c,path,content,message){if(!c.token)throw new Error('Serve il token GitHub per scrivere.');const ex=await ghGet(c,path),h={Accept:'application/vnd.github+json','Content-Type':'application/json',Authorization:`Bearer ${c.token}`},body={message,content,branch:c.branch};if(ex?.sha)body.sha=ex.sha;const r=await fetch(`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${path.split('/').map(encodeURIComponent).join('/')}`,{method:'PUT',headers:h,body:JSON.stringify(body)});if(!r.ok){let x={};try{x=await r.json()}catch(e){}throw new Error(`GitHub ${r.status}${x.message?' · '+x.message:''}`)}return r.json()}
-async function cloudPush(manual=false){if(cloudBusy)return;const c=getCloudConfig();if(!c.owner||!c.repo)return manual&&alert('Configuri il repository.');if(!c.token)return manual&&alert('Per pubblicare serve un token GitHub fine-grained con Contents: Read and write.');cloudBusy=true;try{state._meta=state._meta||{};state._meta.cloudUpdatedAt=new Date().toISOString();await ghPut(c,c.path,b64utf8(JSON.stringify({app:'FenicePalcoscenico',version:'5.1.4',updatedAt:state._meta.cloudUpdatedAt,state},null,2)),'Aggiorna dati Fenice Palcoscenico');localStorage.setItem(K4,JSON.stringify(state));if(manual)alert('Dati pubblicati: ora gli altri dispositivi possono sincronizzarsi.')}catch(e){if(manual)alert('Pubblicazione non riuscita: '+e.message)}finally{cloudBusy=false}}
+async function cloudPush(manual=false){if(cloudBusy)return;const c=getCloudConfig();if(!c.owner||!c.repo)return manual&&alert('Configuri il repository.');if(!c.token)return manual&&alert('Per pubblicare serve un token GitHub fine-grained con Contents: Read and write.');cloudBusy=true;try{state._meta=state._meta||{};state._meta.cloudUpdatedAt=new Date().toISOString();await ghPut(c,c.path,b64utf8(JSON.stringify({app:'FenicePalcoscenico',version:'5.1.7',updatedAt:state._meta.cloudUpdatedAt,state},null,2)),'Aggiorna dati Fenice Palcoscenico');localStorage.setItem(K4,JSON.stringify(state));if(manual)alert('Dati pubblicati: ora gli altri dispositivi possono sincronizzarsi.')}catch(e){if(manual)alert('Pubblicazione non riuscita: '+e.message)}finally{cloudBusy=false}}
 async function cloudPull(manual=false){if(cloudBusy)return;const c=getCloudConfig();if(!c.owner||!c.repo)return manual&&alert('Configuri il repository.');cloudBusy=true;try{const f=await ghGet(c,c.path);if(!f?.content)return manual&&alert('Archivio condiviso non ancora creato. Sul dispositivo principale prema “Pubblica dati attuali”.');const p=JSON.parse(unb64(f.content));if(!p.state)throw new Error('Archivio non valido');if(manual&&new Date(state._meta?.lastSaved||0)>new Date(p.updatedAt||0)&&!confirm('I dati locali sono più recenti. Sostituirli comunque?'))return;rememberBackupSnapshot();state=p.state;for(const x of state.productions||[])ensureProdV5(x);cleanPagliacciDuplicateTimes();dedupeAllPagliacciRows();applyOfficialDitticoPlan();save({skipHistory:true,skipCloud:true});if(manual)alert('Dati condivisi scaricati.')}catch(e){if(manual)alert('Sincronizzazione non riuscita: '+e.message)}finally{cloudBusy=false}}
 function scheduleCloudPush(){const c=getCloudConfig();if(!c.auto||!c.token||cloudBusy)return;clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>cloudPush(false),1800)}
 async function testCloud(){const c=getCloudConfig();if(!c.owner||!c.repo)return alert('Configuri owner e repository.');try{const f=await ghGet(c,c.path);alert(f?'Connessione riuscita: archivio trovato.':'Connessione riuscita: archivio non ancora creato.')}catch(e){alert('Verifica non riuscita: '+e.message)}}
@@ -932,7 +941,7 @@ setInterval(()=>{renderQuickDashboard();renderOps48();if(document.getElementById
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      const reg = await navigator.serviceWorker.register('./sw.js?v=5.1.4', { updateViaCache: 'none' });
+      const reg = await navigator.serviceWorker.register('./sw.js?v=5.1.7', { updateViaCache: 'none' });
       await reg.update();
       // Se una nuova versione prende il controllo, ricarica una sola volta la pagina.
       let refreshing = false;
