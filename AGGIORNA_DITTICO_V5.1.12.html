@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="theme-color" content="#7d1423">
+<title>Fenice Palcoscenico · Aggiornamento Dittico V5.1.12</title>
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#191919;background:#f5f2ed}
+*{box-sizing:border-box}body{margin:0;padding:22px}.wrap{max-width:720px;margin:auto}.card{background:#fff;border-radius:22px;padding:22px;box-shadow:0 8px 30px rgba(0,0,0,.10)}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#7d1423;color:#fff;font-size:12px;font-weight:800;letter-spacing:.03em}
+h1{margin:10px 0 8px;font-size:27px}p{line-height:1.5}.list{background:#f7f5f1;border-radius:14px;padding:14px 16px;line-height:1.75;margin:14px 0}
+button,a.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px 16px;margin-top:12px;text-decoration:none;text-align:center;font-size:16px;font-weight:800;cursor:pointer}
+.primary{background:#7d1423;color:#fff}.secondary{background:#ece7df;color:#191919}.status{margin-top:16px;border-radius:14px;padding:14px;background:#f1eee9;white-space:pre-wrap;line-height:1.45}.ok{background:#e8f5e9}.warn{background:#fff5d9}.err{background:#fde8e8}.small{font-size:13px;color:#666}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="card">
+<span class="badge">FENICE PALCOSCENICO · V5.1.12</span>
+<h1>Aggiornamento ODG Smart · Dittico</h1>
+<p>Raggruppa tutto il corpo di ballo in una sola voce <b>BALLO</b>, senza visualizzare i nomi individuali, mantenendo invariati i solisti.</p>
+<div class="list"><b>Voci ODG Smart dopo l'aggiornamento</b><br>
+Elisa Balbo<br>Allen Boxer<br>Julie Mossay<br>Christian Schleinzer<br>David Pogana<br><b>BALLO</b></div>
+<div id="status" class="status">Avvio aggiornamento…</div>
+<button id="apply" class="primary">APPLICA DI NUOVO</button>
+<a id="openApp" class="btn secondary" href="./?v=5.1.12-dittico-20260918">APRI FENICE PALCOSCENICO</a>
+<p class="small">Questo file deve essere aperto dalla stessa GitHub Pages di Fenice Palcoscenico. L'aggiornamento modifica solo i dati del Dittico e non altera le altre produzioni.</p>
+</div></div>
+<script>
+const APP_KEY='fenicePalcoV4';
+const CLOUD_KEY='fenicePalcoCloudV5';
+const NEW_BALLO_ID='cast-dit-ballo';
+const REVISION='2026-09-18-ballo-unico-v2';
+const KNOWN_DANCERS=new Set([
+ 'veronica barchielli','robert abotsie ediogu','ginevra grossi','alfonso maria mottola','matteo passini','igor pane'
+]);
+const statusBox=document.getElementById('status');
+const applyBtn=document.getElementById('apply');
+function norm(s){return (s||'').toString().trim().replace(/\s+/g,' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()}
+function setStatus(t,c=''){statusBox.className='status '+c;statusBox.textContent=t}
+function isDittico(p){return !!p&&((p.id||'')==='prod-dittico-2026'||norm(p.title)==='dittico')}
+function uniq(a){return [...new Set((a||[]).filter(Boolean))]}
+function isBallo(c){return norm(c?.role)==='ballo'||/^cast-dit-ballo/i.test(c?.id||'')||KNOWN_DANCERS.has(norm(c?.name))}
+function patchState(state){
+ if(!state||!Array.isArray(state.productions))throw new Error('Archivio Fenice non valido.');
+ const p=state.productions.find(isDittico);if(!p)throw new Error('Produzione Dittico non trovata. Apri prima Fenice Palcoscenico e seleziona Dittico.');
+ p.cast=Array.isArray(p.cast)?p.cast:[];
+ const old=p.cast.filter(isBallo), oldIds=new Set(old.map(x=>x.id).filter(Boolean));
+ const nonBallo=p.cast.filter(c=>!isBallo(c));
+ p.cast=[...nonBallo,{id:NEW_BALLO_ID,role:'Ballo',name:'Ballo'}];
+ for(const row of (p.plan||[])){
+   if(!Array.isArray(row.castIds))continue;
+   const had=row.castIds.some(id=>oldIds.has(id));
+   row.castIds=uniq(row.castIds.filter(id=>!oldIds.has(id)));
+   if(had&&!row.castIds.includes(NEW_BALLO_ID))row.castIds.push(NEW_BALLO_ID);
+ }
+ const drafts=(p.odgDrafts&&typeof p.odgDrafts==='object')?p.odgDrafts:{};
+ for(const draft of Object.values(drafts)){
+   if(!draft||!Array.isArray(draft.calls))continue;
+   for(const call of draft.calls){
+     let targets=Array.isArray(call.targets)?call.targets:(call.target?[call.target]:[]), changed=false;
+     targets=targets.map(t=>{
+       if(typeof t==='string'&&t.startsWith('cast:')&&oldIds.has(t.slice(5))){changed=true;return 'cast:'+NEW_BALLO_ID}
+       return t;
+     });
+     call.targets=uniq(targets);
+     if(call.target&&changed)call.target='cast:'+NEW_BALLO_ID;
+   }
+ }
+ const now=new Date().toISOString();
+ state._meta=state._meta||{};
+ state._meta.lastSaved=now;
+ state._meta.cloudUpdatedAt=now;
+ state._meta.ditticoCastRevision=REVISION;
+ p._castRevision=REVISION;
+ return {state,p,oldCount:old.length};
+}
+function cloudConfig(){
+ let c={};try{c=JSON.parse(localStorage.getItem(CLOUD_KEY)||'{}')}catch(e){}
+ const gh=location.hostname.endsWith('github.io');
+ return {owner:c.owner||(gh?location.hostname.split('.')[0]:''),repo:c.repo||(gh?(location.pathname.split('/').filter(Boolean)[0]||''):''),branch:c.branch||'main',path:c.path||'fenice-data.json',token:c.token||''};
+}
+function b64utf8(s){return btoa(unescape(encodeURIComponent(s)))}
+async function ghGet(c){
+ const h={Accept:'application/vnd.github+json'};if(c.token)h.Authorization=`Bearer ${c.token}`;
+ const u=`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${c.path.split('/').map(encodeURIComponent).join('/')}?ref=${encodeURIComponent(c.branch)}`;
+ const r=await fetch(u,{headers:h,cache:'no-store'});if(r.status===404)return null;if(!r.ok)throw new Error('GitHub '+r.status);return r.json();
+}
+async function ghPut(c,state){
+ if(!c.token)throw new Error('token GitHub non presente');
+ const ex=await ghGet(c), updatedAt=state._meta.cloudUpdatedAt||new Date().toISOString();
+ const body={message:'ODG Smart Dittico: raggruppa Ballo',content:b64utf8(JSON.stringify({app:'FenicePalcoscenico',version:'5.1.11+dittico-20260918',updatedAt,state},null,2)),branch:c.branch};
+ if(ex?.sha)body.sha=ex.sha;
+ const h={Accept:'application/vnd.github+json','Content-Type':'application/json',Authorization:`Bearer ${c.token}`};
+ const u=`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${c.path.split('/').map(encodeURIComponent).join('/')}`;
+ const r=await fetch(u,{method:'PUT',headers:h,body:JSON.stringify(body)});if(!r.ok){let x={};try{x=await r.json()}catch(e){}throw new Error('GitHub '+r.status+(x.message?' · '+x.message:''))}
+}
+async function runPatch(){
+ applyBtn.disabled=true;
+ try{
+   if(!location.hostname.endsWith('github.io'))throw new Error('Carica questo file nel repository fenice-palcoscenico- e aprilo dalla relativa GitHub Pages.');
+   let state=null;try{state=JSON.parse(localStorage.getItem(APP_KEY)||'null')}catch(e){}
+   if(!state)throw new Error('Dati locali non trovati. Apri prima Fenice Palcoscenico su questo dispositivo, poi torna a questa pagina.');
+   const r=patchState(state);localStorage.setItem(APP_KEY,JSON.stringify(r.state));
+   let msg=`Aggiornamento locale completato.\nBallo: ${r.oldCount} voci precedenti → 1 voce “Ballo”.`;
+   const c=cloudConfig();
+   if(c.owner&&c.repo&&c.token){
+     setStatus(msg+'\nPubblicazione Cloud in corso…','warn');
+     try{await ghPut(c,r.state);localStorage.setItem(APP_KEY,JSON.stringify(r.state));msg+='\nCloud aggiornato: modifica disponibile anche sugli altri dispositivi.';setStatus(msg,'ok')}
+     catch(e){setStatus(msg+'\n\nLocale aggiornato; Cloud non pubblicato: '+e.message+'\nApri l’app > Cloud e usa “Pubblica dati attuali”.','warn')}
+   }else setStatus(msg+'\n\nCloud non pubblicato automaticamente. Il dispositivo corrente è già aggiornato.','ok');
+ }catch(e){setStatus('Aggiornamento non eseguito: '+e.message,'err')}
+ finally{applyBtn.disabled=false}
+}
+applyBtn.addEventListener('click',runPatch);
+setTimeout(runPatch,350);
+</script>
+</body>
+</html>
