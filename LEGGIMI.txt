@@ -1,25 +1,5 @@
-ACTV RAPIDO v20 — PACCHETTO PWA
+Fenice Palcoscenico V5.1.12 corretta
 
-CONTENUTO
-- index.html
-- manifest.webmanifest
-- service-worker.js
-- icons/icon-192.png
-- icons/icon-512.png
-
-MIGLIORIE v20
-- Carica solo i dati necessari al percorso scelto (BUS, NAV o entrambi).
-- Se un dataset fallisce, gli altri percorsi non vengono bloccati inutilmente.
-- Nuovo tentativo automatico dopo un errore di caricamento.
-- Realtime opzionale: se non risponde resta disponibile l'orario programmato.
-- Pulsante Aggiorna corse e Inverti percorso.
-- Aggiornamento automatico ogni 60 secondi con app aperta.
-- Stato rete online/offline e indicazione dell'ora dell'ultimo aggiornamento.
-- PWA completa con manifest, service worker e icone.
-
-IMPORTANTE PER IL GPS
-Il GPS del browser richiede che questa cartella sia pubblicata su un indirizzo HTTPS (non basta aprire index.html come file locale).
-Una volta pubblicata su HTTPS, aprire il sito in Chrome Android e consentire la Posizione.
-
-FONTE DATI
-L'app usa i feed GTFS ACTV/AVM configurati nel codice e un feed realtime di supporto quando disponibile.
+Su GitHub sostituire almeno index.html e sw.js.
+Dopo il commit, riaprire la pagina GitHub Pages e aggiornare.
+ODG Smart Dittico: Elisa Balbo, Allen Boxer, Julie Mossay, Christian Schleinzer, David Pogana, BALLO.
