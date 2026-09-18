@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aggiorna ODG Smart · Dittico</title>
+<style>
+  :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#191919;background:#f5f2ed}
+  body{margin:0;padding:24px}
+  .wrap{max-width:680px;margin:auto}
+  .card{background:white;border-radius:22px;padding:22px;box-shadow:0 8px 28px rgba(0,0,0,.09)}
+  h1{margin:0 0 8px;font-size:28px}
+  h2{font-size:18px;margin:22px 0 8px}
+  p{line-height:1.45}
+  .badge{display:inline-block;padding:5px 10px;border-radius:999px;background:#7d1423;color:#fff;font-weight:800;font-size:12px}
+  .list{background:#f7f7f7;border-radius:14px;padding:14px 16px;line-height:1.7}
+  button,a.btn{display:block;width:100%;box-sizing:border-box;border:0;border-radius:14px;padding:14px 16px;margin-top:12px;
+    font-size:16px;font-weight:800;text-align:center;text-decoration:none;cursor:pointer}
+  .primary{background:#7d1423;color:white}
+  .secondary{background:#ece7df;color:#191919}
+  .status{margin-top:16px;padding:14px;border-radius:14px;background:#f1eee9;white-space:pre-wrap}
+  .ok{background:#e8f5e9}
+  .warn{background:#fff5d9}
+  .err{background:#fde8e8}
+  small{display:block;margin-top:14px;color:#666;line-height:1.4}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <span class="badge">FENICE PALCOSCENICO</span>
+    <h1>ODG Smart · Dittico</h1>
+    <p>Questo aggiornamento mantiene invariati i solisti e raggruppa tutti i danzatori in un'unica voce <b>BALLO</b>, senza nomi individuali.</p>
+
+    <h2>Voci disponibili in ODG Smart</h2>
+    <div class="list">
+      Elisa Balbo<br>
+      Allen Boxer<br>
+      Julie Mossay<br>
+      Christian Schleinzer<br>
+      David Pogana<br>
+      <b>BALLO</b>
+    </div>
+
+    <button class="primary" id="applyBtn">APPLICA AGGIORNAMENTO</button>
+    <a class="btn secondary" href="./">APRI FENICE PALCOSCENICO</a>
+    <div class="status" id="status">Pronto.</div>
+    <small>
+      Per aggiornare i dati già presenti nell'app, questo file va aperto dalla stessa pagina GitHub Pages
+      dell'app Fenice Palcoscenico. Se il Cloud è configurato con token, prova anche a pubblicare automaticamente
+      il dato aggiornato su tutti i dispositivi.
+    </small>
+  </div>
+</div>
+
+<script>
+const APP_KEY='fenicePalcoV4';
+const CLOUD_KEY='fenicePalcoCloudV5';
+const NEW_BALLO_ID='cast-dit-ballo';
+
+const statusBox=document.getElementById('status');
+const btn=document.getElementById('applyBtn');
+
+function setStatus(text, cls=''){
+  statusBox.className='status '+cls;
+  statusBox.textContent=text;
+}
+
+function norm(s){
+  return (s||'').toString().trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+}
+
+function isDittico(p){
+  return !!p && ((p.id||'')==='prod-dittico-2026' || norm(p.title)==='dittico');
+}
+
+function dedupe(arr){
+  return [...new Set(arr.filter(Boolean))];
+}
+
+function patchDitticoState(state){
+  if(!state || !Array.isArray(state.productions)) throw new Error('Archivio Fenice non valido.');
+  const p=state.productions.find(isDittico);
+  if(!p) throw new Error('Produzione Dittico non trovata nell’app.');
+
+  p.cast=Array.isArray(p.cast)?p.cast:[];
+  const oldBalloIds=new Set(
+    p.cast
+      .filter(c => norm(c.role)==='ballo' || /^cast-dit-ballo/i.test(c.id||''))
+      .map(c => c.id)
+      .filter(Boolean)
+  );
+
+  // Mantiene tutto il cast non-ballo e crea una sola voce collettiva BALLO.
+  const nonBallo=p.cast.filter(c => !(norm(c.role)==='ballo' || /^cast-dit-ballo/i.test(c.id||'')));
+  p.cast=[
+    ...nonBallo,
+    {id:NEW_BALLO_ID, role:'Ballo', name:'Ballo'}
+  ];
+
+  // Migra eventuali assegnazioni del piano prove.
+  for(const row of (p.plan||[])){
+    if(!Array.isArray(row.castIds)) continue;
+    const had=row.castIds.some(id=>oldBalloIds.has(id));
+    row.castIds=dedupe(row.castIds.filter(id=>!oldBalloIds.has(id)));
+    if(had) row.castIds.push(NEW_BALLO_ID);
+  }
+
+  // Migra bozze ODG Smart salvate.
+  const drafts=p.odgDrafts && typeof p.odgDrafts==='object' ? p.odgDrafts : {};
+  for(const draft of Object.values(drafts)){
+    if(!draft || !Array.isArray(draft.calls)) continue;
+    for(const call of draft.calls){
+      let targets=Array.isArray(call.targets) ? call.targets : (call.target ? [call.target] : []);
+      let changed=false;
+      targets=targets.map(t=>{
+        if(typeof t==='string' && t.startsWith('cast:') && oldBalloIds.has(t.slice(5))){
+          changed=true;
+          return 'cast:'+NEW_BALLO_ID;
+        }
+        return t;
+      });
+      call.targets=dedupe(targets);
+      if(call.target){
+        if(changed) call.target='cast:'+NEW_BALLO_ID;
+      }
+    }
+  }
+
+  state._meta=state._meta||{};
+  state._meta.lastSaved=new Date().toISOString();
+  state._meta.ditticoCastRevision='2026-09-18-ballo-unico';
+  return {state, production:p, oldBalloCount:oldBalloIds.size};
+}
+
+function b64utf8(s){
+  return btoa(unescape(encodeURIComponent(s)));
+}
+
+function cloudConfig(){
+  let c={};
+  try{c=JSON.parse(localStorage.getItem(CLOUD_KEY)||'{}')}catch(e){}
+  const owner=c.owner || (location.hostname.endsWith('github.io') ? location.hostname.split('.')[0] : '');
+  const repo=c.repo || (location.hostname.endsWith('github.io') ? location.pathname.split('/').filter(Boolean)[0]||'' : '');
+  return {
+    owner, repo,
+    branch:c.branch||'main',
+    path:c.path||'fenice-data.json',
+    token:c.token||''
+  };
+}
+
+async function ghGet(c){
+  const headers={Accept:'application/vnd.github+json'};
+  if(c.token) headers.Authorization=`Bearer ${c.token}`;
+  const url=`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${c.path.split('/').map(encodeURIComponent).join('/')}?ref=${encodeURIComponent(c.branch)}`;
+  const r=await fetch(url,{headers,cache:'no-store'});
+  if(r.status===404) return null;
+  if(!r.ok) throw new Error(`GitHub ${r.status}`);
+  return r.json();
+}
+
+async function ghPut(c,state){
+  const existing=await ghGet(c);
+  const payload={
+    app:'FenicePalcoscenico',
+    version:'5.2',
+    updatedAt:new Date().toISOString(),
+    state
+  };
+  state._meta=state._meta||{};
+  state._meta.cloudUpdatedAt=payload.updatedAt;
+
+  const body={
+    message:'Aggiorna cast Dittico per ODG Smart: Ballo unico',
+    content:b64utf8(JSON.stringify(payload,null,2)),
+    branch:c.branch
+  };
+  if(existing?.sha) body.sha=existing.sha;
+
+  const headers={
+    Accept:'application/vnd.github+json',
+    'Content-Type':'application/json',
+    Authorization:`Bearer ${c.token}`
+  };
+  const url=`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${c.path.split('/').map(encodeURIComponent).join('/')}`;
+  const r=await fetch(url,{method:'PUT',headers,body:JSON.stringify(body)});
+  if(!r.ok){
+    let msg='';
+    try{msg=(await r.json()).message||''}catch(e){}
+    throw new Error(`GitHub ${r.status}${msg?' · '+msg:''}`);
+  }
+}
+
+btn.addEventListener('click', async ()=>{
+  btn.disabled=true;
+  try{
+    if(!location.hostname.endsWith('github.io')){
+      setStatus(
+        'Questo file deve essere aperto dalla stessa GitHub Pages dell’app.\n\n' +
+        'Caricalo nel repository fenice-palcoscenico-, poi aprilo dal sito e premi di nuovo il pulsante.',
+        'warn'
+      );
+      return;
+    }
+
+    let state;
+    try{state=JSON.parse(localStorage.getItem(APP_KEY)||'null')}catch(e){}
+    if(!state) throw new Error('Non trovo i dati locali dell’app. Apri prima Fenice Palcoscenico su questo dispositivo, poi torna qui.');
+
+    const result=patchDitticoState(state);
+    localStorage.setItem(APP_KEY,JSON.stringify(result.state));
+
+    let msg=`Aggiornamento locale completato.\nBallo: ${result.oldBalloCount || 0} voci individuali → 1 voce “Ballo”.`;
+
+    const c=cloudConfig();
+    if(c.owner && c.repo && c.token){
+      setStatus(msg+'\n\nPubblicazione Cloud in corso…','warn');
+      try{
+        await ghPut(c,result.state);
+        localStorage.setItem(APP_KEY,JSON.stringify(result.state));
+        msg += '\nCloud aggiornato: la modifica può essere sincronizzata sugli altri dispositivi.';
+        setStatus(msg,'ok');
+      }catch(e){
+        msg += `\n\nDati locali aggiornati, ma pubblicazione Cloud non riuscita: ${e.message}\nApri Fenice Palcoscenico > Cloud e usa “Pubblica dati attuali”.`;
+        setStatus(msg,'warn');
+      }
+    }else{
+      msg += '\n\nCloud non pubblicato automaticamente. Se vuoi propagare la modifica, apri Fenice Palcoscenico > Cloud e premi “Pubblica dati attuali”.';
+      setStatus(msg,'ok');
+    }
+  }catch(e){
+    setStatus('Aggiornamento non eseguito: '+e.message,'err');
+  }finally{
+    btn.disabled=false;
+  }
+});
+</script>
+</body>
+</html>
