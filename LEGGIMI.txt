@@ -1,4 +1,4 @@
-Fenice Palcoscenico V5.1.12 corretta
+Fenice Palcoscenico V5.1.13 — Fedora
 
 Su GitHub sostituire almeno index.html e sw.js.
 Dopo il commit, riaprire la pagina GitHub Pages e aggiornare.

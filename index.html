@@ -40,7 +40,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 
 .smartModal{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:9999;display:none;align-items:center;justify-content:center;padding:18px}.smartModal.show{display:flex}.smartBox{width:min(860px,100%);max-height:88vh;overflow:auto;background:#181a20;border:1px solid #454957;border-radius:22px;box-shadow:0 20px 70px rgba(0,0,0,.55);padding:20px}.smartHead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}.smartTitle{font-size:24px;font-weight:900}.smartStats{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.smartBadge{padding:7px 10px;border-radius:999px;background:#2c303a;font-weight:800}.smartChange{display:grid;grid-template-columns:32px 1fr;gap:10px;padding:12px;border:1px solid #3b3f49;border-radius:14px;margin:9px 0;background:#20232b}.smartChange.new{border-left:5px solid #3f9f74}.smartChange.changed{border-left:5px solid #d8ab44}.smartChange.removed{border-left:5px solid #b34354}.smartOld{opacity:.68;text-decoration:line-through;margin-top:5px}.smartNew{font-weight:800;margin-top:4px}.smartBtns{position:sticky;bottom:-20px;background:#181a20;padding:14px 0 2px;display:flex;gap:8px;flex-wrap:wrap}.smartEmpty{padding:22px;text-align:center;border:1px dashed #4a4e59;border-radius:14px;color:#c8c8c8}.smartSub{color:#b9bac0;font-size:14px;margin-top:3px}.callRow{display:grid;grid-template-columns:minmax(150px,1.4fr) minmax(170px,1.6fr) minmax(100px,.7fr) auto;gap:8px;align-items:end;margin:10px 0}.callRow label{margin:0}.callRow .action{min-height:47px}.multiPick{position:relative}.multiPick summary{list-style:none;cursor:pointer;background:#111319;border:1px solid #4a4e59;border-radius:12px;padding:13px 12px;min-height:47px;color:#fff;font-weight:700}.multiPick summary::-webkit-details-marker{display:none}.multiPick summary{white-space:normal;line-height:1.25}.multiMenu .action{min-height:42px}.multiPick[open] summary{border-color:#d8ab44}.multiMenu{position:absolute;z-index:30;left:0;right:0;max-height:290px;overflow:auto;background:#20232b;border:1px solid #575c69;border-radius:12px;padding:8px;box-shadow:0 14px 35px rgba(0,0,0,.55)}.multiChoice{display:flex!important;align-items:center;gap:9px;padding:9px 7px;margin:0!important;border-bottom:1px solid #343843;font-size:14px!important}.multiChoice:last-child{border-bottom:0}.multiChoice input{width:21px;height:21px;flex:0 0 auto}.callActions{display:flex;gap:6px;align-items:end}.callActions .action{min-width:47px;padding:10px}.callRow select{width:100%}@media(max-width:680px){.callRow{grid-template-columns:1fr 110px auto}.callRow .callActivity,.callRow .callTargets{grid-column:1/-1}.callRow label{font-size:12px}}
 
-/* ===== FENICE PALCOSCENICO V5.1.12 ===== */
+/* ===== FENICE PALCOSCENICO V5.1.13 ===== */
 .v5grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.v5stat{padding:14px;border:1px solid #3d414c;border-radius:14px;background:#20232b}.v5stat b{display:block;font-size:24px;margin-top:4px}
 .dayOps{border-left:5px solid #d8ab44}.dayOps.tomorrow{border-left-color:#4e8bd8}.opsRow{display:grid;grid-template-columns:78px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid #363a44}.opsRow:last-child{border-bottom:0}.opsTime{font-size:18px;font-weight:900}.opsTitle{font-weight:800}
 .hubNav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}.hubNav button{min-height:54px}.priorityHigh{border-left:5px solid #b34354}.priorityMedium{border-left:5px solid #d8ab44}.priorityLow{border-left:5px solid #3f9f74}.workCard{border-left:5px solid #8f6fd8}
@@ -52,7 +52,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V5.1.12</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V5.1.12 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
+<header><div class="brand"><div class="logo" aria-label="Fenice Palcoscenico"></div><div><h1>FENICE — PALCOSCENICO <span class="ver">V5.1.13</span></h1><div id="headDate" class="date"></div><div id="activeProdLabel" class="activeProd"></div><div id="status" class="status">V5.1.13 · aggiornamento automatico attivo · dati salvati sul dispositivo</div></div></div></header>
 
 <section class="grid">
 <button class="tile primary" onclick="openDay(0)"><span class="ico">🎭</span><b>OGGI</b><small>Piano della produzione attiva</small></button>
@@ -254,6 +254,44 @@ if(!state){
  localStorage.setItem(K4,JSON.stringify(state));
 }
 if(!state.productions?.length)state=structuredClone(BOOTSTRAP);
+// V5.1.13: sostituisce definitivamente L'Elisir d'amore con Fedora,
+// anche sui dispositivi che conservano già i dati della versione precedente.
+try{
+ const fedora={
+  id:'prod-fedora-2026',title:'Fedora',kind:'Opera',venue:'Teatro La Fenice',
+  start:'2026-10-21',end:'2026-11-22',
+  notes:'Periodo operativo 21 ottobre–22 novembre 2026 · Prima 7 novembre · Ultima 22 novembre',
+  cast:[],rooms:[],documents:[],sharedDocs:[],contacts:[],technicalNotes:[],odgHistory:[],odgDrafts:{},showCues:[],works:[],
+  plan:[
+   {id:'f-1021-01',date:'2026-10-21',start:'',end:'',activity:'Incontro compagnia / Prova musicale',place:'Teatro La Fenice',audience:'cast',castIds:[]},
+   {id:'f-1022-01',date:'2026-10-22',start:'',end:'',activity:'Scarico',place:'Teatro La Fenice',audience:'technical',castIds:[]},
+   {id:'f-1023-01',date:'2026-10-23',start:'',end:'',activity:'Arrivo allestimento / Scarico',place:'Teatro La Fenice',audience:'technical',castIds:[]},
+   {id:'f-1024-01',date:'2026-10-24',start:'',end:'',activity:'Montaggio',place:'Teatro La Fenice',audience:'technical',castIds:[]},
+   {id:'f-1025-01',date:'2026-10-25',start:'',end:'',activity:'Montaggio',place:'Teatro La Fenice',audience:'technical',castIds:[]},
+   {id:'f-1026-01',date:'2026-10-26',start:'',end:'',activity:'Montaggio',place:'Teatro La Fenice',audience:'technical',castIds:[]},
+   {id:'f-1027-01',date:'2026-10-27',start:'',end:'',activity:'Montaggio',place:'Teatro La Fenice',audience:'technical',castIds:[]},
+   {id:'f-1028-01',date:'2026-10-28',start:'',end:'',activity:'Montaggio',place:'Teatro La Fenice',audience:'technical',castIds:[]},
+   {id:'f-1029-01',date:'2026-10-29',start:'',end:'',activity:'Montaggio',place:'Teatro La Fenice',audience:'technical',castIds:[]},
+   {id:'f-1030-01',date:'2026-10-30',start:'',end:'',activity:'Prova tecnica',place:'Teatro La Fenice',audience:'technical',castIds:[]},
+   {id:'f-1031-01',date:'2026-10-31',start:'',end:'',activity:'Prova di scena',place:'Teatro La Fenice',audience:'cast',castIds:[]},
+   {id:'f-1101-01',date:'2026-11-01',start:'',end:'',activity:'Prova di scena',place:'Teatro La Fenice',audience:'cast',castIds:[]},
+   {id:'f-1102-01',date:'2026-11-02',start:'',end:'',activity:'Prova costumi',place:'Teatro La Fenice',audience:'cast',castIds:[]},
+   {id:'f-1103-01',date:'2026-11-03',start:'',end:'',activity:'Prova luci',place:'Teatro La Fenice',audience:'technical',castIds:[]},
+   {id:'f-1104-01',date:'2026-11-04',start:'',end:'',activity:'Prova di scena 2',place:'Teatro La Fenice',audience:'cast',castIds:[]},
+   {id:'f-1105-01',date:'2026-11-05',start:'',end:'',activity:'Prova costumi 2',place:'Teatro La Fenice',audience:'cast',castIds:[]},
+   {id:'f-1106-01',date:'2026-11-06',start:'',end:'',activity:'Prova generale',place:'Teatro La Fenice',audience:'cast',castIds:[]},
+   {id:'f-1107-01',date:'2026-11-07',start:'',end:'',activity:'Prima recita',place:'Teatro La Fenice',audience:'cast',castIds:[]},
+   {id:'f-1122-01',date:'2026-11-22',start:'',end:'',activity:'Ultima recita',place:'Teatro La Fenice',audience:'cast',castIds:[]}
+  ]
+ };
+ const oldActive=state.activeProductionId;
+ const elisirIds=new Set((state.productions||[]).filter(p=>p.id==='prod-elisir-2026'||/elisir d[’']amore/i.test((p.title||'').trim())).map(p=>p.id));
+ state.productions=(state.productions||[]).filter(p=>!elisirIds.has(p.id));
+ let current=state.productions.find(p=>p.id===fedora.id||(p.title||'').trim().toLowerCase()==='fedora');
+ if(!current){state.productions.unshift(fedora);current=fedora;}
+ if(elisirIds.has(oldActive)||!state.productions.some(p=>p.id===state.activeProductionId))state.activeProductionId=current.id;
+ localStorage.setItem(K4,JSON.stringify(state));
+}catch(e){console.warn('Migrazione Fedora V5.1.13',e)}
 // V4.9.2: aggiorna automaticamente il nominativo anche nei dati già salvati
 // sul dispositivo, senza cancellare piani prove o personalizzazioni dell'utente.
 try{
@@ -426,7 +464,7 @@ try{
 }catch(e){console.warn('Migrazione cast Dittico V5.1.12',e)}
 
 // V5.1.4 — struttura dati estesa, senza cancellare personalizzazioni.
-try{let ch=false;if(applyOfficialDitticoPlan()){ch=true;window.__ditticoPlanUpdated=true}for(const p of state.productions||[]){if(!Array.isArray(p.sharedDocs)){p.sharedDocs=[];ch=true}if(!Array.isArray(p.contacts)){p.contacts=[];ch=true}if(!Array.isArray(p.technicalNotes)){p.technicalNotes=[];ch=true}if(!Array.isArray(p.odgHistory)){p.odgHistory=[];ch=true}if(!p.odgDrafts||typeof p.odgDrafts!=='object'){p.odgDrafts={};ch=true}if(!Array.isArray(p.showCues)){p.showCues=[];ch=true}if(!Array.isArray(p.works)){p.works=[];ch=true}if((p.title||'').trim().toLowerCase()==='dittico'&&!p.works.length){p.works=[{id:'work-telephone',title:'The Telephone',composer:'Gian Carlo Menotti'},{id:'work-tahiti',title:'Trouble in Tahiti',composer:'Leonard Bernstein'}];ch=true}}if(cleanPagliacciDuplicateTimes())ch=true;if(dedupeAllPagliacciRows()>0)ch=true;state._meta=state._meta||{};state._meta.schema='5.1.12';if(ch)localStorage.setItem(K4,JSON.stringify(state))}catch(e){console.warn('Migrazione V5.1.12',e)}
+try{let ch=false;if(applyOfficialDitticoPlan()){ch=true;window.__ditticoPlanUpdated=true}for(const p of state.productions||[]){if(!Array.isArray(p.sharedDocs)){p.sharedDocs=[];ch=true}if(!Array.isArray(p.contacts)){p.contacts=[];ch=true}if(!Array.isArray(p.technicalNotes)){p.technicalNotes=[];ch=true}if(!Array.isArray(p.odgHistory)){p.odgHistory=[];ch=true}if(!p.odgDrafts||typeof p.odgDrafts!=='object'){p.odgDrafts={};ch=true}if(!Array.isArray(p.showCues)){p.showCues=[];ch=true}if(!Array.isArray(p.works)){p.works=[];ch=true}if((p.title||'').trim().toLowerCase()==='dittico'&&!p.works.length){p.works=[{id:'work-telephone',title:'The Telephone',composer:'Gian Carlo Menotti'},{id:'work-tahiti',title:'Trouble in Tahiti',composer:'Leonard Bernstein'}];ch=true}}if(cleanPagliacciDuplicateTimes())ch=true;if(dedupeAllPagliacciRows()>0)ch=true;state._meta=state._meta||{};state._meta.schema='5.1.13';if(ch)localStorage.setItem(K4,JSON.stringify(state))}catch(e){console.warn('Migrazione V5.1.13',e)}
 const pad=n=>String(n).padStart(2,'0');
 function ymd(d){return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`}
 function todayYMD(){return ymd(new Date())}
@@ -444,12 +482,12 @@ function uniqueCastByName(p){
  return out;
 }
 function uid(prefix='id'){return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2,7)}`}
-function save(opts={}){if(!opts.skipHistory)rememberBackupSnapshot();state._meta=state._meta||{};state._meta.lastSaved=new Date().toISOString();state._meta.version='5.1.12';localStorage.setItem(K4,JSON.stringify(state));updateHeader();renderQuickDashboard();renderOps48();const s=document.getElementById('status');if(s){s.textContent='Salvato ✓';setTimeout(()=>s.textContent='Dati locali · Cloud Sync V5.1.12',1000)}if(!opts.skipCloud)scheduleCloudPush()}
+function save(opts={}){if(!opts.skipHistory)rememberBackupSnapshot();state._meta=state._meta||{};state._meta.lastSaved=new Date().toISOString();state._meta.version='5.1.13';localStorage.setItem(K4,JSON.stringify(state));updateHeader();renderQuickDashboard();renderOps48();const s=document.getElementById('status');if(s){s.textContent='Salvato ✓';setTimeout(()=>s.textContent='Dati locali · Cloud Sync V5.1.13',1000)}if(!opts.skipCloud)scheduleCloudPush()}
 function activeProd(){return state.productions.find(p=>p.id===state.activeProductionId)||state.productions[0]}
 function updateHeader(){document.getElementById('headDate').textContent=fmtDate(new Date());const p=activeProd();document.getElementById('activeProdLabel').textContent=`Produzione attiva: ${p.title} · ${p.venue||p.kind}`;}
 updateHeader();
 
-const BUILD_LABEL='V5.1.12 · 18/09/2026';
+const BUILD_LABEL='V5.1.13 · 20/09/2026';
 let selectedDate=todayYMD(),smartMode='solisti',planFilter='future',selectedPlanCast=new Set(),smartCalls=[],smartCallDate='';
 document.getElementById('smartDate').value=todayYMD();document.getElementById('planDate').value=todayYMD();
 
@@ -1017,7 +1055,7 @@ function renderCloudPanel(){const c=getCloudConfig();cloudOwner.value=c.owner;cl
 function b64utf8(s){return btoa(unescape(encodeURIComponent(s)))}function unb64(s){return decodeURIComponent(escape(atob(s.replace(/\n/g,''))))}
 async function ghGet(c,path=c.path){const h={Accept:'application/vnd.github+json'};if(c.token)h.Authorization=`Bearer ${c.token}`;const r=await fetch(`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${path.split('/').map(encodeURIComponent).join('/')}?ref=${encodeURIComponent(c.branch)}`,{headers:h,cache:'no-store'});if(r.status===404)return null;if(!r.ok)throw new Error(`GitHub ${r.status}`);return r.json()}
 async function ghPut(c,path,content,message){if(!c.token)throw new Error('Serve il token GitHub per scrivere.');const ex=await ghGet(c,path),h={Accept:'application/vnd.github+json','Content-Type':'application/json',Authorization:`Bearer ${c.token}`},body={message,content,branch:c.branch};if(ex?.sha)body.sha=ex.sha;const r=await fetch(`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/${path.split('/').map(encodeURIComponent).join('/')}`,{method:'PUT',headers:h,body:JSON.stringify(body)});if(!r.ok){let x={};try{x=await r.json()}catch(e){}throw new Error(`GitHub ${r.status}${x.message?' · '+x.message:''}`)}return r.json()}
-async function cloudPush(manual=false){if(cloudBusy)return;const c=getCloudConfig();if(!c.owner||!c.repo)return manual&&alert('Configuri il repository.');if(!c.token)return manual&&alert('Per pubblicare serve un token GitHub fine-grained con Contents: Read and write.');cloudBusy=true;try{state._meta=state._meta||{};state._meta.cloudUpdatedAt=new Date().toISOString();await ghPut(c,c.path,b64utf8(JSON.stringify({app:'FenicePalcoscenico',version:'5.1.12',updatedAt:state._meta.cloudUpdatedAt,state},null,2)),'Aggiorna dati Fenice Palcoscenico');localStorage.setItem(K4,JSON.stringify(state));if(manual)alert('Dati pubblicati: ora gli altri dispositivi possono sincronizzarsi.')}catch(e){if(manual)alert('Pubblicazione non riuscita: '+e.message)}finally{cloudBusy=false}}
+async function cloudPush(manual=false){if(cloudBusy)return;const c=getCloudConfig();if(!c.owner||!c.repo)return manual&&alert('Configuri il repository.');if(!c.token)return manual&&alert('Per pubblicare serve un token GitHub fine-grained con Contents: Read and write.');cloudBusy=true;try{state._meta=state._meta||{};state._meta.cloudUpdatedAt=new Date().toISOString();await ghPut(c,c.path,b64utf8(JSON.stringify({app:'FenicePalcoscenico',version:'5.1.13',updatedAt:state._meta.cloudUpdatedAt,state},null,2)),'Aggiorna dati Fenice Palcoscenico');localStorage.setItem(K4,JSON.stringify(state));if(manual)alert('Dati pubblicati: ora gli altri dispositivi possono sincronizzarsi.')}catch(e){if(manual)alert('Pubblicazione non riuscita: '+e.message)}finally{cloudBusy=false}}
 async function cloudPull(manual=false){if(cloudBusy)return;const c=getCloudConfig();if(!c.owner||!c.repo)return manual&&alert('Configuri il repository.');cloudBusy=true;try{const f=await ghGet(c,c.path);if(!f?.content)return manual&&alert('Archivio condiviso non ancora creato. Sul dispositivo principale prema “Pubblica dati attuali”.');const p=JSON.parse(unb64(f.content));if(!p.state)throw new Error('Archivio non valido');if(manual&&new Date(state._meta?.lastSaved||0)>new Date(p.updatedAt||0)&&!confirm('I dati locali sono più recenti. Sostituirli comunque?'))return;rememberBackupSnapshot();state=p.state;for(const x of state.productions||[])ensureProdV5(x);cleanPagliacciDuplicateTimes();dedupeAllPagliacciRows();applyOfficialDitticoPlan();save({skipHistory:true,skipCloud:true});if(manual)alert('Dati condivisi scaricati.')}catch(e){if(manual)alert('Sincronizzazione non riuscita: '+e.message)}finally{cloudBusy=false}}
 function scheduleCloudPush(){const c=getCloudConfig();if(!c.auto||!c.token||cloudBusy)return;clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>cloudPush(false),1800)}
 async function testCloud(){const c=getCloudConfig();if(!c.owner||!c.repo)return alert('Configuri owner e repository.');try{const f=await ghGet(c,c.path);alert(f?'Connessione riuscita: archivio trovato.':'Connessione riuscita: archivio non ancora creato.')}catch(e){alert('Verifica non riuscita: '+e.message)}}
@@ -1051,7 +1089,7 @@ setInterval(()=>{renderQuickDashboard();renderOps48();if(document.getElementById
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      const reg = await navigator.serviceWorker.register('./sw.js?v=5.1.12', { updateViaCache: 'none' });
+      const reg = await navigator.serviceWorker.register('./sw.js?v=5.1.13', { updateViaCache: 'none' });
       await reg.update();
       // Se una nuova versione prende il controllo, ricarica una sola volta la pagina.
       let refreshing = false;
