@@ -93,13 +93,13 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 </section>
 
 <section id="smart" class="panel">
-<h2>⚡ ODG SMART</h2><div class="sub">Genera il messaggio dalla produzione attiva.</div>
+<h2>ODG SMART</h2><div class="sub">Genera il messaggio dalla produzione attiva.</div>
 <label>Data</label><input type="date" id="smartDate" onchange="generateSmart()">
 <div class="toolbar"><button id="modeSolisti" class="action gold" onclick="setSmartMode('solisti')">SOLISTI</button><button id="modeCompleto" class="action alt" onclick="setSmartMode('completo')">COMPLETO</button></div>
-<div class="card"><h3>⏰ Convocazioni differenziate</h3><div class="small">Ogni riga gestisce <b>Prova + uno o più Convocati + Ora</b>. Nel menu <b>Convocati</b> può spuntare più solisti e assegnare a tutti lo stesso orario; per un orario diverso aggiunga una seconda riga con <b>+</b>. È disponibile anche <b>👗 Prova costume</b>.</div><div id="smartCallRows"></div><div class="toolbar"><button class="action blue" onclick="addSmartCall()">+ ALTRA CONVOCAZIONE</button></div></div>
+<div class="card"><h3>Convocazioni differenziate</h3><div class="small">Ogni riga gestisce <b>Prova + uno o più Convocati + Ora</b>. Nel menu <b>Convocati</b> può spuntare più solisti e assegnare a tutti lo stesso orario; per un orario diverso aggiunga una seconda riga con <b>+</b>. È disponibile anche <b>Prova costume</b>.</div><div id="smartCallRows"></div><div class="toolbar"><button class="action blue" onclick="addSmartCall()">+ ALTRA CONVOCAZIONE</button></div></div>
 <div id="smartInfo" class="notice"></div>
 <label>Messaggio WhatsApp — modificabile</label><textarea id="smartOutput" style="min-height:330px;overflow:hidden"></textarea>
-<div class="toolbar"><button class="action alt" onclick="copyPreviousSmart()">↩ Giorno precedente</button><button class="action blue" onclick="saveSmartDraft()">Salva bozza</button><button class="action alt" onclick="openPanel('odgDrafts')">📂 Bozze ODG</button><button class="action gold" onclick="saveSmartHistory()">Archivia ODG</button><button class="action alt" onclick="copySmart()">Copia</button><button class="action green" onclick="shareText(document.getElementById('smartOutput').value)">Condividi / WhatsApp</button></div>
+<div class="toolbar"><button class="action alt" onclick="copyPreviousSmart()">Giorno precedente</button><button class="action blue" onclick="saveSmartDraft()">Salva bozza</button><button class="action alt" onclick="openPanel('odgDrafts')">Bozze ODG</button><button class="action gold" onclick="saveSmartHistory()">Archivia ODG</button><button class="action alt" onclick="copySmart()">Copia</button><button class="action green" onclick="shareText(document.getElementById('smartOutput').value)">Condividi / WhatsApp</button></div>
 </section>
 
 <section id="odgDrafts" class="panel">
@@ -635,7 +635,7 @@ function closeSmartTargetMenu(btn){const d=btn?.closest?.('details');if(d)d.remo
 function smartActivityOptions(selected=''){
  const d=document.getElementById('smartDate').value||todayYMD();const rows=itemsFor(d).filter(x=>smartMode==='completo'||x.audience!=='technical');
  let out='<option value="">Prova…</option>';
- out+=`<option value="${SMART_COSTUME_ID}" ${selected===SMART_COSTUME_ID?'selected':''}>👗 Prova costume</option>`;
+ out+=`<option value="${SMART_COSTUME_ID}" ${selected===SMART_COSTUME_ID?'selected':''}>Prova costume</option>`;
  out+=rows.map(x=>`<option value="${esc(x.id)}" ${selected===x.id?'selected':''}>${esc((x.start?x.start+' · ':'')+planActivityText(x))}</option>`).join('');
  return out;
 }
@@ -644,7 +644,7 @@ function updateSmartCall(i,key,value){if(!smartCalls[i])return;smartCalls[i][key
 function removeSmartCall(i){smartCalls.splice(i,1);if(!smartCalls.length)smartCalls.push({itemId:firstSmartItemId(),targets:[],time:''});renderSmartCalls();generateSmart()}
 function renderSmartCalls(){const box=document.getElementById('smartCallRows');if(!box)return;box.innerHTML=smartCalls.length?smartCalls.map((c,i)=>{const targets=Array.isArray(c.targets)?c.targets:(c.target?[c.target]:[]);return `<div class="callRow"><label class="callActivity">Prova<select onchange="updateSmartCall(${i},'itemId',this.value)">${smartActivityOptions(c.itemId)}</select></label><div class="callTargets"><label>Convocati</label><details class="multiPick"><summary>${esc(smartTargetSummary(targets))}</summary><div class="multiMenu">${smartTargetChecklist(i,targets)}<button type="button" class="action gold" style="width:100%;margin-top:8px" onclick="closeSmartTargetMenu(this)">FATTO</button></div></details></div><label>Ora<select onchange="updateSmartCall(${i},'time',this.value)">${smartTimeOptions(c.time)}</select></label><div class="callActions"><button class="action blue" onclick="addSmartCall(${i})" aria-label="Aggiungi convocazione nella stessa prova" title="Altra convocazione stessa prova">+</button><button class="action danger" onclick="removeSmartCall(${i})" aria-label="Elimina convocazione">×</button></div></div>`}).join(''):'<div class="empty" style="margin-top:10px">Nessuna convocazione aggiunta.</div>'}
 function smartCallLabel(target){if(target==='all')return 'TUTTI';if(target==='extras')return 'FIGURANTI';if(target==='chorus')return 'CORO';if(target==='chorus-women')return 'CORO DONNE';if(target==='chorus-men')return 'CORO UOMINI';if(target.startsWith('cast:')){const p=activeProd(),c=(p.cast||[]).find(x=>x.id===target.slice(5));return c?(isDitticoProd(p)?c.name:(c.role?`${c.name} — ${c.role}`:c.name)):''}return ''}
-function activityLabel(a){const s=a.toLowerCase();if(s.includes('musicale'))return '🎼 *Prova musicale*';if(s.includes('regia'))return '🎭 *Prova di regia*';if(s.includes('assieme'))return '🎭 *Prova in assieme*';if(s.includes('recita'))return '🎭 *Recita*';if(s.includes('luci'))return '💡 *Luci*';if(s.includes('montaggio'))return '🛠️ *Montaggio*';if(s.includes('riposo'))return '🌙 *Riposo*';return `🎭 *${a}*`}
+function activityLabel(a){const s=a.toLowerCase();if(s.includes('musicale'))return '*Prova musicale*';if(s.includes('regia'))return '*Prova di regia*';if(s.includes('assieme'))return '*Prova in assieme*';if(s.includes('recita'))return '*Recita*';if(s.includes('luci'))return '*Luci*';if(s.includes('montaggio'))return '*Montaggio*';if(s.includes('riposo'))return '*Riposo*';return `*${a}*`}
 function appendSmartCallsText(t,calls,activityStart=''){
  const grouped=new Map(),withoutTime=[];
  calls.forEach(c=>{
@@ -669,26 +669,26 @@ function generateSmart(){
  if(smartCallDate!==date){smartCalls=[{itemId:firstSmartItemId(),targets:[],time:''}];smartCallDate=date;renderSmartCalls()}
  const all=itemsFor(date),items=smartMode==='solisti'?all.filter(x=>x.audience!=='technical'):all;
  const costumeCalls=smartCalls.filter(c=>c.itemId===SMART_COSTUME_ID&&((c.targets&&c.targets.length)||c.target));
- let t=`📌 *ORDINE DEL GIORNO* 📌\n*${fmtDate(parseDate(date))}*\n\n🎬 *${p.title}*\n`;
+ let t=`*ORDINE DEL GIORNO*\n*${fmtDate(parseDate(date))}*\n\n*${p.title}*\n`;
  if(!items.length&&!costumeCalls.length)t+='\nNessuna attività prevista.';
  items.forEach((x,i)=>{
    if(i>0)t+='\n\n----------\n';
    t+=`\n${activityLabel(planActivityText(x))}\n`;
    if(x.start)t+=`*${timeRange(x)}*\n`;
-   if(x.place)t+=`📍 ${x.place}\n`;
+   if(x.place)t+=`${x.place}\n`;
    const calls=smartCalls.filter(c=>c.itemId===x.id&&((c.targets&&c.targets.length)||c.target));
-   t+='\n⏰ *Convocazioni:*';
+   t+='\n*Convocazioni:*';
    t=appendSmartCallsText(t,calls,x.start||'');
  });
  if(costumeCalls.length){
    if(items.length)t+='\n\n----------\n';
-   t+='\n👗 *Prova costume*\n';
-   t+='\n⏰ *Convocazioni:*';
+   t+='\n*Prova costume*\n';
+   t+='\n*Convocazioni:*';
    t=appendSmartCallsText(t,costumeCalls,'');
  }
- t=t.trim()+`\n\nGrazie e buona serata 🌙`;
+ t=t.trim()+`\n\nGrazie e buona serata`;
  const out=document.getElementById('smartOutput');out.value=t;requestAnimationFrame(()=>{out.style.height='auto';out.style.height=(out.scrollHeight+8)+'px'});
- const excluded=all.length-items.length;document.getElementById('smartInfo').innerHTML=`Produzione: <b>${esc(p.title)}</b> · ${items.length} attività${costumeCalls.length?' · 👗 prova costume':''}${excluded?` · escluse ${excluded} tecniche`:''}.`;
+ const excluded=all.length-items.length;document.getElementById('smartInfo').innerHTML=`Produzione: <b>${esc(p.title)}</b> · ${items.length} attività${costumeCalls.length?' · prova costume':''}${excluded?` · escluse ${excluded} tecniche`:''}.`;
 }
 async function copySmart(){try{await navigator.clipboard.writeText(document.getElementById('smartOutput').value);alert('ODG copiato')}catch(e){alert('Selezioni il testo e scelga Copia')}}
 
