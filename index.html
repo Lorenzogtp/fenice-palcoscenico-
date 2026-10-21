@@ -92,7 +92,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <section class="grid">
 <button class="tile primary" onclick="openDay(0)"><span class="ico">🎭</span><b>OGGI</b><small>Piano della produzione attiva</small></button>
 <button class="tile" onclick="openDay(1)"><span class="ico">➡️</span><b>DOMANI</b><small>Anticipazione operativa</small></button>
-<button class="tile gold" onclick="openSmart(todayYMD())"><span class="ico">⚡</span><b>ODG SMART</b><small>WhatsApp automatico</small></button>
+<button class="tile gold" onclick="openSmart(todayYMD())"><b>ODG SMART</b><small>WhatsApp automatico</small></button>
 <button class="tile" onclick="openPanel('odgDrafts')"><span class="ico">📂</span><b>BOZZE ODG</b><small>Riapri le bozze salvate</small></button>
 <button class="tile gold" onclick="openProductionHub()"><span class="ico">🧭</span><b>HUB PRODUZIONE</b><small>Tutto il titolo in un punto</small></button>
 <button class="tile primary" onclick="openShowMode()"><span class="ico">🎭</span><b>SPETTACOLO</b><small>Vista essenziale per la recita</small></button>
@@ -130,13 +130,13 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 </section>
 
 <section id="smart" class="panel">
-<h2>⚡ ODG SMART</h2><div class="sub">Genera il messaggio dalla produzione attiva.</div>
+<h2>ODG SMART</h2><div class="sub">Genera il messaggio dalla produzione attiva.</div>
 <label>Data</label><input type="date" id="smartDate" onchange="generateSmart()">
 <div class="toolbar"><button id="modeSolisti" class="action gold" onclick="setSmartMode('solisti')">SOLISTI</button><button id="modeCompleto" class="action alt" onclick="setSmartMode('completo')">COMPLETO</button></div>
-<div class="card"><h3>⏰ Convocazioni differenziate</h3><div class="small">Ogni riga gestisce <b>Prova + uno o più Convocati + Ora</b>. Nel menu <b>Convocati</b> può spuntare più solisti e assegnare a tutti lo stesso orario; per un orario diverso aggiunga una seconda riga con <b>+</b>. È disponibile anche <b>👗 Prova costume</b>.</div><div id="smartCallRows"></div><div class="toolbar"><button class="action blue" onclick="addSmartCall()">+ ALTRA CONVOCAZIONE</button></div></div>
+<div class="card"><h3>Convocazioni differenziate</h3><div class="small">Ogni riga gestisce <b>Prova + uno o più Convocati + Ora</b>. Nel menu <b>Convocati</b> può spuntare più solisti e assegnare a tutti lo stesso orario; per un orario diverso aggiunga una seconda riga con <b>+</b>. È disponibile anche <b>Prova costume</b>.</div><div id="smartCallRows"></div><div class="toolbar"><button class="action blue" onclick="addSmartCall()">+ ALTRA CONVOCAZIONE</button></div></div>
 <div id="smartInfo" class="notice"></div>
 <label>Messaggio WhatsApp — modificabile</label><textarea id="smartOutput" style="min-height:330px;overflow:hidden"></textarea>
-<div class="toolbar"><button class="action alt" onclick="copyPreviousSmart()">↩ Giorno precedente</button><button class="action blue" onclick="saveSmartDraft()">Salva bozza</button><button class="action alt" onclick="openPanel('odgDrafts')">📂 Bozze ODG</button><button class="action gold" onclick="saveSmartHistory()">Archivia ODG</button><button class="action alt" onclick="copySmart()">Copia</button><button class="action green" onclick="shareText(document.getElementById('smartOutput').value)">Condividi / WhatsApp</button></div>
+<div class="toolbar"><button class="action alt" onclick="copyPreviousSmart()">Giorno precedente</button><button class="action blue" onclick="saveSmartDraft()">Salva bozza</button><button class="action alt" onclick="openPanel('odgDrafts')">Bozze ODG</button><button class="action gold" onclick="saveSmartHistory()">Archivia ODG</button><button class="action alt" onclick="copySmart()">Copia</button><button class="action green" onclick="shareText(cleanSmartIcons(document.getElementById('smartOutput').value))">Condividi / WhatsApp</button></div>
 </section>
 
 <section id="odgDrafts" class="panel">
@@ -166,7 +166,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 <label>Attività</label><input id="planActivity" placeholder="Es. Prova di regia">
 <label>Luogo</label><input id="planPlace" placeholder="Es. Loggione Fenice">
 <label>Convocati specifici <span class="small">(lasci vuoto = tutto il cast)</span></label><div id="planCastChips" class="chips"></div>
-<div class="toolbar"><button class="action green" onclick="addPlanItem()">Aggiungi al piano</button><button class="action gold" onclick="openSmart(document.getElementById('planDate').value||todayYMD())">⚡ ODG SMART DELLA DATA</button></div>
+<div class="toolbar"><button class="action green" onclick="addPlanItem()">Aggiungi al piano</button><button class="action gold" onclick="openSmart(document.getElementById('planDate').value||todayYMD())">ODG SMART DELLA DATA</button></div>
 </div>
 <div class="toolbar"><button class="action alt" onclick="undoLastPdfImport()">↩ Annulla ultimo import</button><button class="action alt" onclick="planFilter='future';renderPlan()">Da oggi</button><button class="action alt" onclick="planFilter='all';renderPlan()">Tutto</button></div>
 <div class="notice"><b>V5.2.5:</b> piano prove Fedora aggiornato al 14 ottobre 2026; PDF integrato nei Documenti. <br><br><b>V5.2.5:</b> locandina Fedora v4 integrata; cast con alternanze, recite e crediti aggiornati dalla locandina. Orari di fine recita non indicati dalla fonte. <br><br><b>V5.2.2:</b> aggiunto in <b>Fedora → Documenti</b> il PDF <b>Coro</b>, integrato direttamente nell’app e apribile anche senza file esterno. <br><br><b>V5.2.1:</b> eliminato automaticamente ogni duplicato del <b>Dittico</b>, mantenendo la produzione ufficiale e i dati locali collegati. <br><br><b>V5.2.0:</b> eliminate definitivamente le produzioni concluse <b>Elisir d’amore</b> e <b>Pagliacci</b>; aggiunta <b>Fedora</b> con cast e piano prove completi. <b>Dittico</b> resta disponibile. <br><br><b>V5.1.12:</b> cast Dittico aggiornato per <b>ODG Smart</b>: Elisa Balbo, Allen Boxer, Julie Mossay, Christian Schleinzer, David Pogana e un’unica voce <b>BALLO</b> senza nomi individuali. <b>V5.1.12:</b> nuova sezione <b>📂 BOZZE ODG</b> per vedere e riaprire tutte le bozze salvate per data e produzione. ODG Smart nel formato operativo richiesto: nominativi raggruppati per orario, un nome per riga con pallino e TUTTI senza orario quando coincide con l'inizio prova. Convocazioni differenziate: ogni riga gestisce <b>prova, uno o più convocati e orario</b>; più solisti possono essere selezionati insieme allo stesso orario. Nel <b>Dittico</b> il cast mostra solo i nomi dei solisti, senza ruoli e senza doppioni. Resta disponibile <b>Prova costume</b>.<div class="diffLegend"><span class="diffNew">VERDE · nuovo</span><span class="diffChanged">GIALLO · modificato</span><span class="diffRemoved">ROSSO · eliminato</span></div>Nel confronto PDF può approvare le variazioni singolarmente oppure tutte insieme.</div>
@@ -240,7 +240,7 @@ input,textarea,select{width:100%;background:#101116;color:var(--text);border:1px
 
 <section id="hub" class="panel">
 <h2>🧭 Hub produzione</h2><div id="hubProdName" class="sub"></div><div id="hubStats" class="v5grid"></div>
-<div class="hubNav"><button class="action alt" onclick="openPanel('plan')">🗓️ Piano prove</button><button class="action alt" onclick="openSmart(todayYMD())">⚡ ODG Smart</button><button class="action alt" onclick="openPanel('cast')">👤 Cast</button><button class="action alt" onclick="openPanel('rooms')">🚪 Camerini</button><button class="action blue" onclick="openPanel('scores')">📚 Spartiti</button><button class="action blue" onclick="openPanel('documents')">📂 Documenti</button></div>
+<div class="hubNav"><button class="action alt" onclick="openPanel('plan')">🗓️ Piano prove</button><button class="action alt" onclick="openSmart(todayYMD())">ODG Smart</button><button class="action alt" onclick="openPanel('cast')">👤 Cast</button><button class="action alt" onclick="openPanel('rooms')">🚪 Camerini</button><button class="action blue" onclick="openPanel('scores')">📚 Spartiti</button><button class="action blue" onclick="openPanel('documents')">📂 Documenti</button></div>
 <div class="section">Opere / sezioni</div><div id="hubWorks"></div>
 <div class="section">Contatti operativi</div><div class="card"><div class="two"><div><label>Nome</label><input id="contactName"></div><div><label>Ruolo</label><input id="contactRole"></div></div><label>Recapito / nota</label><input id="contactValue"><div class="toolbar"><button class="action green" onclick="addContact()">Aggiungi contatto</button></div></div><div id="hubContacts"></div>
 <div class="section">Note tecniche / decisioni</div><div class="card"><div class="two"><div><label>Priorità</label><select id="techPriority"><option value="high">Alta</option><option value="medium" selected>Media</option><option value="low">Bassa</option></select></div><div><label>Titolo</label><input id="techTitle"></div></div><label>Nota</label><textarea id="techText"></textarea><div class="toolbar"><button class="action green" onclick="addTechnicalNote()">Aggiungi nota</button></div></div><div id="hubTech"></div>
@@ -537,7 +537,7 @@ function activeProd(){return state.productions.find(p=>p.id===state.activeProduc
 function updateHeader(){document.getElementById('headDate').textContent=fmtDate(new Date());const p=activeProd();document.getElementById('activeProdLabel').textContent=`Produzione attiva: ${p.title} · ${p.venue||p.kind}`;}
 updateHeader();
 
-const BUILD_LABEL='V5.2.7 · 21/10/2026';
+const BUILD_LABEL='V5.2.8 · 21/10/2026';
 let selectedDate=todayYMD(),smartMode='solisti',planFilter='future',selectedPlanCast=new Set(),smartCalls=[],smartCallDate='';
 document.getElementById('smartDate').value=todayYMD();document.getElementById('planDate').value=todayYMD();
 
@@ -690,7 +690,7 @@ function closeSmartTargetMenu(btn){const d=btn?.closest?.('details');if(d)d.remo
 function smartActivityOptions(selected=''){
  const d=document.getElementById('smartDate').value||todayYMD();const rows=itemsFor(d).filter(x=>smartMode==='completo'||x.audience!=='technical');
  let out='<option value="">Prova…</option>';
- out+=`<option value="${SMART_COSTUME_ID}" ${selected===SMART_COSTUME_ID?'selected':''}>👗 Prova costume</option>`;
+ out+=`<option value="${SMART_COSTUME_ID}" ${selected===SMART_COSTUME_ID?'selected':''}>Prova costume</option>`;
  out+=rows.map(x=>`<option value="${esc(x.id)}" ${selected===x.id?'selected':''}>${esc((x.start?x.start+' · ':'')+planActivityText(x))}</option>`).join('');
  return out;
 }
@@ -699,7 +699,7 @@ function updateSmartCall(i,key,value){if(!smartCalls[i])return;smartCalls[i][key
 function removeSmartCall(i){smartCalls.splice(i,1);if(!smartCalls.length)smartCalls.push({itemId:firstSmartItemId(),targets:[],time:''});renderSmartCalls();generateSmart()}
 function renderSmartCalls(){const box=document.getElementById('smartCallRows');if(!box)return;box.innerHTML=smartCalls.length?smartCalls.map((c,i)=>{const targets=Array.isArray(c.targets)?c.targets:(c.target?[c.target]:[]);return `<div class="callRow"><label class="callActivity">Prova<select onchange="updateSmartCall(${i},'itemId',this.value)">${smartActivityOptions(c.itemId)}</select></label><div class="callTargets"><label>Convocati</label><details class="multiPick"><summary>${esc(smartTargetSummary(targets))}</summary><div class="multiMenu">${smartTargetChecklist(i,targets)}<button type="button" class="action gold" style="width:100%;margin-top:8px" onclick="closeSmartTargetMenu(this)">FATTO</button></div></details></div><label>Ora<select onchange="updateSmartCall(${i},'time',this.value)">${smartTimeOptions(c.time)}</select></label><div class="callActions"><button class="action blue" onclick="addSmartCall(${i})" aria-label="Aggiungi convocazione nella stessa prova" title="Altra convocazione stessa prova">+</button><button class="action danger" onclick="removeSmartCall(${i})" aria-label="Elimina convocazione">×</button></div></div>`}).join(''):'<div class="empty" style="margin-top:10px">Nessuna convocazione aggiunta.</div>'}
 function smartCallLabel(target){if(target==='all')return 'TUTTI';if(target==='extras')return 'FIGURANTI';if(target==='chorus')return 'CORO';if(target==='chorus-women')return 'CORO DONNE';if(target==='chorus-men')return 'CORO UOMINI';if(target.startsWith('cast:')){const p=activeProd(),c=(p.cast||[]).find(x=>x.id===target.slice(5));return c?(isDitticoProd(p)?c.name:(c.role?`${c.name} — ${c.role}`:c.name)):''}return ''}
-function activityLabel(a){const s=a.toLowerCase();if(s.includes('musicale'))return '🎼 *Prova musicale*';if(s.includes('regia'))return '🎭 *Prova di regia*';if(s.includes('assieme'))return '🎭 *Prova in assieme*';if(s.includes('recita'))return '🎭 *Recita*';if(s.includes('luci'))return '💡 *Luci*';if(s.includes('montaggio'))return '🛠️ *Montaggio*';if(s.includes('riposo'))return '🌙 *Riposo*';return `🎭 *${a}*`}
+function activityLabel(a){const s=a.toLowerCase();if(s.includes('musicale'))return '*Prova musicale*';if(s.includes('regia'))return '*Prova di regia*';if(s.includes('assieme'))return '*Prova in assieme*';if(s.includes('recita'))return '*Recita*';if(s.includes('luci'))return '*Luci*';if(s.includes('montaggio'))return '*Montaggio*';if(s.includes('riposo'))return '*Riposo*';return `*${a}*`}
 function appendSmartCallsText(t,calls,activityStart=''){
  const grouped=new Map(),withoutTime=[];
  calls.forEach(c=>{
@@ -714,7 +714,7 @@ function appendSmartCallsText(t,calls,activityStart=''){
    const onlyAll=people.length===1&&people[0]==='TUTTI';
    if(onlyAll&&activityStart&&time===activityStart){t+='\n\nTUTTI';return}
    t+=`\n\n*${time.replace(':','.')}*`;
-   people.forEach(label=>{t+=`\n• ${label}`});
+   people.forEach(label=>{t+=`\n${label}`});
  });
  withoutTime.forEach(label=>{t+=`\n\n${label}`});
  return t;
@@ -724,28 +724,28 @@ function generateSmart(){
  if(smartCallDate!==date){smartCalls=[{itemId:firstSmartItemId(),targets:[],time:''}];smartCallDate=date;renderSmartCalls()}
  const all=itemsFor(date),items=smartMode==='solisti'?all.filter(x=>x.audience!=='technical'):all;
  const costumeCalls=smartCalls.filter(c=>c.itemId===SMART_COSTUME_ID&&((c.targets&&c.targets.length)||c.target));
- let t=`📌 *ORDINE DEL GIORNO* 📌\n*${fmtDate(parseDate(date))}*\n\n🎬 *${p.title}*\n`;
+ let t=`*ORDINE DEL GIORNO*\n*${fmtDate(parseDate(date))}*\n\n*${p.title}*\n`;
  if(!items.length&&!costumeCalls.length)t+='\nNessuna attività prevista.';
  items.forEach((x,i)=>{
    if(i>0)t+='\n\n----------\n';
    t+=`\n${activityLabel(planActivityText(x))}\n`;
    if(x.start)t+=`*${timeRange(x)}*\n`;
-   if(x.place)t+=`📍 ${x.place}\n`;
+   if(x.place)t+=`${x.place}\n`;
    const calls=smartCalls.filter(c=>c.itemId===x.id&&((c.targets&&c.targets.length)||c.target));
-   t+='\n⏰ *Convocazioni:*';
+   t+='\n*Convocazioni:*';
    t=appendSmartCallsText(t,calls,x.start||'');
  });
  if(costumeCalls.length){
    if(items.length)t+='\n\n----------\n';
-   t+='\n👗 *Prova costume*\n';
-   t+='\n⏰ *Convocazioni:*';
+   t+='\n*Prova costume*\n';
+   t+='\n*Convocazioni:*';
    t=appendSmartCallsText(t,costumeCalls,'');
  }
- t=t.trim()+`\n\nGrazie e buona serata 🌙`;
- const out=document.getElementById('smartOutput');out.value=t;requestAnimationFrame(()=>{out.style.height='auto';out.style.height=(out.scrollHeight+8)+'px'});
- const excluded=all.length-items.length;document.getElementById('smartInfo').innerHTML=`Produzione: <b>${esc(p.title)}</b> · ${items.length} attività${costumeCalls.length?' · 👗 prova costume':''}${excluded?` · escluse ${excluded} tecniche`:''}.`;
+ t=t.trim()+`\n\nGrazie e buona serata`;
+ const out=document.getElementById('smartOutput');out.value=cleanSmartIcons(t);requestAnimationFrame(()=>{out.style.height='auto';out.style.height=(out.scrollHeight+8)+'px'});
+ const excluded=all.length-items.length;document.getElementById('smartInfo').innerHTML=`Produzione: <b>${esc(p.title)}</b> · ${items.length} attività${costumeCalls.length?' · prova costume':''}${excluded?` · escluse ${excluded} tecniche`:''}.`;
 }
-async function copySmart(){try{await navigator.clipboard.writeText(document.getElementById('smartOutput').value);alert('ODG copiato')}catch(e){alert('Selezioni il testo e scelga Copia')}}
+async function copySmart(){try{await navigator.clipboard.writeText(cleanSmartIcons(document.getElementById('smartOutput').value));alert('ODG copiato')}catch(e){alert('Selezioni il testo e scelga Copia')}}
 
 function showNewProductionForm(){document.getElementById('productionForm').style.display='block';document.getElementById('prodTitle').focus()}
 function hideNewProductionForm(){document.getElementById('productionForm').style.display='none'}
@@ -778,7 +778,7 @@ function renderPlan(){
  const groups=arr.reduce((acc,x)=>{(acc[x.date]??=[]).push(x);return acc},{});
  const days=Object.keys(groups);
  document.getElementById('planProdName').textContent=`Produzione attiva: ${p.title} · ${days.length} giorni · ${arr.length} attività`;
- document.getElementById('planList').innerHTML=arr.length?days.map(date=>`<div class="card planDay"><div class="calDate">${esc(fmtDate(parseDate(date)))}</div><div class="toolbar"><button class="action gold" onclick="openSmart('${date}')">⚡ ODG SMART</button><button class="diaryOpen ${diaryHasContent(date)?'hasEntries':''}" onclick="openDiary('${date}')">Note e assenze${diaryCountLabel(date)}</button></div>${diaryDaySummary(date)}<div class="dayActivities">${groups[date].map(renderPlanRow).join('')}</div></div>`).join(''):'<div class="empty">Nessuna voce nel piano prove.</div>';
+ document.getElementById('planList').innerHTML=arr.length?days.map(date=>`<div class="card planDay"><div class="calDate">${esc(fmtDate(parseDate(date)))}</div><div class="toolbar"><button class="action gold" onclick="openSmart('${date}')">ODG SMART</button><button class="diaryOpen ${diaryHasContent(date)?'hasEntries':''}" onclick="openDiary('${date}')">Note e assenze${diaryCountLabel(date)}</button></div>${diaryDaySummary(date)}<div class="dayActivities">${groups[date].map(renderPlanRow).join('')}</div></div>`).join(''):'<div class="empty">Nessuna voce nel piano prove.</div>';
 }
 
 
@@ -1072,6 +1072,9 @@ function allOdgDrafts(){
   return String(b.date||'').localeCompare(String(a.date||''));
  });
 }
+function cleanSmartIcons(text){
+ return String(text||'').replace(/[\p{Extended_Pictographic}\uFE0F\u200D]/gu,'').replace(/^[ \t]*•[ \t]*/gm,'').replace(/^[ \t]+/gm,'').replace(/[ \t]+$/gm,'');
+}
 function renderOdgDrafts(){
  const box=document.getElementById('odgDraftList');if(!box)return;
  const rows=allOdgDrafts();
@@ -1079,7 +1082,7 @@ function renderOdgDrafts(){
  box.innerHTML=rows.map(r=>{
   let updated='';
   if(r.updatedAt){try{updated=new Intl.DateTimeFormat('it-IT',{dateStyle:'short',timeStyle:'short'}).format(new Date(r.updatedAt))}catch(e){}}
-  const preview=String(r.text||'').replace(/\s+/g,' ').trim().slice(0,150);
+  const preview=cleanSmartIcons(r.text||'').replace(/\s+/g,' ').trim().slice(0,150);
   return `<div class="card historyItem"><div><div class="historyDate">${esc(fmtDate(parseDate(r.date)))}</div><div><b>${esc(r.productionTitle)}</b></div>${updated?`<div class="small">Salvata: ${esc(updated)}</div>`:''}${preview?`<div class="small" style="margin-top:5px">${esc(preview)}${String(r.text||'').length>150?'…':''}</div>`:''}</div><button class="action gold" onclick="openSavedOdgDraft('${esc(r.productionId)}','${esc(r.date)}')">Apri</button></div>`;
  }).join('');
 }
@@ -1094,11 +1097,11 @@ function openSavedOdgDraft(prodId,date){
  smartMode=draft.mode||'solisti';
  openPanel('smart');
  setSmartMode(smartMode);
- if(draft.text){const out=document.getElementById('smartOutput');out.value=draft.text;requestAnimationFrame(()=>{out.style.height='auto';out.style.height=(out.scrollHeight+8)+'px'})}}
+ if(draft.text){const out=document.getElementById('smartOutput');out.value=cleanSmartIcons(draft.text);requestAnimationFrame(()=>{out.style.height='auto';out.style.height=(out.scrollHeight+8)+'px'})}}
 function saveSmartDraft(){const d=document.getElementById('smartDate').value||todayYMD(),p=ensureProdV5();p.odgDrafts[d]={date:d,mode:smartMode,calls:structuredClone(smartCalls),text:document.getElementById('smartOutput').value,updatedAt:new Date().toISOString()};save();alert('Bozza ODG salvata.')}
 function copyPreviousSmart(){const p=ensureProdV5(),d=parseDate(document.getElementById('smartDate').value||todayYMD());d.setDate(d.getDate()-1);const k=ymd(d),x=p.odgDrafts[k];if(!x)return alert('Nessuna bozza nel giorno precedente.');smartCalls=normalizeSmartCalls(structuredClone(x.calls||[]));smartCallDate=document.getElementById('smartDate').value;smartMode=x.mode||smartMode;renderSmartCalls();generateSmart()}
 function saveSmartHistory(){saveSmartDraft();const p=ensureProdV5(),d=document.getElementById('smartDate').value||todayYMD();p.odgHistory.push({id:uid('odg'),date:d,text:document.getElementById('smartOutput').value,savedAt:new Date().toISOString()});p.odgHistory=p.odgHistory.slice(-50);save();alert('ODG archiviato.')}
-function openOdgHistory(id){const o=ensureProdV5().odgHistory.find(x=>x.id===id);if(!o)return;openPanel('smart');document.getElementById('smartDate').value=o.date;document.getElementById('smartOutput').value=o.text}
+function openOdgHistory(id){const o=ensureProdV5().odgHistory.find(x=>x.id===id);if(!o)return;openPanel('smart');document.getElementById('smartDate').value=o.date;document.getElementById('smartOutput').value=cleanSmartIcons(o.text)}
 function githubAutoDetect(){try{if(location.hostname.endsWith('github.io'))return{owner:location.hostname.split('.')[0],repo:location.pathname.split('/').filter(Boolean)[0]||''}}catch(e){}return{owner:'',repo:''}}
 function getCloudConfig(){let c={};try{c=JSON.parse(appStorage.getItem(CLOUD_KEY)||'{}')}catch(e){}const a=githubAutoDetect();return{owner:c.owner||a.owner,repo:c.repo||a.repo,branch:c.branch||'main',path:c.path||'fenice-data.json',token:c.token||'',auto:!!c.auto}}
 function saveCloudConfig(){const c={owner:cloudOwner.value.trim(),repo:cloudRepo.value.trim(),branch:cloudBranch.value.trim()||'main',path:cloudPath.value.trim()||'fenice-data.json',token:cloudToken.value.trim(),auto:cloudAuto.checked};appStorage.setItem(CLOUD_KEY,JSON.stringify(c));renderCloudPanel();alert('Configurazione salvata su questo dispositivo.')}
